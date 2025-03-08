@@ -16,7 +16,6 @@ public class VistaLoginU extends javax.swing.JFrame {
     
     public VistaLoginU() {
         initComponents();
-        initComponents();
         objControladorLogin = new ControladorLogin(this);
    
     }
@@ -54,11 +53,11 @@ public class VistaLoginU extends javax.swing.JFrame {
             .addGap(0, 47, Short.MAX_VALUE)
         );
 
-        jButton1.setText("jButton1");
+        jButton1.setText("INICIAR SESION");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("REGISTRARSE");
 
-        jButton3.setText("jButton3");
+        jButton3.setText("INVITADO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -70,11 +69,11 @@ public class VistaLoginU extends javax.swing.JFrame {
                         .addGap(111, 111, 111)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(225, 225, 225)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -84,9 +83,9 @@ public class VistaLoginU extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(59, 59, 59)
                 .addComponent(jButton1)
-                .addGap(55, 55, 55)
+                .addGap(58, 58, 58)
                 .addComponent(jButton2)
-                .addGap(63, 63, 63)
+                .addGap(60, 60, 60)
                 .addComponent(jButton3)
                 .addContainerGap(63, Short.MAX_VALUE))
         );
