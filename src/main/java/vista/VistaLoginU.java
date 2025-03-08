@@ -17,7 +17,6 @@ public class VistaLoginU extends javax.swing.JFrame {
     public VistaLoginU() {
         initComponents();
         objControladorLogin = new ControladorLogin(this);
-   
     }
 
     /**
