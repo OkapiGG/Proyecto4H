@@ -5,9 +5,10 @@
 package vista;
 
 import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.awt.dnd.*;
 import javax.swing.*;
-
 
 /**
  *
@@ -15,12 +16,57 @@ import javax.swing.*;
  */
 public class VistaArrastraSilaba extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VistaArrastraSilaba
-     */
     public VistaArrastraSilaba() {
         initComponents();
+        arrastrarSoltar();
     }
+
+    private void arrastrarSoltar() {
+       
+        DragSource ds = new DragSource();
+        ds.createDefaultDragGestureRecognizer(jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+            @Override
+            public void dragGestureRecognized(DragGestureEvent dge) {
+                Transferable objTransferible = new StringSelection(jLabel4.getText());
+                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+            }
+        });
+
+        // Habilitar que "_____" sea un área de destino
+        new DropTarget(jLabel3, new DropTargetListener() {
+            @Override
+            public void dragEnter(DropTargetDragEvent dtde) {
+            }
+
+            @Override
+            public void dragOver(DropTargetDragEvent dtde) {
+            }
+
+            @Override
+            public void dropActionChanged(DropTargetDragEvent dtde) {
+            }
+
+            @Override
+            public void dragExit(DropTargetEvent dte) {
+            }
+
+            @Override
+            public void drop(DropTargetDropEvent dtde) {
+                try {
+                    dtde.acceptDrop(DnDConstants.ACTION_MOVE);
+                    Transferable transferable = dtde.getTransferable();
+                    String droppedText = (String) transferable.getTransferData(java.awt.datatransfer.DataFlavor.stringFlavor);
+                    jLabel3.setText(droppedText); // Reemplazar "_____" con "GA"
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            
+            
+        });
+    }
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,15 +98,20 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Constantia", 0, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("GA");
+        jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabel4MouseDragged(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(60, 60, 60))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,7 +136,6 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
             .addGap(0, 49, Short.MAX_VALUE)
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gato.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -163,7 +213,10 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void jLabel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseDragged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseDragged
+
     /**
      * @param args the command line arguments
      */
