@@ -6,7 +6,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.VistaLogin;
+import vista.VistaLoginU;
 
 /**
  *
@@ -14,9 +14,9 @@ import vista.VistaLogin;
  */
 public class ControladorLogin implements ActionListener{
     
-    VistaLogin objVistaLogin;
+    VistaLoginU objVistaLogin;
 
-    public ControladorLogin(VistaLogin objVistaLogin) {
+    public ControladorLogin(VistaLoginU objVistaLogin) {
         this.objVistaLogin = objVistaLogin;
         this.objVistaLogin.jButton1.addActionListener(this);
         this.objVistaLogin.jButton2.addActionListener(this);
