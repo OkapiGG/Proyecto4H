@@ -22,7 +22,7 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
     }
 
     private void arrastrarSoltar() {
-       
+
         DragSource ds = new DragSource();
         ds.createDefaultDragGestureRecognizer(jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
@@ -32,7 +32,7 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
             }
         });
 
-        // Habilitar que "_____" sea un área de destino
+        //Convierte a jlabel3 en el receptor del jlabel4
         new DropTarget(jLabel3, new DropTargetListener() {
             @Override
             public void dragEnter(DropTargetDragEvent dtde) {
@@ -55,18 +55,15 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
                 try {
                     dtde.acceptDrop(DnDConstants.ACTION_MOVE);
                     Transferable transferable = dtde.getTransferable();
-                    String droppedText = (String) transferable.getTransferData(java.awt.datatransfer.DataFlavor.stringFlavor);
-                    jLabel3.setText(droppedText); // Reemplazar "_____" con "GA"
+                    String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
+                    jLabel3.setText(droppedText); // Remplaza el espacio en blanco del jlabel3 en la silaba del jlabel4
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
-            
-            
+
         });
     }
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
