@@ -4,6 +4,7 @@
  */
 package vista;
 
+import java.awt.Color;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
@@ -57,6 +58,12 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     jLabel3.setText(droppedText); // Remplaza el espacio en blanco del jlabel3 en la silaba del jlabel4
+
+                    if ((droppedText + jLabel2.getText()).equals("GATO")) {
+                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");                       
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");  
+                    }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -133,6 +140,7 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
             .addGap(0, 49, Short.MAX_VALUE)
         );
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gato.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
