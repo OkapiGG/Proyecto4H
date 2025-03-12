@@ -4,6 +4,8 @@
  */
 package vista;
 
+import controlador.ControladorArrastraSilaba;
+import controlador.ControladorLogin;
 import java.awt.Color;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
@@ -17,59 +19,11 @@ import javax.swing.*;
  */
 public class VistaArrastraSilaba extends javax.swing.JFrame {
 
+    ControladorArrastraSilaba objControladorArrastraSilaba;
+    
     public VistaArrastraSilaba() {
         initComponents();
-        arrastrarSoltar();
-    }
-
-    private void arrastrarSoltar() {
-
-        DragSource ds = new DragSource();
-        ds.createDefaultDragGestureRecognizer(jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
-            @Override
-            public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(jLabel4.getText());
-                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
-            }
-        });
-
-        //Convierte a jlabel3 en el receptor del jlabel4
-        new DropTarget(jLabel3, new DropTargetListener() {
-            @Override
-            public void dragEnter(DropTargetDragEvent dtde) {
-            }
-
-            @Override
-            public void dragOver(DropTargetDragEvent dtde) {
-            }
-
-            @Override
-            public void dropActionChanged(DropTargetDragEvent dtde) {
-            }
-
-            @Override
-            public void dragExit(DropTargetEvent dte) {
-            }
-
-            @Override
-            public void drop(DropTargetDropEvent dtde) {
-                try {
-                    dtde.acceptDrop(DnDConstants.ACTION_MOVE);
-                    Transferable transferable = dtde.getTransferable();
-                    String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
-                    jLabel3.setText(droppedText); // Remplaza el espacio en blanco del jlabel3 en la silaba del jlabel4
-
-                    if ((droppedText + jLabel2.getText()).equals("GATO")) {
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");                       
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");  
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-
-        });
+        objControladorArrastraSilaba = new ControladorArrastraSilaba(this);
     }
 
     /**
@@ -84,6 +38,8 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -99,7 +55,7 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setFont(new java.awt.Font("Constantia", 0, 48)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Constantia", 1, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("GA");
         jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -108,21 +64,37 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Constantia", 1, 48)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("PA");
+
+        jLabel6.setFont(new java.awt.Font("Constantia", 1, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("LO");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(60, 60, 60))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
+                .addGap(58, 58, 58)
                 .addComponent(jLabel4)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(59, 59, 59))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 160, 420));
@@ -259,9 +231,11 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jLabel3;
+    public javax.swing.JLabel jLabel4;
+    public javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
