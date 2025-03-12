@@ -26,9 +26,9 @@ public class ControladorInicioJuego implements ActionListener {
 
         if (e.getSource() == this.objInicioJuego.jButton1) {
             System.out.println("Boton 1");
-            Carta1 objCarta1 = new Carta1();
-            objCarta1.setVisible(true);
-            this.objInicioJuego.dispose();
+//            Carta1 objCarta1 = new Carta1();
+//            objCarta1.setVisible(true);
+//            this.objInicioJuego.dispose();
         }
         if (e.getSource() == this.objInicioJuego.jButton2) {
             System.out.println("Boton 2");
