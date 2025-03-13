@@ -10,12 +10,16 @@ package modelo;
  */
 public class ModeloArrastraSilaba {
 
+    String silaba=null;
+    String palabraCompleta=null;
     
     
-    
-    public ModeloArrastraSilaba() {
-        
+    public ModeloArrastraSilaba(String silaba, String palabraCompleta) {
+        this.silaba=silaba;
+        this.palabraCompleta=palabraCompleta;
     }
+    
+    
     
     
     
