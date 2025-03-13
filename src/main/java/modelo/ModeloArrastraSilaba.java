@@ -9,5 +9,14 @@ package modelo;
  * @author Alan
  */
 public class ModeloArrastraSilaba {
+
+    
+    
+    
+    public ModeloArrastraSilaba() {
+        
+    }
+    
+    
     
 }
