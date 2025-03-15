@@ -8,29 +8,66 @@ import java.awt.datatransfer.*;
 import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 import javax.swing.JOptionPane;
+import modelo.ConexionBD;
+import modelo.ModeloPalabra;
+import modelo.Palabra;
 import vista.VistaArrastraSilaba;
 
 /**
  *
  * @author Alan
  */
-public class ControladorArrastraSilaba implements ActionListener{
+public class ControladorArrastraSilaba implements ActionListener {
 
     private VistaArrastraSilaba objVistaArrastraSilaba;
-    
-    public ControladorArrastraSilaba(VistaArrastraSilaba objVistaArrastraSilaba){
+    private ModeloPalabra modeloPalabra;
+
+    public ControladorArrastraSilaba(VistaArrastraSilaba objVistaArrastraSilaba) {
         this.objVistaArrastraSilaba = objVistaArrastraSilaba;
+        try {
+            Connection conexion = ConexionBD.getInstancia().getConexion();
+            modeloPalabra = new ModeloPalabra(conexion);
+            cargarPalabraDelNivel();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
         arrastrarSoltar();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-       
+
+    }
+
+    private void cargarPalabraDelNivel(){
+        
+        List<Palabra> lista = modeloPalabra.obtenerPalabras();
+        if(!lista.isEmpty()){
+            Palabra palabraActual = lista.get(0);
+            String palabraCompleta = palabraActual.getPalabra();
+            
+            if(palabraCompleta.length() >= 2){
+                String silabaCorrecta = palabraCompleta.substring(0, 2);
+                String complemento = palabraCompleta.substring(2);
+                
+                objVistaArrastraSilaba.jLabel4.setText(silabaCorrecta);
+                objVistaArrastraSilaba.jLabel2.setText(complemento);
+                objVistaArrastraSilaba.jLabel5.setText("PE");
+                objVistaArrastraSilaba.jLabel6.setText("CA");
+                
+            }
+        } else{
+            JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
+        }
+ 
     }
     
     private void arrastrarSoltar() {
-        
+
         String textoOriginal = objVistaArrastraSilaba.jLabel3.getText();
 
         DragSource ds = new DragSource();
@@ -83,9 +120,9 @@ public class ControladorArrastraSilaba implements ActionListener{
                     objVistaArrastraSilaba.jLabel3.setText(droppedText); // Remplaza el espacio en blanco del jlabel3 en la silaba del jlabel4
 
                     if ((droppedText + objVistaArrastraSilaba.jLabel2.getText()).equals("GATO")) {
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");                       
+                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
                     } else {
-                        JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");  
+                        JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objVistaArrastraSilaba.jLabel3.setText(textoOriginal);
                     }
                 } catch (Exception ex) {
