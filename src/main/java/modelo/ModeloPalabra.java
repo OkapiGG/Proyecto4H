@@ -11,19 +11,27 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ *
+ * @author Alan
+ */
+
 
 public class ModeloPalabra {
 
     private Connection conexion;
 
-    public ModeloPalabra(Connection conexion) {
-        this.conexion = conexion;
+    public ModeloPalabra() {
+        try {
+            this.conexion = ConexionBD.getInstancia().getConexion(); 
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public List<Palabra> obtenerPalabras() {
         List<Palabra> lista = new ArrayList<>();
         try {
-            
             CallableStatement cs = conexion.prepareCall("{? = call obtener_palabras()}");
             cs.registerOutParameter(1, Types.OTHER);
             cs.execute();
@@ -31,11 +39,11 @@ public class ModeloPalabra {
             ResultSet rs = (ResultSet) cs.getObject(1);
 
             while (rs.next()) {
-                Palabra p = new Palabra();
-                p.setId(rs.getInt("idpalabra"));
-                p.setPalabra(rs.getString("palabra"));
-                p.setImagen(rs.getString("imagen"));   
-                lista.add(p);
+                Palabra objPalabra = new Palabra();
+                objPalabra.setId(rs.getInt("idpalabra"));
+                objPalabra.setPalabra(rs.getString("palabra"));
+                objPalabra.setImagen(rs.getString("imagen"));
+                lista.add(objPalabra);
             }
 
             rs.close();
@@ -46,3 +54,4 @@ public class ModeloPalabra {
         return lista;
     }
 }
+

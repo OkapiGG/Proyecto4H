@@ -8,8 +8,12 @@ import java.awt.datatransfer.*;
 import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.ConexionBD;
@@ -25,12 +29,13 @@ public class ControladorArrastraSilaba implements ActionListener {
 
     private VistaArrastraSilaba objVistaArrastraSilaba;
     private ModeloPalabra modeloPalabra;
+    private Connection conexion;
 
     public ControladorArrastraSilaba(VistaArrastraSilaba objVistaArrastraSilaba) {
         this.objVistaArrastraSilaba = objVistaArrastraSilaba;
         try {
-            Connection conexion = ConexionBD.getInstancia().getConexion();
-            modeloPalabra = new ModeloPalabra(conexion);
+            this.conexion = ConexionBD.getInstancia().getConexion(); 
+             modeloPalabra = new ModeloPalabra();
             cargarPalabraDelNivel();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -41,31 +46,31 @@ public class ControladorArrastraSilaba implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-    }
+    }  
 
-    private void cargarPalabraDelNivel(){
-        
+    private void cargarPalabraDelNivel() {
+
         List<Palabra> lista = modeloPalabra.obtenerPalabras();
-        if(!lista.isEmpty()){
+        if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(0);
             String palabraCompleta = palabraActual.getPalabra();
-            
-            if(palabraCompleta.length() >= 2){
+
+            if (palabraCompleta.length() >= 2) {
                 String silabaCorrecta = palabraCompleta.substring(0, 2);
                 String complemento = palabraCompleta.substring(2);
-                
+
                 objVistaArrastraSilaba.jLabel4.setText(silabaCorrecta);
                 objVistaArrastraSilaba.jLabel2.setText(complemento);
                 objVistaArrastraSilaba.jLabel5.setText("PE");
                 objVistaArrastraSilaba.jLabel6.setText("CA");
-                
+
             }
-        } else{
+        } else {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
- 
+
     }
-    
+
     private void arrastrarSoltar() {
 
         String textoOriginal = objVistaArrastraSilaba.jLabel3.getText();

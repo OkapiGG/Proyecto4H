@@ -4,18 +4,28 @@
  */
 package modelo;
 
+import java.sql.CallableStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Palabra {
     private int id;
     private String palabra;
     private String imagen;
 
-   
+    public Palabra(int id, String palabra, String imagen) {
+        this.id = id;
+        this.palabra = palabra;
+        this.imagen = imagen;
+    }
+
     public Palabra(){
         
     }
     
-    
-
     // Getters y Setters
     public int getId() {
         return id;
@@ -40,5 +50,6 @@ public class Palabra {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+    
 }
 
