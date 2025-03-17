@@ -1,56 +1,53 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import java.awt.datatransfer.*;
 import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.ConexionBD;
+import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
 import vista.VistaArrastraSilaba;
 
-/**
- *
- * @author Alan
- */
 public class ControladorArrastraSilaba implements ActionListener {
 
     private VistaArrastraSilaba objVistaArrastraSilaba;
     private ModeloPalabra modeloPalabra;
+    private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
 
     public ControladorArrastraSilaba(VistaArrastraSilaba objVistaArrastraSilaba) {
         this.objVistaArrastraSilaba = objVistaArrastraSilaba;
         try {
-            this.conexion = ConexionBD.getInstancia().getConexion(); 
-             modeloPalabra = new ModeloPalabra();
+            // Obtén la conexión usando el Singleton
+            this.conexion = ConexionBD.getInstancia().getConexion();
+            // Inicializa el modeloPalabra pasando la conexión
+            modeloPalabra = new ModeloPalabra();
+            // Ahora, inicializa modeloGuardaPalabras con el objeto modeloPalabra ya creado
+            modeloGuardaPalabras = new ModeloGuardaPalabras(modeloPalabra);
+            // Carga la palabra del nivel usando el caché
             cargarPalabraDelNivel();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        // Configura el drag & drop
         arrastrarSoltar();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        // Aquí puedes manejar otros eventos, si es necesario
+    }
 
-    }  
-
+    // Método que utiliza el modeloGuardaPalabras para cargar la palabra en la vista
     private void cargarPalabraDelNivel() {
-
-        List<Palabra> lista = modeloPalabra.obtenerPalabras();
+        // Ahora getPalabras() devuelve una lista de objetos Palabra
+        List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(0);
             String palabraCompleta = palabraActual.getPalabra();
@@ -61,21 +58,21 @@ public class ControladorArrastraSilaba implements ActionListener {
 
                 objVistaArrastraSilaba.jLabel4.setText(silabaCorrecta);
                 objVistaArrastraSilaba.jLabel2.setText(complemento);
+                // Ejemplo de sílabas falsas o decoys en otros JLabel
                 objVistaArrastraSilaba.jLabel5.setText("PE");
                 objVistaArrastraSilaba.jLabel6.setText("CA");
-
             }
         } else {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
-
     }
 
+    // Configuración de Drag & Drop
     private void arrastrarSoltar() {
-
-        String textoOriginal = objVistaArrastraSilaba.jLabel3.getText();
-
+        final String textoOriginal = objVistaArrastraSilaba.jLabel3.getText();
         DragSource ds = new DragSource();
+
+        // Configurar arrastre para jLabel4
         ds.createDefaultDragGestureRecognizer(objVistaArrastraSilaba.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
@@ -83,6 +80,8 @@ public class ControladorArrastraSilaba implements ActionListener {
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
+
+        // Configurar arrastre para jLabel5
         ds.createDefaultDragGestureRecognizer(objVistaArrastraSilaba.jLabel5, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
@@ -90,6 +89,8 @@ public class ControladorArrastraSilaba implements ActionListener {
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
+
+        // Configurar arrastre para jLabel6
         ds.createDefaultDragGestureRecognizer(objVistaArrastraSilaba.jLabel6, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
@@ -98,7 +99,7 @@ public class ControladorArrastraSilaba implements ActionListener {
             }
         });
 
-        //Convierte a jlabel3 en el receptor del jlabel4
+        // Configurar jLabel3 como zona de drop
         new DropTarget(objVistaArrastraSilaba.jLabel3, new DropTargetListener() {
             @Override
             public void dragEnter(DropTargetDragEvent dtde) {
@@ -122,8 +123,9 @@ public class ControladorArrastraSilaba implements ActionListener {
                     dtde.acceptDrop(DnDConstants.ACTION_MOVE);
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
-                    objVistaArrastraSilaba.jLabel3.setText(droppedText); // Remplaza el espacio en blanco del jlabel3 en la silaba del jlabel4
+                    objVistaArrastraSilaba.jLabel3.setText(droppedText);
 
+                    // Validación: concatenar la sílaba arrastrada con el complemento (jLabel2)
                     if ((droppedText + objVistaArrastraSilaba.jLabel2.getText()).equals("GATO")) {
                         JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
                     } else {
@@ -134,8 +136,6 @@ public class ControladorArrastraSilaba implements ActionListener {
                     ex.printStackTrace();
                 }
             }
-
         });
     }
-
 }
