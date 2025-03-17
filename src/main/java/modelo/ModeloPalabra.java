@@ -4,54 +4,49 @@
  */
 package modelo;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Alan
  */
-
-
 public class ModeloPalabra {
 
     private Connection conexion;
+    private ModeloGuardaPalabras objmodeloGuardaPalabras;
 
     public ModeloPalabra() {
         try {
-            this.conexion = ConexionBD.getInstancia().getConexion(); 
+            this.conexion = ConexionBD.getInstancia().getConexion();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        objmodeloGuardaPalabras = new ModeloGuardaPalabras(this);
     }
 
-    public List<Palabra> obtenerPalabras() {
-        List<Palabra> lista = new ArrayList<>();
+    public List<Palabra> cargarPalabrasComoObjetos() {
+        List<Palabra> listaPalabras = new ArrayList<>();
         try {
-            CallableStatement cs = conexion.prepareCall("{? = call obtener_palabras()}");
-            cs.registerOutParameter(1, Types.OTHER);
-            cs.execute();
-
-            ResultSet rs = (ResultSet) cs.getObject(1);
-
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM obtener_palabras()"); //SE MANDA A LLAMAR LA FUNCION DE POSTGRES
             while (rs.next()) {
-                Palabra objPalabra = new Palabra();
-                objPalabra.setId(rs.getInt("idpalabra"));
-                objPalabra.setPalabra(rs.getString("palabra"));
-                objPalabra.setImagen(rs.getString("imagen"));
-                lista.add(objPalabra);
+                String palabraTexto = rs.getString(1);  // La función retorna solo el texto
+                Palabra p = new Palabra();
+                p.setPalabra(palabraTexto);
+                // Si tienes más información, aquí la puedes asignar
+                listaPalabras.add(p);
             }
-
             rs.close();
-            cs.close();
+            st.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return lista;
+        return listaPalabras;
     }
-}
 
+}
