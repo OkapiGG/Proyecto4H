@@ -15,6 +15,7 @@ public class Invitado extends javax.swing.JFrame {
      */
     public Invitado() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
