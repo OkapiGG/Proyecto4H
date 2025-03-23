@@ -38,7 +38,6 @@ public class ModeloPalabra {
                 String palabraTexto = rs.getString(1);  // La función retorna solo el texto
                 Palabra p = new Palabra();
                 p.setPalabra(palabraTexto);
-                // Si tienes más información, aquí la puedes asignar
                 listaPalabras.add(p);
             }
             rs.close();
