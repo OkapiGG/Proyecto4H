@@ -33,7 +33,7 @@ public class ModeloPalabra {
         List<Palabra> listaPalabras = new ArrayList<>();
         try {
             Statement st = conexion.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM obtener_palabras()"); //SE MANDA A LLAMAR LA FUNCION DE POSTGRES
+            ResultSet rs = st.executeQuery("SELECT * FROM obtener_palabras()"); //Se llama a la funcion
             while (rs.next()) {
                 String palabraTexto = rs.getString(1);  // La función retorna solo el texto
                 Palabra p = new Palabra();

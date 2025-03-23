@@ -29,9 +29,9 @@ public class OperacionesBDLogin extends CRUD {
     public void create() {
         try {
             System.out.println("Insercion a la BD a traves de la funcion");
-            CallableStatement cs = conexion.prepareCall("{ call insertar_usuario(?, ?) }");
-            cs.setString(1, objLogin.getUsername());
-            cs.setString(2, objLogin.getContrasena());
+            CallableStatement cs = conexion.prepareCall("{ call insertar_usuario(?, ?) }");//Se llama la funcion de postgres
+            cs.setString(1, objLogin.getUsername());//parametro 1
+            cs.setString(2, objLogin.getContrasena());//parametro 2
             cs.execute();
         } catch (Exception e) {
             System.out.println("Error al insertar en la base de datos: " + e.getMessage());
