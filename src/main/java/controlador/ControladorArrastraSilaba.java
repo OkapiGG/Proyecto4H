@@ -4,9 +4,13 @@ import java.awt.datatransfer.*;
 import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
@@ -20,23 +24,20 @@ public class ControladorArrastraSilaba implements ActionListener {
     private ModeloPalabra modeloPalabra;
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
+    private ControladorAudios objAudio;
 
     public ControladorArrastraSilaba(VistaArrastraSilaba objVistaArrastraSilaba) {
         this.objVistaArrastraSilaba = objVistaArrastraSilaba;
         try {
-            // Obtén la conexión usando el Singleton
             this.conexion = ConexionBD.getInstancia().getConexion();
-            // Inicializa el modeloPalabra pasando la conexión
             modeloPalabra = new ModeloPalabra();
-            // Ahora, inicializa modeloGuardaPalabras con el objeto modeloPalabra ya creado
             modeloGuardaPalabras = new ModeloGuardaPalabras(modeloPalabra);
-            // Carga la palabra del nivel usando el caché
             cargarPalabraDelNivel();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        // Configura el drag & drop
         arrastrarSoltar();
+        objAudio = new ControladorAudios();
     }
 
     @Override
@@ -49,7 +50,7 @@ public class ControladorArrastraSilaba implements ActionListener {
         // Ahora getPalabras() devuelve una lista de objetos Palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
-            Palabra palabraActual = lista.get(0);
+            Palabra palabraActual = lista.get(1);
             String palabraCompleta = palabraActual.getPalabra();
 
             if (palabraCompleta.length() >= 2) {
@@ -125,17 +126,18 @@ public class ControladorArrastraSilaba implements ActionListener {
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objVistaArrastraSilaba.jLabel3.setText(droppedText);
 
-                    // Validación: concatenar la sílaba arrastrada con el complemento (jLabel2)
                     if ((droppedText + objVistaArrastraSilaba.jLabel2.getText()).equals("GATO")) {
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
-                        objVistaArrastraSilaba.jLabel3.setText(textoOriginal);
-                    }
-                } catch (Exception ex) {
+                            objAudio.iniciarAudio("/audio/gato.wav");
+                            //JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
+                            objVistaArrastraSilaba.jLabel3.setText(textoOriginal);
+                        }
+                    }catch (Exception ex) {
                     ex.printStackTrace();
                 }
+                }
             }
-        });
+        );
     }
 }

@@ -19,7 +19,7 @@ public class ConexionBD {
 
     private final String URL = "jdbc:postgresql://localhost:5432/proyecto4h";
     private final String USUARIO = "postgres";
-    private final String CONTRASENA = "ema24";
+    private final String CONTRASENA = "maiz564";
 
     private ConexionBD() throws SQLException {
         try {//el try para manejar errores que puedan surgui en la conexion
