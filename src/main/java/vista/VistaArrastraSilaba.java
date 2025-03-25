@@ -5,6 +5,9 @@
 package vista;
 
 import controlador.ControladorArrastraSilaba;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 /**
  *
@@ -13,7 +16,7 @@ import controlador.ControladorArrastraSilaba;
 public class VistaArrastraSilaba extends javax.swing.JFrame {
 
     ControladorArrastraSilaba objControladorArrastraSilaba;
-    
+
     public VistaArrastraSilaba() {
         initComponents();
         objControladorArrastraSilaba = new ControladorArrastraSilaba(this);
@@ -69,6 +72,11 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
         jLabel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 jLabel4MouseDragged(evt);
+            }
+        });
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel4MousePressed(evt);
             }
         });
 
@@ -211,6 +219,18 @@ public class VistaArrastraSilaba extends javax.swing.JFrame {
     private void jLabel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseDragged
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MouseDragged
+
+    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+        try {
+
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/ga.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception audioEx) {
+            audioEx.printStackTrace();
+        }
+    }//GEN-LAST:event_jLabel4MousePressed
 
     /**
      * @param args the command line arguments

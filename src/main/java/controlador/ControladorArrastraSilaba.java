@@ -81,7 +81,7 @@ public class ControladorArrastraSilaba implements ActionListener {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objVistaArrastraSilaba.jLabel4.getText());
-                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);     
             }
         });
 
@@ -132,7 +132,7 @@ public class ControladorArrastraSilaba implements ActionListener {
                     // Validación: concatenar la sílaba arrastrada con el complemento (jLabel2)
                     if ((droppedText + objVistaArrastraSilaba.jLabel2.getText()).equals("GATO")) {
                         try {
-                           
+
                             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/gato.wav"));
                             Clip clip = AudioSystem.getClip();
                             clip.open(audioInputStream);
@@ -140,7 +140,7 @@ public class ControladorArrastraSilaba implements ActionListener {
                         } catch (Exception audioEx) {
                             audioEx.printStackTrace();
                         }
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
+                        //JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objVistaArrastraSilaba.jLabel3.setText(textoOriginal);
