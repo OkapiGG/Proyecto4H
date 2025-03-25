@@ -4,9 +4,13 @@ import java.awt.datatransfer.*;
 import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
@@ -127,6 +131,15 @@ public class ControladorArrastraSilaba implements ActionListener {
 
                     // Validación: concatenar la sílaba arrastrada con el complemento (jLabel2)
                     if ((droppedText + objVistaArrastraSilaba.jLabel2.getText()).equals("GATO")) {
+                        try {
+                           
+                            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/gato.wav"));
+                            Clip clip = AudioSystem.getClip();
+                            clip.open(audioInputStream);
+                            clip.start();
+                        } catch (Exception audioEx) {
+                            audioEx.printStackTrace();
+                        }
                         JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
