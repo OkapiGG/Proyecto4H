@@ -24,23 +24,20 @@ public class ControladorArrastraSilaba implements ActionListener {
     private ModeloPalabra modeloPalabra;
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
+    private ControladorAudios objAudio;
 
     public ControladorArrastraSilaba(VistaArrastraSilaba objVistaArrastraSilaba) {
         this.objVistaArrastraSilaba = objVistaArrastraSilaba;
         try {
-            // Obtén la conexión usando el Singleton
             this.conexion = ConexionBD.getInstancia().getConexion();
-            // Inicializa el modeloPalabra pasando la conexión
             modeloPalabra = new ModeloPalabra();
-            // Ahora, inicializa modeloGuardaPalabras con el objeto modeloPalabra ya creado
             modeloGuardaPalabras = new ModeloGuardaPalabras(modeloPalabra);
-            // Carga la palabra del nivel usando el caché
             cargarPalabraDelNivel();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        // Configura el drag & drop
         arrastrarSoltar();
+        objAudio = new ControladorAudios();
     }
 
     @Override
@@ -81,7 +78,7 @@ public class ControladorArrastraSilaba implements ActionListener {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objVistaArrastraSilaba.jLabel4.getText());
-                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);     
+                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
@@ -129,26 +126,18 @@ public class ControladorArrastraSilaba implements ActionListener {
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objVistaArrastraSilaba.jLabel3.setText(droppedText);
 
-                    // Validación: concatenar la sílaba arrastrada con el complemento (jLabel2)
                     if ((droppedText + objVistaArrastraSilaba.jLabel2.getText()).equals("GATO")) {
-                        try {
-
-                            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/gato.wav"));
-                            Clip clip = AudioSystem.getClip();
-                            clip.open(audioInputStream);
-                            clip.start();
-                        } catch (Exception audioEx) {
-                            audioEx.printStackTrace();
+                            objAudio.iniciarAudio("/audio/gato.wav");
+                            //JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
+                            objVistaArrastraSilaba.jLabel3.setText(textoOriginal);
                         }
-                        //JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
-                        objVistaArrastraSilaba.jLabel3.setText(textoOriginal);
-                    }
-                } catch (Exception ex) {
+                    }catch (Exception ex) {
                     ex.printStackTrace();
                 }
+                }
             }
-        });
+        );
     }
 }
