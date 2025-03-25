@@ -50,7 +50,7 @@ public class ControladorArrastraSilaba implements ActionListener {
         // Ahora getPalabras() devuelve una lista de objetos Palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
-            Palabra palabraActual = lista.get(0);
+            Palabra palabraActual = lista.get(1);
             String palabraCompleta = palabraActual.getPalabra();
 
             if (palabraCompleta.length() >= 2) {
