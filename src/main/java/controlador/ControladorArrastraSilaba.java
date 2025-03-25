@@ -78,7 +78,7 @@ public class ControladorArrastraSilaba implements ActionListener {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objVistaArrastraSilaba.jLabel4.getText());
-                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);     
             }
         });
 
