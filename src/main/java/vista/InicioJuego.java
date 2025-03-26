@@ -19,31 +19,14 @@ public class InicioJuego extends javax.swing.JFrame {
     /**
      * Creates new form VistaLogin
      */
-    
-    FondoPanel fondo = new FondoPanel();
-    
     ControladorInicioJuego objControladorInicioJuego;
+
     public InicioJuego() {
-        this.setContentPane(fondo);
-        initComponents(); 
+        initComponents();
         this.setLocationRelativeTo(null);
         objControladorInicioJuego = new ControladorInicioJuego(this);
     }
-    
-    
-    
-    class FondoPanel extends JPanel {
-    private Image imagen;
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        imagen = new ImageIcon(getClass().getResource("/imagenes/fondoInicio.jpg")).getImage();
-        g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-        setOpaque(false);
-        super.paintComponent(g);
-    }
-}
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -143,19 +126,19 @@ public class InicioJuego extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(374, Short.MAX_VALUE)
+                .addContainerGap(163, Short.MAX_VALUE)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(362, 362, 362))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -209,7 +192,5 @@ public class InicioJuego extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private modelo.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
-    
-   
 
 }
