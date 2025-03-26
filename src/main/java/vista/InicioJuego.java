@@ -61,7 +61,7 @@ public class InicioJuego extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel3.setBackground(new java.awt.Color(148, 126, 219));
         jPanel3.setOpaque(false);
 
         panelRound1.setBackground(new java.awt.Color(253, 246, 236));

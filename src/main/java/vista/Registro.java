@@ -46,7 +46,7 @@ public class Registro extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(80, 80, 200));
+        jPanel1.setBackground(new java.awt.Color(148, 126, 219));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setPreferredSize(new java.awt.Dimension(276, 360));

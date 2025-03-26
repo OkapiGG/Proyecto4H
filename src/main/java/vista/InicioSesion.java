@@ -4,6 +4,11 @@
  */
 package vista;
 
+import controlador.ControladorInicioSesion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ep712
@@ -13,9 +18,16 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Creates new form InicioSesion
      */
+    ControladorInicioSesion objControladorInicioSesion;
+
     public InicioSesion() {
         initComponents();
         this.setLocationRelativeTo(null);
+        try {
+            objControladorInicioSesion = new ControladorInicioSesion(this);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     /**
@@ -45,7 +57,7 @@ public class InicioSesion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(80, 80, 200));
+        jPanel1.setBackground(new java.awt.Color(148, 126, 219));
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
         panelRound1.setRoundBottomLeft(50);
