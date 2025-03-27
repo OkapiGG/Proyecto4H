@@ -35,7 +35,7 @@ public class MenuInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 238, 241));
+        jPanel1.setBackground(new java.awt.Color(148, 126, 219));
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
