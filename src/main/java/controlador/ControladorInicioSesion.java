@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import modelo.ConexionBD;
 import vista.InicioSesion;
-import vista.MenuJuego;
+import vista.MenuInicio;
 
 public class ControladorInicioSesion implements ActionListener {
 
@@ -32,13 +32,14 @@ public class ControladorInicioSesion implements ActionListener {
 
             if (auntenticarUsuario(username, password)) {
                 JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
+                MenuInicio objMenuJuego = new MenuInicio();
+                objMenuJuego.setVisible(true);
+                this.objInicioSesion.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
             }
         }
-        MenuJuego objMenuJuego = new MenuJuego();
-        objMenuJuego.setVisible(true);
-        this.objInicioSesion.dispose();
+
     }
 
     private boolean auntenticarUsuario(String username, String password) {
