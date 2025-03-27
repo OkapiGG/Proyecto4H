@@ -4,9 +4,6 @@
  */
 package vista;
 
-import controlador.ControladorInicioSesion;
-import java.sql.SQLException;
-
 /**
  *
  * @author ep712
@@ -16,17 +13,9 @@ public class InicioSesion extends javax.swing.JFrame {
     /**
      * Creates new form InicioSesion
      */
-    
-    ControladorInicioSesion objControladorInicioSesion;
     public InicioSesion() {
         initComponents();
         this.setLocationRelativeTo(null);
-        try{
-            objControladorInicioSesion = new ControladorInicioSesion(this);
-        }
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
     }
 
     /**

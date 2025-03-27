@@ -43,7 +43,7 @@ public class ControladorInicioSesion implements ActionListener {
 
     private boolean auntenticarUsuario(String username, String password) {
         boolean autenticado = false;
-        String sql = "SELECT * FROM usuario WHERE username = ? AND contrasena = ?";
+        String sql = "SELECT * FROM usuario WHERE username = ? AND password = ?";
 
         try {
             Connection ConexionBD = objConexion.getConexion(); // Obten la conexion sin cerrarla automaticamente
