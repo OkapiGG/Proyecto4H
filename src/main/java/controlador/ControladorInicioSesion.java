@@ -26,20 +26,10 @@ public class ControladorInicioSesion implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.objInicioSesion.jButton2) {
-            System.out.println("Presionado");
-            String username = objInicioSesion.jTextField1.getText();
-            String password = new String(objInicioSesion.jPasswordField1.getPassword());
 
-            if (auntenticarUsuario(username, password)) {
-                JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
-                MenuInicio objMenuJuego = new MenuInicio();
-                objMenuJuego.setVisible(true);
-                this.objInicioSesion.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
-            }
+            CambiarVista(e);
+
         }
-
     }
 
     private boolean auntenticarUsuario(String username, String password) {
@@ -58,5 +48,25 @@ public class ControladorInicioSesion implements ActionListener {
             JPopupMenu.setDefaultLightWeightPopupEnabled(autenticado);
         }
         return autenticado;
+    }
+
+    public void CambiarVista(ActionEvent e) {
+        if (e.getSource() == this.objInicioSesion.jButton2) {
+            MenuInicio objMenuInicio = new MenuInicio();
+            objMenuInicio.setVisible(true);
+            this.objInicioSesion.dispose();
+
+            String username = objInicioSesion.jTextField1.getText();
+            String password = new String(objInicioSesion.jPasswordField1.getPassword());
+
+            if (auntenticarUsuario(username, password)) {
+                JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
+                MenuInicio objMenuJuego = new MenuInicio();
+                objMenuJuego.setVisible(true);
+                this.objInicioSesion.dispose();
+            } else {
+                JOptionPane.showConfirmDialog(null, "Usuario o contraseña incorrectos");
+            }
+        }
     }
 }

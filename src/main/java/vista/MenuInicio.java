@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.ControladorMenuInicio;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -15,6 +16,7 @@ import javax.swing.JPanel;
  */
 public class MenuInicio extends javax.swing.JFrame {
     
+    ControladorMenuInicio objControladorMenuInicio;
     public MenuInicio() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -44,7 +46,6 @@ public class MenuInicio extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setOpaque(false);
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 610, 110));
 
         jButton2.setBorderPainted(false);
@@ -124,13 +125,12 @@ public class MenuInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
-
 
 }
