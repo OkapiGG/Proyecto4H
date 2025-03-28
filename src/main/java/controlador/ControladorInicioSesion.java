@@ -52,20 +52,18 @@ public class ControladorInicioSesion implements ActionListener {
 
     public void CambiarVista(ActionEvent e) {
         if (e.getSource() == this.objInicioSesion.jButton2) {
-            MenuInicio objMenuInicio = new MenuInicio();
-            objMenuInicio.setVisible(true);
-            this.objInicioSesion.dispose();
+//            MenuInicio objMenuInicio = new MenuInicio();
+//            objMenuInicio.setVisible(true);
+//            this.objInicioSesion.dispose();
 
             String username = objInicioSesion.jTextField1.getText();
             String password = new String(objInicioSesion.jPasswordField1.getPassword());
 
             if (auntenticarUsuario(username, password)) {
                 JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
-                MenuInicio objMenuJuego = new MenuInicio();
-                objMenuJuego.setVisible(true);
-                this.objInicioSesion.dispose();
             } else {
-                JOptionPane.showConfirmDialog(null, "Usuario o contraseña incorrectos");
+//                JOptionPane.showConfirmDialog(null, "Usuario o contraseña incorrectos");
+                JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecto", "Mensaje de advertencia", 3);
             }
         }
     }
