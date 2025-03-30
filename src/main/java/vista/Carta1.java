@@ -38,8 +38,8 @@ public class Carta1 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -80,12 +80,6 @@ public class Carta1 extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, 80));
 
-        jLabel3.setBackground(new java.awt.Color(5, 52, 6));
-        jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel3.setText("__");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 120, 98));
-
         jLabel4.setBackground(new java.awt.Color(5, 52, 6));
         jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(5, 52, 6));
@@ -97,6 +91,12 @@ public class Carta1 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, 70));
+
+        jLabel3.setBackground(new java.awt.Color(5, 52, 6));
+        jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(5, 52, 6));
+        jLabel3.setText("__");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 420, 120, 98));
 
         jLabel2.setBackground(new java.awt.Color(5, 52, 6));
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N

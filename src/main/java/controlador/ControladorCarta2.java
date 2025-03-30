@@ -16,18 +16,18 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
-import vista.Carta1;
+import vista.Carta2;
 
-public class ControladorCarta1 implements ActionListener {
+public class ControladorCarta2 implements ActionListener {
 
+    private Carta2 objVistaArrastraSilaba;
     private ModeloPalabra modeloPalabra;
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
     private ControladorAudios objAudio;
-    private Carta1 objCarta1;
 
-    public ControladorCarta1(Carta1 objCarta1) {
-        this.objCarta1 = objCarta1;
+    public ControladorCarta2(Carta2 objVistaArrastraSilaba) {
+        this.objVistaArrastraSilaba = objVistaArrastraSilaba;
         try {
             this.conexion = ConexionBD.getInstancia().getConexion();
             modeloPalabra = new ModeloPalabra();
@@ -57,11 +57,11 @@ public class ControladorCarta1 implements ActionListener {
                 String silabaCorrecta = palabraCompleta.substring(0, 2);
                 String complemento = palabraCompleta.substring(2);
 
-                objCarta1.jLabel4.setText(silabaCorrecta);
-                objCarta1.jLabel2.setText(complemento);
+                objVistaArrastraSilaba.jLabel4.setText(silabaCorrecta);
+                objVistaArrastraSilaba.jLabel2.setText(complemento);
                 // Ejemplo de sílabas falsas o decoys en otros JLabel
-                objCarta1.jLabel5.setText("PA");
-                objCarta1.jLabel6.setText("LO");
+                objVistaArrastraSilaba.jLabel5.setText("PE");
+                objVistaArrastraSilaba.jLabel6.setText("CA");
             }
         } else {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
@@ -70,38 +70,38 @@ public class ControladorCarta1 implements ActionListener {
 
     // Configuración de Drag & Drop
     private void arrastrarSoltar() {
-        final String textoOriginal = objCarta1.jLabel3.getText();
+        final String textoOriginal = objVistaArrastraSilaba.jLabel3.getText();
         DragSource ds = new DragSource();
 
         // Configurar arrastre para jLabel4
-        ds.createDefaultDragGestureRecognizer(objCarta1.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        ds.createDefaultDragGestureRecognizer(objVistaArrastraSilaba.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCarta1.jLabel4.getText());
+                Transferable objTransferible = new StringSelection(objVistaArrastraSilaba.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
         // Configurar arrastre para jLabel5
-        ds.createDefaultDragGestureRecognizer(objCarta1.jLabel5, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        ds.createDefaultDragGestureRecognizer(objVistaArrastraSilaba.jLabel5, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCarta1.jLabel5.getText());
+                Transferable objTransferible = new StringSelection(objVistaArrastraSilaba.jLabel5.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
         // Configurar arrastre para jLabel6
-        ds.createDefaultDragGestureRecognizer(objCarta1.jLabel6, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        ds.createDefaultDragGestureRecognizer(objVistaArrastraSilaba.jLabel6, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCarta1.jLabel6.getText());
+                Transferable objTransferible = new StringSelection(objVistaArrastraSilaba.jLabel6.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
         // Configurar jLabel3 como zona de drop
-        new DropTarget(objCarta1.jLabel3, new DropTargetListener() {
+        new DropTarget(objVistaArrastraSilaba.jLabel3, new DropTargetListener() {
             @Override
             public void dragEnter(DropTargetDragEvent dtde) {
             }
@@ -124,14 +124,14 @@ public class ControladorCarta1 implements ActionListener {
                     dtde.acceptDrop(DnDConstants.ACTION_MOVE);
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
-                    objCarta1.jLabel3.setText(droppedText);
+                    objVistaArrastraSilaba.jLabel3.setText(droppedText);
 
-                    if ((droppedText + objCarta1.jLabel2.getText()).equals("GATO")) {
+                    if ((droppedText + objVistaArrastraSilaba.jLabel2.getText()).equals("GATO")) {
                             objAudio.iniciarAudio("/audio/gato.wav");
                             //JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
                         } else {
                             JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
-                            objCarta1.jLabel3.setText(textoOriginal);
+                            objVistaArrastraSilaba.jLabel3.setText(textoOriginal);
                         }
                     }catch (Exception ex) {
                     ex.printStackTrace();
