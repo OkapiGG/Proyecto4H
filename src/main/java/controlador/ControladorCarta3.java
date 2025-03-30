@@ -3,15 +3,7 @@ package controlador;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DragGestureEvent;
-import java.awt.dnd.DragGestureListener;
-import java.awt.dnd.DragSource;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetDragEvent;
-import java.awt.dnd.DropTargetDropEvent;
-import java.awt.dnd.DropTargetEvent;
-import java.awt.dnd.DropTargetListener;
+import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -34,36 +26,33 @@ public class ControladorCarta3 implements ActionListener {
 
     public ControladorCarta3(Carta3 objCarta3) {
         this.objCarta3 = objCarta3;
-//        this.objCarta3.jButton1.addActionListener(this);
         try {
-
             this.conexion = ConexionBD.getInstancia().getConexion();
             modeloPalabra = new ModeloPalabra();
-            modeloGuardaPalabras = new ModeloGuardaPalabras();
-//            cargarPalabraDelNivel();
-
+            modeloGuardaPalabras = new ModeloGuardaPalabras(modeloPalabra);
+            cargarPalabraDelNivel();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-//        arrastrarSoltar();
+        arrastrarSoltar();
         objAudio = new ControladorAudios();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-// Aquí puedes manejar otros eventos, si es necesario
+
     }
 
     private void cargarPalabraDelNivel() {
 //        Ahora getPalabras() Devuelve una lista de objetos de palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
-            Palabra palabraActual = lista.get(0);
+            Palabra palabraActual = lista.get(2);
             String palabraCompleta = palabraActual.getPalabra();
 
             if (palabraCompleta.length() >= 2) {
-                String silabaCorrecta = palabraCompleta.substring(0, 2);
-                String complemento = palabraCompleta.substring(2);
+                String silabaCorrecta = palabraCompleta.substring(2, 4);
+                String complemento = palabraCompleta.substring(0, 2);
 
                 objCarta3.jLabel2.setText(silabaCorrecta);
                 objCarta3.jLabel6.setText(complemento);
@@ -135,9 +124,9 @@ public class ControladorCarta3 implements ActionListener {
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCarta3.jLabel5.setText(droppedText);
 
-                    if ((droppedText + objCarta3.jLabel6.getText()).equals("CASA")) {
-//                            objAudio.iniciarAudio("/audio/gato.wav");
-                        //JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
+                    if ((objCarta3.jLabel6.getText() + droppedText).equals("CASA")) {
+                        objAudio.iniciarAudio("/audio/casa.wav");
+                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es CASA");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCarta3.jLabel5.setText(textoOriginal);
