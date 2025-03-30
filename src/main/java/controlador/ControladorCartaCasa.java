@@ -14,17 +14,17 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
-import vista.Carta3;
+import vista.CartaCasa;
 
-public class ControladorCarta3 implements ActionListener {
+public class ControladorCartaCasa implements ActionListener {
 
     private ModeloPalabra modeloPalabra;
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
     private ControladorAudios objAudio;
-    private Carta3 objCarta3;
+    private CartaCasa objCarta3;
 
-    public ControladorCarta3(Carta3 objCarta3) {
+    public ControladorCartaCasa(CartaCasa objCarta3) {
         this.objCarta3 = objCarta3;
         try {
             this.conexion = ConexionBD.getInstancia().getConexion();

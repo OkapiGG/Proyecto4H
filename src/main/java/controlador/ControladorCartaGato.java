@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import java.awt.datatransfer.*;
@@ -20,18 +16,18 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
-import vista.Carta4;
+import vista.CartaGato;
 
-public class ControladorCarta4 implements ActionListener {
+public class ControladorCartaGato implements ActionListener {
 
     private ModeloPalabra modeloPalabra;
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
     private ControladorAudios objAudio;
-    private Carta4 objCarta4;
+    private CartaGato objCarta1;
 
-    public ControladorCarta4(Carta4 objCarta4) {
-        this.objCarta4 = objCarta4;
+    public ControladorCartaGato(CartaGato objCarta1) {
+        this.objCarta1 = objCarta1;
         try {
             this.conexion = ConexionBD.getInstancia().getConexion();
             modeloPalabra = new ModeloPalabra();
@@ -46,7 +42,7 @@ public class ControladorCarta4 implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        // Aquí puedes manejar otros eventos, si es necesario
     }
 
     // Método que utiliza el modeloGuardaPalabras para cargar la palabra en la vista
@@ -54,18 +50,18 @@ public class ControladorCarta4 implements ActionListener {
         // getPalabras() devuelve una lista de objetos Palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
-            Palabra palabraActual = lista.get(5);
+            Palabra palabraActual = lista.get(0);
             String palabraCompleta = palabraActual.getPalabra();
 
             if (palabraCompleta.length() >= 2) {
-                String silabaCorrecta = palabraCompleta.substring(3, 5);
-                String complemento = palabraCompleta.substring(0, 3);
+                String silabaCorrecta = palabraCompleta.substring(0, 2);
+                String complemento = palabraCompleta.substring(2);
 
-                objCarta4.jLabel3.setText(silabaCorrecta);
-                objCarta4.jLabel5.setText(complemento);
+                objCarta1.jLabel4.setText(silabaCorrecta);
+                objCarta1.jLabel2.setText(complemento);
                 // Sílabas falsas en otros JLabel
-                objCarta4.jLabel2.setText("JA");
-                objCarta4.jLabel4.setText("TU");
+                objCarta1.jLabel5.setText("PA");
+                objCarta1.jLabel6.setText("LO");
             }
         } else {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
@@ -74,38 +70,38 @@ public class ControladorCarta4 implements ActionListener {
 
     // Configuración de Drag & Drop
     private void arrastrarSoltar() {
-        final String textoOriginal = objCarta4.jLabel6.getText();
+        final String textoOriginal = objCarta1.jLabel3.getText();
         DragSource ds = new DragSource();
 
         // Configurar arrastre para jLabel4
-        ds.createDefaultDragGestureRecognizer(objCarta4.jLabel2, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        ds.createDefaultDragGestureRecognizer(objCarta1.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCarta4.jLabel2.getText());
+                Transferable objTransferible = new StringSelection(objCarta1.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
         // Configurar arrastre para jLabel5
-        ds.createDefaultDragGestureRecognizer(objCarta4.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        ds.createDefaultDragGestureRecognizer(objCarta1.jLabel5, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCarta4.jLabel3.getText());
+                Transferable objTransferible = new StringSelection(objCarta1.jLabel5.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
         // Configurar arrastre para jLabel6
-        ds.createDefaultDragGestureRecognizer(objCarta4.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        ds.createDefaultDragGestureRecognizer(objCarta1.jLabel6, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCarta4.jLabel4.getText());
+                Transferable objTransferible = new StringSelection(objCarta1.jLabel6.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
         // Configurar jLabel3 como zona de drop
-        new DropTarget(objCarta4.jLabel6, new DropTargetListener() {
+        new DropTarget(objCarta1.jLabel3, new DropTargetListener() {
             @Override
             public void dragEnter(DropTargetDragEvent dtde) {
             }
@@ -128,14 +124,14 @@ public class ControladorCarta4 implements ActionListener {
                     dtde.acceptDrop(DnDConstants.ACTION_MOVE);
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
-                    objCarta4.jLabel6.setText(droppedText);
+                    objCarta1.jLabel3.setText(droppedText);
 
-                    if ((objCarta4.jLabel5.getText() + droppedText ).equals("MANGO")) {
-                            objAudio.iniciarAudio("/audio/mango.wav");
-                            JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es MANGO");
+                    if ((droppedText + objCarta1.jLabel2.getText()).equals("GATO")) {
+                            objAudio.iniciarAudio("/audio/gato.wav");
+                            //JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
                         } else {
                             JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
-                            objCarta4.jLabel6.setText(textoOriginal);
+                            objCarta1.jLabel3.setText(textoOriginal);
                         }
                     }catch (Exception ex) {
                     ex.printStackTrace();
@@ -145,4 +141,3 @@ public class ControladorCarta4 implements ActionListener {
         );
     }
 }
-

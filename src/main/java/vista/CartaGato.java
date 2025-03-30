@@ -4,7 +4,7 @@
  */
 package vista;
 
-import controlador.ControladorCarta1;
+import controlador.ControladorCartaGato;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -13,16 +13,16 @@ import javax.sound.sampled.Clip;
  *
  * @author ep712
  */
-public class Carta1 extends javax.swing.JFrame {
+public class CartaGato extends javax.swing.JFrame {
 
     /**
      * Creates new form Carta1
      */
-    ControladorCarta1 objControladorCarta1;
-    public Carta1() {
+    ControladorCartaGato objControladorCarta1;
+    public CartaGato() {
         initComponents();
         this.setLocationRelativeTo(null);
-        objControladorCarta1 = new ControladorCarta1(this);
+        objControladorCarta1 = new ControladorCartaGato(this);
     }
 
     /**
@@ -177,20 +177,21 @@ public class Carta1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Carta1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CartaGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Carta1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CartaGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Carta1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CartaGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Carta1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CartaGato.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Carta1().setVisible(true);
+                new CartaGato().setVisible(true);
             }
         });
     }

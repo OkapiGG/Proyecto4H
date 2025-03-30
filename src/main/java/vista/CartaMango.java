@@ -4,7 +4,7 @@
  */
 package vista;
 
-import controlador.ControladorCarta3;
+import controlador.ControladorCartaMango;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -13,18 +13,13 @@ import javax.sound.sampled.Clip;
  *
  * @author ep712
  */
-public class Carta3 extends javax.swing.JFrame {
+public class CartaMango extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Carta3
-     */
-    ControladorCarta3 objControladorCarta3;
+    ControladorCartaMango objControladorCarta4;
 
-    public Carta3() {
+    public CartaMango() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        objControladorCarta3 = new ControladorCarta3(this);
-
+        objControladorCarta4 = new ControladorCartaMango(this);
     }
 
     /**
@@ -37,69 +32,60 @@ public class Carta3 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 50, 70));
-
-        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel6.setText("CA");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 450, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("__");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, 120, 100));
-
-        jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel4.setText("PA");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel4MousePressed(evt);
-            }
-        });
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, 80));
-
-        jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel3.setText("ZA");
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
-            }
-        });
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 246, -1, 70));
-
         jLabel2.setBackground(new java.awt.Color(5, 52, 6));
-        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 48)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel2.setText("SA");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.setText("JA");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel2MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, 80));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Casa.jpeg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 600));
+        jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(5, 52, 6));
+        jLabel3.setText("GO");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 238, 70, 60));
+
+        jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(5, 52, 6));
+        jLabel4.setText("TU");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel4MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 328, 60, 70));
+
+        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(5, 52, 6));
+        jLabel5.setText("MAN");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 410, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(5, 52, 6));
+        jLabel6.setText("__");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 80, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Mango.jpeg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,7 +103,7 @@ public class Carta3 extends javax.swing.JFrame {
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/sa.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/ja.wav"));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
@@ -128,18 +114,17 @@ public class Carta3 extends javax.swing.JFrame {
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/za.wav"));
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/go.wav"));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
         } catch (Exception audioEx) {
             audioEx.printStackTrace();
-        }
-    }//GEN-LAST:event_jLabel3MousePressed
+        }    }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-       try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/pa.wav"));
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/tu.wav"));
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
@@ -165,26 +150,26 @@ public class Carta3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Carta3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CartaMango.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Carta3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CartaMango.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Carta3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CartaMango.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Carta3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CartaMango.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Carta3().setVisible(true);
+                new CartaMango().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
