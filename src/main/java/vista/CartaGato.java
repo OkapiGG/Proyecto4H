@@ -19,6 +19,7 @@ public class CartaGato extends javax.swing.JFrame {
      * Creates new form Carta1
      */
     ControladorCartaGato objControladorCarta1;
+
     public CartaGato() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -122,9 +123,8 @@ public class CartaGato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            MenuJuego objMenuJuego = new MenuJuego();
-            objMenuJuego.setVisible(true); 
-            
+//        MenuJuego objMenuJuego = new MenuJuego();
+//        objMenuJuego.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed

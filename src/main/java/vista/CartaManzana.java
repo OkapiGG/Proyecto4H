@@ -4,6 +4,8 @@
  */
 package vista;
 
+import controlador.ControladorMenuJuego;
+
 /**
  *
  * @author ep712
