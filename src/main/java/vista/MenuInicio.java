@@ -49,6 +49,7 @@ public class MenuInicio extends javax.swing.JFrame {
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 610, 110));
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vistaMenu_800x700_max_quality.jpg"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

@@ -5,6 +5,9 @@
 package vista;
 
 import controlador.ControladorCartaCarro;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 /**
  *
@@ -13,6 +16,7 @@ import controlador.ControladorCartaCarro;
 public class CartaCarro extends javax.swing.JFrame {
 
     ControladorCartaCarro objControladorCartaCarro;
+
     public CartaCarro() {
         initComponents();
         objControladorCartaCarro = new ControladorCartaCarro(this);
@@ -59,22 +63,37 @@ public class CartaCarro extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(5, 52, 6));
         jLabel4.setText("FO");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 328, -1, 90));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel4MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, 90));
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(5, 52, 6));
         jLabel3.setText("MU");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+        });
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 238, 70, 80));
 
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(5, 52, 6));
         jLabel2.setText("CA");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 138, -1, 80));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel2MousePressed(evt);
+            }
+        });
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Carro.jpeg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,6 +108,39 @@ public class CartaCarro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/ca.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception audioEx) {
+            audioEx.printStackTrace();
+        }
+    }//GEN-LAST:event_jLabel2MousePressed
+
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/mu.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception audioEx) {
+            audioEx.printStackTrace();
+        }
+    }//GEN-LAST:event_jLabel3MousePressed
+
+    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/fo.wav"));
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (Exception audioEx) {
+            audioEx.printStackTrace();
+        }
+    }//GEN-LAST:event_jLabel4MousePressed
 
     /**
      * @param args the command line arguments
