@@ -58,12 +58,12 @@ public class ControladorCartaCarro implements ActionListener {
 //        Ahora getPalabras() Devuelve una lista de objetos de palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
-            Palabra palabraActual = lista.get(2);
+            Palabra palabraActual = lista.get(3);
             String palabraCompleta = palabraActual.getPalabra();
 
             if (palabraCompleta.length() >= 2) {
-                String silabaCorrecta = palabraCompleta.substring(2, 4);
-                String complemento = palabraCompleta.substring(0, 2);
+                String silabaCorrecta = palabraCompleta.substring(0, 2);
+                String complemento = palabraCompleta.substring(2, 5);
 
                 objCartaCarro.jLabel2.setText(silabaCorrecta);
                 objCartaCarro.jLabel6.setText(complemento);
@@ -135,7 +135,7 @@ public class ControladorCartaCarro implements ActionListener {
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaCarro.jLabel5.setText(droppedText);
 
-                    if ((objCartaCarro.jLabel6.getText() + droppedText).equals("CARRO")) {
+                    if ((droppedText + objCartaCarro.jLabel6.getText()).equals("CARRO")) {
                         //objAudio.iniciarAudio("/audio/casa.wav");
                         JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es CARRO");
                     } else {
