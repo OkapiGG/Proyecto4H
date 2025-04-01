@@ -20,6 +20,7 @@ public class MenuInicio extends javax.swing.JFrame {
     public MenuInicio() {
         initComponents();
         this.setLocationRelativeTo(null);
+        objControladorMenuInicio = new ControladorMenuInicio(this);
     }
 
     /**

@@ -46,64 +46,67 @@ public class ControladorMenuJuego implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.objMenuJuego.jButton1) {
             System.out.println("Presionado");
-            CartaArbol objCartaArbol = new CartaArbol();
-            objCartaArbol.setVisible(true);
+            CartaGato objCartaGato = new CartaGato();
+            objCartaGato.setVisible(true);
             this.objMenuJuego.dispose();
         }
         if (e.getSource() == this.objMenuJuego.jButton2) {
             System.out.println("Presionado");
-            CartaBicicleta objCartaBicicleta = new CartaBicicleta();
-            objCartaBicicleta.setVisible(true);
+            CartaCasa objCartaCasa = new CartaCasa();
+            objCartaCasa.setVisible(true);
             this.objMenuJuego.dispose();
+
         }
         if (e.getSource() == this.objMenuJuego.jButton3) {
             System.out.println("Presionado");
             CartaCarro objCartaCarro = new CartaCarro();
             objCartaCarro.setVisible(true);
             this.objMenuJuego.dispose();
+
         }
         if (e.getSource() == this.objMenuJuego.jButton4) {
             System.out.println("Presionado");
-            CartaCasa objCartaCasa = new CartaCasa();
-            objCartaCasa.setVisible(true);
+            CartaArbol objCartaArbol = new CartaArbol();
+            objCartaArbol.setVisible(true);
             this.objMenuJuego.dispose();
         }
         if (e.getSource() == this.objMenuJuego.jButton5) {
             System.out.println("Presionado");
-            CartaGato objCartaGato = new CartaGato();
-            objCartaGato.setVisible(true);
+            CartaMango objCartaMango = new CartaMango();
+            objCartaMango.setVisible(true);
             this.objMenuJuego.dispose();
+
         }
         if (e.getSource() == this.objMenuJuego.jButton6) {
+            System.out.println("Presionado");
+            CartaSandia objCartaSandia = new CartaSandia();
+            objCartaSandia.setVisible(true);
+            this.objMenuJuego.dispose();
+
+        }
+        if (e.getSource() == this.objMenuJuego.jButton7) {
+            System.out.println("Presionado");
+            CartaPajaro objCartaPajaro = new CartaPajaro();
+            objCartaPajaro.setVisible(true);
+            this.objMenuJuego.dispose();
+        }
+        if (e.getSource() == this.objMenuJuego.jButton8) {
             System.out.println("Presionado");
             CartaJirafa objCartaJirafa = new CartaJirafa();
             objCartaJirafa.setVisible(true);
             this.objMenuJuego.dispose();
         }
-        if (e.getSource() == this.objMenuJuego.jButton7) {
-            System.out.println("Presionado");
-            CartaMango objCartaMango = new CartaMango();
-            objCartaMango.setVisible(true);
-            this.objMenuJuego.dispose();
-        }
-        if (e.getSource() == this.objMenuJuego.jButton8) {
-            System.out.println("Presionado");
-            CartaSandia objCartaSandia = new CartaSandia();
-            objCartaSandia.setVisible(true);
-            this.objMenuJuego.dispose();
-        }
         if (e.getSource() == this.objMenuJuego.jButton9) {
             System.out.println("Presionado");
-            CartaPajaro objCartaPajaro = new CartaPajaro();
-            objCartaPajaro.setVisible(true);
-            this.objMenuJuego.dispose();
+            CartaBicicleta objCartaBicicleta = new CartaBicicleta();
+            objCartaBicicleta.setVisible(true);
 
         }
-//        if (e.getSource() == this.objMenuJuego.jButton10) {
-//            System.out.println("Presionado");
-//            MenuInicio objMenuInicio = new MenuInicio();
-//            objMenuInicio.setVisible(true);
-//            this.objMenuJuego.dispose();
-//        }
+        if (e.getSource() == this.objMenuJuego.jButton10) {
+            System.out.println("Presionado");
+            MenuInicio objMenuInicio = new MenuInicio();
+            objMenuInicio.setVisible(true);
+            this.objMenuJuego.dispose();
+        }
     }
 }

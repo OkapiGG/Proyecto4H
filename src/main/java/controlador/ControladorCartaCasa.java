@@ -15,6 +15,7 @@ import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
 import vista.CartaCasa;
+import vista.MenuJuego;
 
 public class ControladorCartaCasa implements ActionListener {
 
@@ -26,6 +27,7 @@ public class ControladorCartaCasa implements ActionListener {
 
     public ControladorCartaCasa(CartaCasa objCarta3) {
         this.objCarta3 = objCarta3;
+        this.objCarta3.jButton1.addActionListener(this);
         try {
             this.conexion = ConexionBD.getInstancia().getConexion();
             modeloPalabra = new ModeloPalabra();
@@ -40,7 +42,11 @@ public class ControladorCartaCasa implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == this.objCarta3.jButton1) {
+            MenuJuego objMenuJuego = new MenuJuego();
+            objMenuJuego.setVisible(true);
+            this.objCarta3.dispose();
+        }
     }
 
     private void cargarPalabraDelNivel() {

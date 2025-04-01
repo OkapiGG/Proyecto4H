@@ -61,6 +61,9 @@ public class ControladorInicioSesion implements ActionListener {
 
             if (auntenticarUsuario(username, password)) {
                 JOptionPane.showMessageDialog(null, "Inicio de sesión exitoso");
+                MenuInicio objMenuInicio = new MenuInicio();
+                objMenuInicio.setVisible(true);
+                this.objInicioSesion.dispose();
             } else {
 //                JOptionPane.showConfirmDialog(null, "Usuario o contraseña incorrectos");
                 JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecto", "Mensaje de advertencia", 3);
