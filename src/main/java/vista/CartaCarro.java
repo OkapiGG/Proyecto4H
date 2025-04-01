@@ -4,17 +4,18 @@
  */
 package vista;
 
+import controlador.ControladorCartaCarro;
+
 /**
  *
  * @author ep712
  */
 public class CartaCarro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Carta
-     */
+    ControladorCartaCarro objControladorCartaCarro;
     public CartaCarro() {
         initComponents();
+        objControladorCartaCarro = new ControladorCartaCarro(this);
     }
 
     /**
@@ -41,31 +42,35 @@ public class CartaCarro extends javax.swing.JFrame {
 
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 60, 60));
 
-        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 48)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(5, 52, 6));
         jLabel6.setText("RRO");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 456, -1, 40));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, -1, 50));
 
-        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 48)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(5, 52, 6));
         jLabel5.setText("__");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 150, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 160, 50));
 
         jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel4.setText("MA");
+        jLabel4.setText("FO");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 328, -1, 90));
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel3.setText("PE");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 238, 60, 80));
+        jLabel3.setText("MU");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 238, 70, 80));
 
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(5, 52, 6));
         jLabel2.setText("CA");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 138, -1, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Carro.jpeg"))); // NOI18N

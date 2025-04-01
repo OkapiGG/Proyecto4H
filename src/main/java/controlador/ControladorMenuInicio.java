@@ -3,35 +3,37 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.MenuInicio;
+import vista.MenuJuego;
 
 public class ControladorMenuInicio implements ActionListener {
 
-    MenuInicio objMenuIncio;
+    MenuInicio objMenuInicio;
 
-    public ControladorMenuInicio(MenuInicio objMenuIncio) {
-        this.objMenuIncio = objMenuIncio;
-        this.objMenuIncio.jButton1.addActionListener(this);
-        this.objMenuIncio.jButton2.addActionListener(this);
-        this.objMenuIncio.jButton3.addActionListener(this);
-        this.objMenuIncio.jButton4.addActionListener(this);
+    public ControladorMenuInicio(MenuInicio objMenuInicio) {
+        this.objMenuInicio = objMenuInicio;
+        this.objMenuInicio.jButton1.addActionListener(this);
+        this.objMenuInicio.jButton2.addActionListener(this);
+        this.objMenuInicio.jButton3.addActionListener(this);
+        this.objMenuInicio.jButton4.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.objMenuIncio.jButton1) {
-            // Arrastra la silaba
-            
+        if (e.getSource() == this.objMenuInicio.jButton1) {
+            MenuJuego objMenuJuego = new MenuJuego();
+            objMenuJuego.setVisible(true);
+            this.objMenuInicio.dispose();
         }
 
-        if (e.getSource() == this.objMenuIncio.jButton2) {
+        if (e.getSource() == this.objMenuInicio.jButton2) {
             // Tablero
         }
 
-        if (e.getSource() == this.objMenuIncio.jButton3) {
+        if (e.getSource() == this.objMenuInicio.jButton3) {
             // Ordena
         }
 
-        if (e.getSource() == this.objMenuIncio.jButton4) {
+        if (e.getSource() == this.objMenuInicio.jButton4) {
             // Cuenta
         }
 
