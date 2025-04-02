@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.ControladorAudios;
 import controlador.ControladorCartaGato;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -19,11 +20,13 @@ public class CartaGato extends javax.swing.JFrame {
      * Creates new form Carta1
      */
     ControladorCartaGato objControladorCarta1;
+    ControladorAudios objControladorAudios;
 
     public CartaGato() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCarta1 = new ControladorCartaGato(this);
+        objControladorAudios = new ControladorAudios();
     }
 
     /**
@@ -128,36 +131,15 @@ public class CartaGato extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/ga.wav"));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (Exception audioEx) {
-            audioEx.printStackTrace();
-        }
+        objControladorAudios.reproducirAudio("ga");
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/pa.wav"));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (Exception audioEx) {
-            audioEx.printStackTrace();
-        }
+        objControladorAudios.reproducirAudio("pa");
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/lo.wav"));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (Exception audioEx) {
-            audioEx.printStackTrace();
-        }
+        objControladorAudios.reproducirAudio("lo");
     }//GEN-LAST:event_jLabel6MousePressed
 
     /**

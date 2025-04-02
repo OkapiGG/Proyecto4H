@@ -141,7 +141,7 @@ public class ControladorCartaGato implements ActionListener {
                         int idUsuario = Login.getIdUsuarioActivo(); // Se obtiene el id del usuario activo para hacerle el update en la BD
                         ModeloUsuario modeloUsuario = new ModeloUsuario();
                         modeloUsuario.actualizarPuntajeYContador(idUsuario, puntos, palabras);*/
-                        objAudio.iniciarAudio("/audio/Gato.wav");
+                        objAudio.reproducirAudio("gato");
                         JOptionPane.showMessageDialog(null, "Correcto!, la palabra es GATO");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");

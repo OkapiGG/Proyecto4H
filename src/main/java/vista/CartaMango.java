@@ -4,6 +4,7 @@
  */
 package vista;
 
+import controlador.ControladorAudios;
 import controlador.ControladorCartaMango;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -16,10 +17,13 @@ import javax.sound.sampled.Clip;
 public class CartaMango extends javax.swing.JFrame {
 
     ControladorCartaMango objControladorCarta4;
+    ControladorAudios objControladorAudios;
 
     public CartaMango() {
         initComponents();
+        this.setLocationRelativeTo(null);
         objControladorCarta4 = new ControladorCartaMango(this);
+        objControladorAudios = new ControladorAudios();
     }
 
     /**
@@ -37,6 +41,7 @@ public class CartaMango extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,27 +51,30 @@ public class CartaMango extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(5, 52, 6));
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel2.setText("JA");
+        jLabel2.setText("KO");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel2MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel3.setText("GO");
+        jLabel3.setText("MAN");
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel3MousePressed(evt);
             }
         });
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 238, 70, 60));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 238, 100, 60));
 
         jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(5, 52, 6));
         jLabel4.setText("TU");
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabel4MousePressed(evt);
@@ -76,15 +84,21 @@ public class CartaMango extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel5.setText("MAN");
+        jLabel5.setText("___");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 410, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(5, 52, 6));
-        jLabel6.setText("__");
+        jLabel6.setText("GO");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 410, 80, 60));
 
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 20, 80, 90));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Mango.jpeg"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,35 +116,16 @@ public class CartaMango extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/ja.wav"));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (Exception audioEx) {
-            audioEx.printStackTrace();
-        }
+        objControladorAudios.reproducirAudio("ko");
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/go.wav"));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (Exception audioEx) {
-            audioEx.printStackTrace();
+        {
+            objControladorAudios.reproducirAudio("man");
         }    }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(getClass().getResource("/audio/tu.wav"));
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (Exception audioEx) {
-            audioEx.printStackTrace();
-        }
+        objControladorAudios.reproducirAudio("tu");
     }//GEN-LAST:event_jLabel4MousePressed
 
     /**
@@ -170,6 +165,7 @@ public class CartaMango extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     public javax.swing.JLabel jLabel3;
