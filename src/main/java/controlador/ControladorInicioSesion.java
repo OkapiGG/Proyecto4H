@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import modelo.ConexionBD;
+import modelo.Login;
 import vista.InicioSesion;
 import vista.MenuInicio;
 
@@ -43,7 +44,12 @@ public class ControladorInicioSesion implements ActionListener {
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
 
-            autenticado = rs.next();
+            if (rs.next()) {
+                autenticado = true;
+                int idusuario = rs.getInt("idusuario");
+                Login.setIdUsuarioActivo(idusuario); 
+            }
+
         } catch (SQLException e) {
             JPopupMenu.setDefaultLightWeightPopupEnabled(autenticado);
         }

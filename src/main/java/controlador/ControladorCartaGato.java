@@ -13,8 +13,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 import modelo.ConexionBD;
+import modelo.Login;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
+import modelo.ModeloUsuario;
 import modelo.Palabra;
 import vista.CartaGato;
 import vista.InicioSesion;
@@ -134,8 +136,13 @@ public class ControladorCartaGato implements ActionListener {
                     objCarta1.jLabel3.setText(droppedText);
 
                     if ((droppedText + objCarta1.jLabel2.getText()).equals("GATO")) {
-                        objAudio.iniciarAudio("/audio/gato.wav");
-                        //JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
+                        int puntos = 10; 
+                        int palabras = 1; 
+                        int idUsuario = Login.getIdUsuarioActivo(); // Se obtiene el id del usuario activo para hacerle el update en la BD
+                        ModeloUsuario modeloUsuario = new ModeloUsuario();
+                        modeloUsuario.actualizarPuntajeYContador(idUsuario, puntos, palabras);
+                        objAudio.iniciarAudio("/audio/Gato.wav");
+                        JOptionPane.showMessageDialog(null, "Correcto la palabra es GATO obtuviste: " + puntos + " puntos");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCarta1.jLabel3.setText(textoOriginal);
