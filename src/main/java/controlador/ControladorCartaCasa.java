@@ -131,7 +131,7 @@ public class ControladorCartaCasa implements ActionListener {
                     objCarta3.jLabel5.setText(droppedText);
 
                     if ((objCarta3.jLabel6.getText() + droppedText).equals("CASA")) {
-                        objAudio.iniciarAudio("/audio/casa.wav");
+                        objAudio.reproducirAudio("casa");
                         JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es CASA");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");

@@ -137,7 +137,7 @@ public class ControladorCartaArbol implements ActionListener {
                     objCartaArbol.jLabel6.setText(droppedText);
 
                     if ((objCartaArbol.jLabel5.getText() + droppedText).equals("ARBOL")) {
-                        objAudio.iniciarAudio("/audio/arbol.wav");
+                        objAudio.reproducirAudio("arbol");
                         JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es ARBOL");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");

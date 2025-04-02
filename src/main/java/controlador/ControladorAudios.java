@@ -19,6 +19,11 @@ public class ControladorAudios {
     public ControladorAudios(){
         
     }
+    
+    public void reproducirAudio(String silaba) {
+        String ruta = "/audio/" + silaba + ".wav";
+        iniciarAudio(ruta);
+    }
 
     public void iniciarAudio(String url) {
         try {
