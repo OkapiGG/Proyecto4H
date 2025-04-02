@@ -5,28 +5,29 @@
 package modelo;
 
 import java.sql.Timestamp;
+
 /**
  *
  * @author Alan
  */
 public class Login {
+
     private String username;
     private String contrasena;
     private int nivel;
     private int puntos;
+    private static int idUsuarioActivo;
 
-    
     public Login(String username, String contrasena) {
         this.username = username;
         this.contrasena = contrasena;
     }
-    
-    public Login(){
-        
+
+    public Login() {
+
     }
 
     // Getters y setters
-
     public String getUsername() {
         return username;
     }
@@ -34,7 +35,7 @@ public class Login {
     public void setUsername(String username) {
         this.username = username;
     }
-    
+
     public String getContrasena() {
         return contrasena;
     }
@@ -59,6 +60,12 @@ public class Login {
         this.puntos = puntos;
     }
 
+    public static int getIdUsuarioActivo() {
+        return idUsuarioActivo;
+    }
+
+    public static void setIdUsuarioActivo(int id) {
+        idUsuarioActivo = id;
+    }
+
 }
-
-
