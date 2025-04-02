@@ -136,7 +136,7 @@ public class ControladorCartaCarro implements ActionListener {
                     objCartaCarro.jLabel5.setText(droppedText);
 
                     if ((droppedText + objCartaCarro.jLabel6.getText()).equals("CARRO")) {
-                        //objAudio.iniciarAudio("/audio/casa.wav");
+                        objAudio.iniciarAudio("/audio/carro.wav");
                         JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es CARRO");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
