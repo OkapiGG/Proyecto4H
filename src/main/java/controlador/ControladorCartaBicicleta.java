@@ -4,36 +4,35 @@
  */
 package controlador;
 
-import java.awt.datatransfer.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
 import java.awt.dnd.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
-import vista.CartaJirafa;
+import vista.CartaBicicleta;
 import vista.MenuJuego;
 
-public class ControladorCartaJirafa implements ActionListener {
+
+public class ControladorCartaBicicleta implements ActionListener {
 
     private ModeloPalabra modeloPalabra;
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
     private ControladorAudios objAudio;
-    private CartaJirafa objCartaJirafa;
+    private CartaBicicleta objCartaBicicleta;
 
-    public ControladorCartaJirafa(CartaJirafa objCartaJirafa) {
-        this.objCartaJirafa = objCartaJirafa;
-        this.objCartaJirafa.jButton1.addActionListener(this);
+    public ControladorCartaBicicleta(CartaBicicleta objCartaBicicleta) {
+        this.objCartaBicicleta = objCartaBicicleta;
+        this.objCartaBicicleta.jButton2.addActionListener(this);
         try {
             this.conexion = ConexionBD.getInstancia().getConexion();
             modeloPalabra = new ModeloPalabra();
@@ -48,32 +47,32 @@ public class ControladorCartaJirafa implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.objCartaJirafa.jButton1) {
+        if (e.getSource() == this.objCartaBicicleta.jButton2) {
             MenuJuego objMenuJuego = new MenuJuego();
             objMenuJuego.setVisible(true);
-            this.objCartaJirafa.dispose();
+            this.objCartaBicicleta.dispose();
         }
     }
 
-    // Método que utiliza el modeloGuardaPalabras para cargar la palabra en la vista
     private void cargarPalabraDelNivel() {
-        // getPalabras() devuelve una lista de objetos Palabra
+//        Ahora getPalabras() Devuelve una lista de objetos de palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
-            Palabra palabraActual = lista.get(7);
+            Palabra palabraActual = lista.get(12);
             String palabraCompleta = palabraActual.getPalabra();
 
             if (palabraCompleta.length() >= 2) {
-                String silabaCorrecta = palabraCompleta.substring(2, 4);
-                String complemento = palabraCompleta.substring(0, 2);
-                String complemento2 = palabraCompleta.substring(4, 6);
-                
-                objCartaJirafa.jLabel4.setText(silabaCorrecta);
-                objCartaJirafa.jLabel5.setText(complemento);
-                objCartaJirafa.jLabel7.setText(complemento2);
-                // Sílabas falsas en otros JLabel
-                objCartaJirafa.jLabel2.setText("XA");
-                objCartaJirafa.jLabel3.setText("SI");
+                String silabaCorrecta = palabraCompleta.substring(4, 7);
+                String complemento = palabraCompleta.substring(0, 4);
+                String complemento2 = palabraCompleta.substring(7, 9);
+
+                objCartaBicicleta.jLabel2.setText(silabaCorrecta);
+                objCartaBicicleta.jLabel5.setText(complemento);
+                objCartaBicicleta.jLabel7.setText(complemento2);
+//                Silabas Falsas
+                objCartaBicicleta.jLabel3.setText("CLO");
+                objCartaBicicleta.jLabel4.setText("JE");
+
             }
         } else {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
@@ -82,38 +81,38 @@ public class ControladorCartaJirafa implements ActionListener {
 
     // Configuración de Drag & Drop
     private void arrastrarSoltar() {
-        final String textoOriginal = objCartaJirafa.jLabel6.getText();
+        final String textoOriginal = objCartaBicicleta.jLabel6.getText();
         DragSource ds = new DragSource();
 
-        // Configurar arrastre para jLabel2
-        ds.createDefaultDragGestureRecognizer(objCartaJirafa.jLabel2, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        // Configurar arrastre para jlabel2
+        ds.createDefaultDragGestureRecognizer(objCartaBicicleta.jLabel2, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCartaJirafa.jLabel2.getText());
+                Transferable objTransferible = new StringSelection(objCartaBicicleta.jLabel2.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
         // Configurar arrastre para jLabel3
-        ds.createDefaultDragGestureRecognizer(objCartaJirafa.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        ds.createDefaultDragGestureRecognizer(objCartaBicicleta.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCartaJirafa.jLabel3.getText());
+                Transferable objTransferible = new StringSelection(objCartaBicicleta.jLabel3.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
         // Configurar arrastre para jLabel4
-        ds.createDefaultDragGestureRecognizer(objCartaJirafa.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        ds.createDefaultDragGestureRecognizer(objCartaBicicleta.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
-                Transferable objTransferible = new StringSelection(objCartaJirafa.jLabel4.getText());
+                Transferable objTransferible = new StringSelection(objCartaBicicleta.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
             }
         });
 
-        // Configurar jLabel5 como zona de drop
-        new DropTarget(objCartaJirafa.jLabel6, new DropTargetListener() {
+        // Configurar Jlabel5 como receptor o drop
+        new DropTarget(objCartaBicicleta.jLabel6, new DropTargetListener() {
             @Override
             public void dragEnter(DropTargetDragEvent dtde) {
             }
@@ -136,14 +135,14 @@ public class ControladorCartaJirafa implements ActionListener {
                     dtde.acceptDrop(DnDConstants.ACTION_MOVE);
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
-                    objCartaJirafa.jLabel6.setText(droppedText);
+                    objCartaBicicleta.jLabel6.setText(droppedText);
 
-                    if ((objCartaJirafa.jLabel5.getText() + droppedText + objCartaJirafa.jLabel7.getText()).equals("JIRAFA")) {
-                        objAudio.reproducirAudio("jirafa");
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es JIRAFA");
+                    if ((objCartaBicicleta.jLabel5.getText() + droppedText + objCartaBicicleta.jLabel7.getText()).equals("BICICLETA")) {
+                        objAudio.reproducirAudio("bicicleta");
+                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es BICICLETA");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
-                        objCartaJirafa.jLabel6.setText(textoOriginal);
+                        objCartaBicicleta.jLabel6.setText(textoOriginal);
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -153,3 +152,4 @@ public class ControladorCartaJirafa implements ActionListener {
         );
     }
 }
+
