@@ -20,6 +20,7 @@ public class ControladorMenuTablero implements ActionListener{
     public ControladorMenuTablero(MenuTablero objMenuTablero){
         this.objMenuTablero=objMenuTablero;
         objMenuTablero.jButton1.addActionListener(this);
+        objMenuTablero.jButton2.addActionListener(this);
     }
 
     @Override
@@ -28,6 +29,10 @@ public class ControladorMenuTablero implements ActionListener{
             MenuInicio objMenuInicio = new MenuInicio();
             objMenuInicio.setVisible(true);
             this.objMenuTablero.dispose();
+        }
+        
+        if (e.getSource() == this.objMenuTablero.jButton2) {
+            System.out.println("Nivel 1");
         }
     }
     
