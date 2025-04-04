@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.MenuInicio;
 import vista.MenuJuego;
+import vista.MenuTablero;
 
 public class ControladorMenuInicio implements ActionListener {
 
@@ -26,7 +27,9 @@ public class ControladorMenuInicio implements ActionListener {
         }
 
         if (e.getSource() == this.objMenuInicio.jButton2) {
-            // Tablero
+           MenuTablero objMenuTablero = new MenuTablero();
+           objMenuTablero.setVisible(true);
+           this.objMenuInicio.dispose();
         }
 
         if (e.getSource() == this.objMenuInicio.jButton3) {
