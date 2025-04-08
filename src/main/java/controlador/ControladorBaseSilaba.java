@@ -80,7 +80,7 @@ public abstract class ControladorBaseSilaba {
             }
         });
     }
-
+    
     protected int getIndicePalabra() {
         return 0;
     }
