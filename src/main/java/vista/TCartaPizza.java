@@ -49,6 +49,8 @@ public class TCartaPizza extends javax.swing.JFrame {
             .addGap(0, 228, Short.MAX_VALUE)
         );
 
+        jPanel4.setBackground(new java.awt.Color(153, 153, 153));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
