@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.MenuInicio;
 import vista.MenuTablero;
+import vista.TCartaPizza;
 
 /**
  *
@@ -32,7 +33,9 @@ public class ControladorMenuTablero implements ActionListener{
         }
         
         if (e.getSource() == this.objMenuTablero.jButton2) {
-            System.out.println("Nivel 1");
+            TCartaPizza tCartaPizza = new TCartaPizza();
+            tCartaPizza.setVisible(true);
+            this.objMenuTablero.dispose();
         }
     }
     

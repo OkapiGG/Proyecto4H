@@ -14,6 +14,7 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
+import vista.MenuTablero;
 import vista.TCartaPizza;
 
 /**
@@ -35,6 +36,7 @@ public class ControladorTCartaPizza implements MouseListener {
         this.objTCartaPizza.jButton1.addMouseListener(this);
         this.objTCartaPizza.jButton2.addMouseListener(this);
         this.objTCartaPizza.jButton3.addMouseListener(this);
+        this.objTCartaPizza.jButton4.addMouseListener(this);
         try {
             this.conexion = ConexionBD.getInstancia().getConexion();
             modeloPalabra = new ModeloPalabra();
@@ -63,6 +65,12 @@ public class ControladorTCartaPizza implements MouseListener {
             this.silabaSeleccionada = objTCartaPizza.jButton3.getText();
             verificarPalabra(silabaSeleccionada);
         }
+
+        if (e.getSource() == this.objTCartaPizza.jButton4) {
+            MenuTablero menuTablero = new MenuTablero();
+            menuTablero.setVisible(true);
+            this.objTCartaPizza.dispose();
+        }
     }
 
     private void cargarPalabraDelNivel() {
@@ -86,7 +94,7 @@ public class ControladorTCartaPizza implements MouseListener {
 
     public void verificarPalabra(String silabaSeleccionada) {
         System.out.println(silabaSeleccionada);
-        
+
         if (silabaSeleccionada.equals(silabaCorrecta)) {
             JOptionPane.showMessageDialog(null, "¡Correcto!");
         } else {
