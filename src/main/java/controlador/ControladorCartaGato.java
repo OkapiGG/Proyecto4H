@@ -19,7 +19,6 @@ import modelo.ModeloPalabra;
 import modelo.ModeloUsuario;
 import modelo.Palabra;
 import vista.CartaGato;
-import vista.InicioSesion;
 import vista.MenuJuego;
 
 public class ControladorCartaGato implements ActionListener {
