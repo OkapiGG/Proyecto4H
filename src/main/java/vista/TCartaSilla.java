@@ -4,21 +4,21 @@
  */
 package vista;
 
-import controlador.ControladorTCartaManzana;
+import controlador.ControladorTCartaSilla;
 
 /**
  *
- * @author alancervantes
+ * @author ep712
  */
-public class TCartaManzana extends javax.swing.JFrame {
+public class TCartaSilla extends javax.swing.JFrame {
 
     /**
-     * Creates new form TCartaManzana
+     * Creates new form TCartaSilla
      */
-    ControladorTCartaManzana objControladorTCartaManzana;
-    public TCartaManzana() {
+    ControladorTCartaSilla objControladorTCartaSilla;
+    public TCartaSilla() {
         initComponents();
-        objControladorTCartaManzana = new ControladorTCartaManzana(this);
+        objControladorTCartaSilla = new ControladorTCartaSilla(this);
     }
 
     /**
@@ -43,40 +43,36 @@ public class TCartaManzana extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
         jButton1.setForeground(new java.awt.Color(217, 121, 4));
+        jButton1.setText("PI");
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 170, 260));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 178, 170, 270));
 
         jButton2.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
         jButton2.setForeground(new java.awt.Color(217, 121, 4));
+        jButton2.setText("CI");
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, 160, 260));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 179, 160, 270));
 
         jButton3.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
         jButton3.setForeground(new java.awt.Color(217, 121, 4));
-        jButton3.setText("MA");
+        jButton3.setText("SI");
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 180, 160, 260));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 179, 160, 270));
 
-        jButton4.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(217, 121, 4));
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, 80));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 28, 80, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tCartaManzana.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tCartaSilla.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,9 +88,9 @@ public class TCartaManzana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,20 +109,20 @@ public class TCartaManzana extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TCartaManzana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TCartaSilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TCartaManzana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TCartaSilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TCartaManzana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TCartaSilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TCartaManzana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TCartaSilla.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TCartaManzana().setVisible(true);
+                new TCartaSilla().setVisible(true);
             }
         });
     }
