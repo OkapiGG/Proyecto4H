@@ -8,7 +8,7 @@ import controlador.ControladorMenuTablero;
 
 /**
  *
- * @author alancervantes
+ * @author 
  */
 public class MenuTablero extends javax.swing.JFrame {
 
@@ -34,6 +34,17 @@ public class MenuTablero extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,6 +64,50 @@ public class MenuTablero extends javax.swing.JFrame {
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setDefaultCapable(false);
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 100, 140));
+
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 110, 130));
+
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 158, 110, 140));
+
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 158, 110, 140));
+
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 158, 110, 140));
+
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(727, 154, 110, 140));
+
+        jButton8.setBorderPainted(false);
+        jButton8.setContentAreaFilled(false);
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 318, 120, 150));
+
+        jButton9.setBorderPainted(false);
+        jButton9.setContentAreaFilled(false);
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 318, 110, 150));
+
+        jButton10.setBorderPainted(false);
+        jButton10.setContentAreaFilled(false);
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 318, 120, 150));
+
+        jButton11.setBorderPainted(false);
+        jButton11.setContentAreaFilled(false);
+        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 318, 120, 150));
+
+        jButton12.setBorderPainted(false);
+        jButton12.setContentAreaFilled(false);
+        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 120, 160));
+
+        jButton13.setBorderPainted(false);
+        jButton13.setContentAreaFilled(false);
+        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 314, 120, 160));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuTablero.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -101,7 +156,18 @@ public class MenuTablero extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton10;
+    public javax.swing.JButton jButton11;
+    public javax.swing.JButton jButton12;
+    public javax.swing.JButton jButton13;
     public javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton6;
+    public javax.swing.JButton jButton7;
+    public javax.swing.JButton jButton8;
+    public javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

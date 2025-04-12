@@ -4,6 +4,8 @@
  */
 package vista;
 
+import controlador.ControladorTCartaHamburguesa;
+
 /**
  *
  * @author alancervantes
@@ -13,8 +15,12 @@ public class TCartaHamburguesa extends javax.swing.JFrame {
     /**
      * Creates new form TCartaHamburguesa
      */
+    ControladorTCartaHamburguesa objControladorTCartaHamburguesa;
+    
     public TCartaHamburguesa() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        objControladorTCartaHamburguesa = new ControladorTCartaHamburguesa(this);
     }
 
     /**
@@ -39,7 +45,8 @@ public class TCartaHamburguesa extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
         jButton1.setForeground(new java.awt.Color(217, 121, 4));
-        jButton1.setText("HAM");
+        jButton1.setText("HA");
+        jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setDefaultCapable(false);
@@ -140,9 +147,9 @@ public class TCartaHamburguesa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -15,15 +12,11 @@ import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
 import vista.MenuTablero;
-import vista.TCartaPizza;
+import vista.TCartaPerro;
 
-/**
- *
- * @author alancervantes
- */
-public class ControladorTCartaPizza implements MouseListener {
+public class ControladorTCartaPerro implements MouseListener {
 
-    private TCartaPizza objTCartaPizza;
+    private TCartaPerro objTCartaPerro;
     private ModeloPalabra modeloPalabra;
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
@@ -31,62 +24,58 @@ public class ControladorTCartaPizza implements MouseListener {
     private String silabaCorrecta;
     private String silabaSeleccionada;
 
-    public ControladorTCartaPizza(TCartaPizza objTCartaPizza) {
-        this.objTCartaPizza = objTCartaPizza;
-        this.objTCartaPizza.jButton1.addMouseListener(this);
-        this.objTCartaPizza.jButton2.addMouseListener(this);
-        this.objTCartaPizza.jButton3.addMouseListener(this);
-        this.objTCartaPizza.jButton4.addMouseListener(this);
+    public ControladorTCartaPerro(TCartaPerro objTCartaPerro) {
+        this.objTCartaPerro = objTCartaPerro;
+        this.objTCartaPerro.jButton1.addMouseListener(this);
+        this.objTCartaPerro.jButton2.addMouseListener(this);
+        this.objTCartaPerro.jButton3.addMouseListener(this);
+        this.objTCartaPerro.jButton4.addMouseListener(this);
         inicializacionDeCon();
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
-        if (e.getSource() == this.objTCartaPizza.jButton1) {
-            this.silabaSeleccionada = objTCartaPizza.jButton1.getText();
+        if (e.getSource() == this.objTCartaPerro.jButton1) {
+            this.silabaSeleccionada = objTCartaPerro.jButton1.getText();
             verificarPalabra(silabaSeleccionada);
         }
-
-        if (e.getSource() == this.objTCartaPizza.jButton2) {
-            this.silabaSeleccionada = objTCartaPizza.jButton2.getText();
+        if (e.getSource() == this.objTCartaPerro.jButton2) {
+            this.silabaSeleccionada = objTCartaPerro.jButton2.getText();
             verificarPalabra(silabaSeleccionada);
         }
-
-        if (e.getSource() == this.objTCartaPizza.jButton3) {
-            this.silabaSeleccionada = objTCartaPizza.jButton3.getText();
+        if (e.getSource() == this.objTCartaPerro.jButton3) {
+            this.silabaSeleccionada = objTCartaPerro.jButton3.getText();
             verificarPalabra(silabaSeleccionada);
         }
-
-        if (e.getSource() == this.objTCartaPizza.jButton4) {
+        if (e.getSource() == this.objTCartaPerro.jButton4) {
             MenuTablero menuTablero = new MenuTablero();
             menuTablero.setVisible(true);
-            this.objTCartaPizza.dispose();
+            this.objTCartaPerro.dispose();
         }
+
     }
 
     private void cargarPalabraDelNivel() {
-        // getPalabras() devuelve una lista de objetos Palabra
+        // getPalabras() devuelve una lista de objeto Palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
-            Palabra palabraActual = lista.get(13);
+            Palabra palabraActual = lista.get(1);
             String palabraCompleta = palabraActual.getPalabra();
-
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
-                objTCartaPizza.jButton1.setText(silabaCorrecta);
-                objTCartaPizza.jButton2.setText("HU");
-                objTCartaPizza.jButton3.setText("KI");
+                objTCartaPerro.jButton1.setText("PO");
+                objTCartaPerro.jButton2.setText(silabaCorrecta);
+                objTCartaPerro.jButton3.setText("PU");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
+
     }
 
-    public void verificarPalabra(String silabaSeleccionada) {
-        System.out.println(silabaSeleccionada);
-
-        if (silabaSeleccionada.equals(silabaCorrecta)) {
+    public void verificarPalabra(String silaSeleccionada) {
+        System.out.println(silaSeleccionada);
+        if (silaSeleccionada.equals(silabaCorrecta)) {
             JOptionPane.showMessageDialog(null, "¡Correcto!");
         } else {
             JOptionPane.showMessageDialog(null, "Inténtalo de nuevo.");
@@ -104,7 +93,6 @@ public class ControladorTCartaPizza implements MouseListener {
         }
         objAudio = new ControladorAudios();
     }
-    
 
     @Override
     public void mousePressed(MouseEvent e) {
