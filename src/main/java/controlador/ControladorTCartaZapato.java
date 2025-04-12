@@ -36,16 +36,19 @@ public class ControladorTCartaZapato implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.objTCartaZapato.jButton1) {
             this.silabaSeleccionada = objTCartaZapato.jButton1.getText();
+            objAudio.reproducirAudio("to");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaZapato.jButton2) {
             this.silabaSeleccionada = objTCartaZapato.jButton2.getText();
+            objAudio.reproducirAudio("sa");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaZapato.jButton3) {
             this.silabaSeleccionada = objTCartaZapato.jButton3.getText();
+            objAudio.reproducirAudio("za");
             verificarPalabra(silabaSeleccionada);
         }
 

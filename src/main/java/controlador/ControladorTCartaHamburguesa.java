@@ -45,16 +45,19 @@ public class ControladorTCartaHamburguesa implements MouseListener {
 
         if (e.getSource() == this.objTCartaHamburguesa.jButton1) {
             this.silabaSeleccionada = objTCartaHamburguesa.jButton1.getText();
+            objAudio.reproducirAudio("ha");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaHamburguesa.jButton2) {
             this.silabaSeleccionada = objTCartaHamburguesa.jButton2.getText();
+            objAudio.reproducirAudio("bu");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaHamburguesa.jButton3) {
             this.silabaSeleccionada = objTCartaHamburguesa.jButton3.getText();
+            objAudio.reproducirAudio("to");
             verificarPalabra(silabaSeleccionada);
         }
 

@@ -37,16 +37,19 @@ public class ControladorTCartaCama implements MouseListener{
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.objTCartaCama.jButton1) {
             this.silabaSeleccionada = objTCartaCama.jButton1.getText();
+            objAudio.reproducirAudio("na");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaCama.jButton2) {
             this.silabaSeleccionada = objTCartaCama.jButton2.getText();
+            objAudio.reproducirAudio("da");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaCama.jButton3) {
             this.silabaSeleccionada = objTCartaCama.jButton3.getText();
+            objAudio.reproducirAudio("ca");
             verificarPalabra(silabaSeleccionada);
         }
 
@@ -66,7 +69,7 @@ public class ControladorTCartaCama implements MouseListener{
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
                 objTCartaCama.jButton1.setText("NA");
-                objTCartaCama.jButton2.setText("ZA");
+                objTCartaCama.jButton2.setText("DA");
                 objTCartaCama.jButton3.setText(silabaCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");

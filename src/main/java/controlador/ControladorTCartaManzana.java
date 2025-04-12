@@ -37,16 +37,19 @@ public class ControladorTCartaManzana implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.objTCartaManzana.jButton1) {
             this.silabaSeleccionada = objTCartaManzana.jButton1.getText();
+            objAudio.reproducirAudio("na");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaManzana.jButton2) {
             this.silabaSeleccionada = objTCartaManzana.jButton2.getText();
+             objAudio.reproducirAudio("za");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaManzana.jButton3) {
             this.silabaSeleccionada = objTCartaManzana.jButton3.getText();
+             objAudio.reproducirAudio("ma");
             verificarPalabra(silabaSeleccionada);
         }
 

@@ -37,14 +37,17 @@ public class ControladorTCartaConejo implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.objTCartaConejo.jButton1) {
             this.silabaSeleccionada = objTCartaConejo.jButton1.getText();
+            objAudio.reproducirAudio("ra");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaConejo.jButton2) {
             this.silabaSeleccionada = objTCartaConejo.jButton2.getText();
+            objAudio.reproducirAudio("co");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaConejo.jButton3) {
             this.silabaSeleccionada = objTCartaConejo.jButton3.getText();
+            objAudio.reproducirAudio("po");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaConejo.jButton4) {
@@ -70,7 +73,6 @@ public class ControladorTCartaConejo implements MouseListener {
                 JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
             }
         }
-
     }
 
     public void verificarPalabra(String silaSeleccionada) {

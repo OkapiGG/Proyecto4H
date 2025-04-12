@@ -37,14 +37,17 @@ public class ControladorTCartaPerro implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.objTCartaPerro.jButton1) {
             this.silabaSeleccionada = objTCartaPerro.jButton1.getText();
+            objAudio.reproducirAudio("po");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaPerro.jButton2) {
             this.silabaSeleccionada = objTCartaPerro.jButton2.getText();
+            objAudio.reproducirAudio("pe");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaPerro.jButton3) {
             this.silabaSeleccionada = objTCartaPerro.jButton3.getText();
+            objAudio.reproducirAudio("pu");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaPerro.jButton4) {
@@ -52,7 +55,6 @@ public class ControladorTCartaPerro implements MouseListener {
             menuTablero.setVisible(true);
             this.objTCartaPerro.dispose();
         }
-
     }
 
     private void cargarPalabraDelNivel() {

@@ -36,16 +36,19 @@ public class ControladorTCartaBillete implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.objTCartaBillete.jButton1) {
             this.silabaSeleccionada = objTCartaBillete.jButton1.getText();
+            objAudio.reproducirAudio("bi");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaBillete.jButton2) {
             this.silabaSeleccionada = objTCartaBillete.jButton2.getText();
+            objAudio.reproducirAudio("do");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaBillete.jButton3) {
             this.silabaSeleccionada = objTCartaBillete.jButton3.getText();
+            objAudio.reproducirAudio("vi");
             verificarPalabra(silabaSeleccionada);
         }
 
