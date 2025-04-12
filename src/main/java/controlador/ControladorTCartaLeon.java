@@ -36,14 +36,17 @@ public class ControladorTCartaLeon implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.objTCartaLeon.jButton1) {
             this.silabaSeleccionada = objTCartaLeon.jButton1.getText();
+            objAudio.reproducirAudio("li");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaLeon.jButton2) {
             this.silabaSeleccionada = objTCartaLeon.jButton2.getText();
+            objAudio.reproducirAudio("le");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaLeon.jButton3) {
             this.silabaSeleccionada = objTCartaLeon.jButton3.getText();
+            objAudio.reproducirAudio("pu");
             verificarPalabra(silabaSeleccionada);
         }
         if (e.getSource() == this.objTCartaLeon.jButton4) {

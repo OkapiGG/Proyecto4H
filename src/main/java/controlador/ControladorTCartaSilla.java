@@ -44,16 +44,19 @@ public class ControladorTCartaSilla implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == this.objTCartaSilla.jButton1) {
             this.silabaSeleccionada = objTCartaSilla.jButton1.getText();
+            objAudio.reproducirAudio("pi");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaSilla.jButton2) {
             this.silabaSeleccionada = objTCartaSilla.jButton2.getText();
+            objAudio.reproducirAudio("ci");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaSilla.jButton3) {
             this.silabaSeleccionada = objTCartaSilla.jButton3.getText();
+            objAudio.reproducirAudio("si");
             verificarPalabra(silabaSeleccionada);
         }
 

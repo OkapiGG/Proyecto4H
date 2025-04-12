@@ -23,7 +23,7 @@ public class ControladorTCartaFoco implements MouseListener {
     private String silabaCorrecta;
     private String silabaSeleccionada;
 
-        public ControladorTCartaFoco(TCartaFoco objTCartaFoco) {
+    public ControladorTCartaFoco(TCartaFoco objTCartaFoco) {
         this.objTCartaFoco = objTCartaFoco;
         this.objTCartaFoco.jButton1.addMouseListener(this);
         this.objTCartaFoco.jButton2.addMouseListener(this);
@@ -31,21 +31,24 @@ public class ControladorTCartaFoco implements MouseListener {
         this.objTCartaFoco.jButton4.addMouseListener(this);
         inicializacionDeConstructor();
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
-         if (e.getSource() == this.objTCartaFoco.jButton1) {
+        if (e.getSource() == this.objTCartaFoco.jButton1) {
             this.silabaSeleccionada = objTCartaFoco.jButton1.getText();
+            objAudio.reproducirAudio("pe");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaFoco.jButton2) {
             this.silabaSeleccionada = objTCartaFoco.jButton2.getText();
+            objAudio.reproducirAudio("fa");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaFoco.jButton3) {
             this.silabaSeleccionada = objTCartaFoco.jButton3.getText();
+            objAudio.reproducirAudio("fo");
             verificarPalabra(silabaSeleccionada);
         }
 
@@ -55,8 +58,7 @@ public class ControladorTCartaFoco implements MouseListener {
             this.objTCartaFoco.dispose();
         }
     }
-    
-    
+
     private void cargarPalabraDelNivel() {
         // getPalabras() devuelve una lista de objeto Palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();

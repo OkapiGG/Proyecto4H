@@ -18,6 +18,7 @@ public class TCartaSilla extends javax.swing.JFrame {
     ControladorTCartaSilla objControladorTCartaSilla;
     public TCartaSilla() {
         initComponents();
+        this.setLocationRelativeTo(null);
         objControladorTCartaSilla = new ControladorTCartaSilla(this);
     }
 
@@ -46,6 +47,7 @@ public class TCartaSilla extends javax.swing.JFrame {
         jButton1.setText("PI");
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 178, 170, 270));
 
         jButton2.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
@@ -53,6 +55,7 @@ public class TCartaSilla extends javax.swing.JFrame {
         jButton2.setText("CI");
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(499, 179, 160, 270));
 
         jButton3.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
@@ -60,10 +63,12 @@ public class TCartaSilla extends javax.swing.JFrame {
         jButton3.setText("SI");
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 179, 160, 270));
 
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);

@@ -67,46 +67,57 @@ public class MenuTablero extends javax.swing.JFrame {
 
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 110, 130));
 
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 158, 110, 140));
 
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 158, 110, 140));
 
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 158, 110, 140));
 
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(727, 154, 110, 140));
 
         jButton8.setBorderPainted(false);
         jButton8.setContentAreaFilled(false);
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 318, 120, 150));
 
         jButton9.setBorderPainted(false);
         jButton9.setContentAreaFilled(false);
+        jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 318, 110, 150));
 
         jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
+        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 318, 120, 150));
 
         jButton11.setBorderPainted(false);
         jButton11.setContentAreaFilled(false);
+        jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 318, 120, 150));
 
         jButton12.setBorderPainted(false);
         jButton12.setContentAreaFilled(false);
-        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 120, 160));
+        jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 110, 150));
 
         jButton13.setBorderPainted(false);
         jButton13.setContentAreaFilled(false);
+        jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 314, 120, 160));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuTablero.png"))); // NOI18N

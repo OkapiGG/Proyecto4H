@@ -45,16 +45,19 @@ public class ControladorTCartaMesa implements MouseListener {
 
         if (e.getSource() == this.objTCartaMesa.jButton1) {
             this.silabaSeleccionada = objTCartaMesa.jButton1.getText();
+            objAudio.reproducirAudio("sa");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaMesa.jButton2) {
             this.silabaSeleccionada = objTCartaMesa.jButton2.getText();
+            objAudio.reproducirAudio("me");
             verificarPalabra(silabaSeleccionada);
         }
 
         if (e.getSource() == this.objTCartaMesa.jButton3) {
             this.silabaSeleccionada = objTCartaMesa.jButton3.getText();
+            objAudio.reproducirAudio("za");
             verificarPalabra(silabaSeleccionada);
         }
 
