@@ -82,7 +82,7 @@ public class ControladorCartaPajaro implements ActionListener {
 
     // Configuración de Drag & Drop
     private void arrastrarSoltar() {
-        final String textoOriginal = objControladoCartaPajaro.jLabel3.getText();
+        final String textoOriginal = objControladoCartaPajaro.jLabel5.getText();
         DragSource ds = new DragSource();
 
         // Configurar arrastre para jLabel2
