@@ -141,7 +141,7 @@ public class ControladorCartaMango implements ActionListener {
                         JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es MANGO");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
-                        objCartaMango.jLabel6.setText(textoOriginal);
+                        objCartaMango.jLabel5.setText(textoOriginal);
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
