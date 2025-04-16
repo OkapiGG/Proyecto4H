@@ -59,57 +59,110 @@ public class OCartaNivel1 extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel2.setText("TO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 30, 30));
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 50, 50));
 
-        jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel3.setText("PO");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, 30));
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 80, 30));
+        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, 30));
+
+        jLabel4.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 70, 30));
+
+        jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 80, 30));
 
-        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel6.setText("PI");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 20, 30));
+        jLabel6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 30, 40));
 
-        jLabel7.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel7.setText("LA");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, -1, 30));
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, 80, 30));
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 277, 80, 40));
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, 30));
 
-        jLabel10.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, 80, 30));
+
+        jLabel9.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel9.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 280, 90, 30));
+
+        jLabel10.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel10.setText("TO");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
+        jLabel10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel11.setText("MA");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel12.setText("TE");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, -1));
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, 50, 30));
+
+        jLabel14.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel14.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 550, 50, 30));
+
+        jLabel15.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 50, 30));
 
-        jLabel16.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel16.setText("PI");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
+        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel17.setText("LO");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, -1));
+        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, -1, -1));
 
-        jLabel18.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel18.setText("TO");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 550, 60, 30));
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 550, 60, 30));
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 550, 60, 30));
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, -1));
 
+        jLabel19.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel19.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel19.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 550, 50, 30));
+
+        jLabel20.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel20.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel20.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, 50, 30));
+
+        jLabel21.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel21.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 550, 50, 30));
+
+        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CartaNivel1.jpeg"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
