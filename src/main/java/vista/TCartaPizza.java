@@ -8,7 +8,7 @@ import controlador.ControladorTCartaPizza;
 
 /**
  *
- * @author alancervantes
+ * @author alancervantes%
  */
 public class TCartaPizza extends javax.swing.JFrame {
 
