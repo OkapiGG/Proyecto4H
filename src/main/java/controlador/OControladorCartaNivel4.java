@@ -93,6 +93,7 @@ public class OControladorCartaNivel4 implements MouseListener {
                 silabaSeleccionada = label.getText();
                 labelOrigenSeleccionada = label;
                 System.out.println("Selección: " + silabaSeleccionada);
+                objAudio.reproducirAudio(silabaSeleccionada);
             } 
            
 

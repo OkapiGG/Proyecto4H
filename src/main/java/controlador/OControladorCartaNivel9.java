@@ -99,7 +99,7 @@ public class OControladorCartaNivel9 implements MouseListener {
                 labelOrigenSeleccionada = label;
                 System.out.println("Selección: " + silabaSeleccionada);
             } 
-           
+            
 
             // Destino ELEFANTE
             else if (!grupo1Completado && (label == objOCartaNivel9.jLabel6 || label == objOCartaNivel9.jLabel7 || label == objOCartaNivel9.jLabel8 || label == objOCartaNivel9.jLabel9)) {
