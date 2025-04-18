@@ -47,13 +47,17 @@ public class MenuInicio extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 610, 110));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 550, 100));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vistaMenu_800x700_max_quality.jpg"))); // NOI18N
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 304, 610, 90));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 560, 90));
 
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
@@ -63,14 +67,14 @@ public class MenuInicio extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 414, 620, 100));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 560, 80));
 
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 534, 600, 100));
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 560, 80));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/vistaMenu_800x700_max_quality.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuPrincipal.png"))); // NOI18N
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,6 +94,10 @@ public class MenuInicio extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
