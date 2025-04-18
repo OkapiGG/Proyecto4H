@@ -21,9 +21,11 @@ import vista.MenuJuego;
 public class ControladorCartaArbol extends ControladorClaseDragDrop {
 
     private CartaArbol objCartaArbol;
+    private ControladorAudios objControladorAudios;
 
     public ControladorCartaArbol(CartaArbol objCartaArbol) {
         this.objCartaArbol = objCartaArbol;
+        objControladorAudios = new ControladorAudios();
     }
 
     @Override
@@ -57,14 +59,16 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaArbol.jLabel2.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("bol");
             }
         });
 
         ds.createDefaultDragGestureRecognizer(objCartaArbol.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
-            public void dragGestureRecognized(DragGestureEvent dge) {
+            public void dragGestureRecognized(DragGestureEvent dge) {                
                 Transferable objTransferible = new StringSelection(objCartaArbol.jLabel3.getText());
-                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);                
+                objControladorAudios.reproducirAudio("no");
             }
         });
 
@@ -73,6 +77,7 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaArbol.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("que");
             }
         });
 

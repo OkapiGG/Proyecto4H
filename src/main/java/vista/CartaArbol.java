@@ -20,14 +20,12 @@ public class CartaArbol extends javax.swing.JFrame {
      * Creates new form Arbol
      */
     ControladorCartaArbol objControladorCartaArbol;
-    ControladorAudios objControladorAudios;
-    
+
     public CartaArbol() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaArbol = new ControladorCartaArbol(this);
-        objControladorCartaArbol.inicializar(); 
-        objControladorAudios = new ControladorAudios();
+        objControladorCartaArbol.inicializar();
     }
 
     /**
@@ -123,15 +121,15 @@ public class CartaArbol extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        objControladorAudios.reproducirAudio("no");
+
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        objControladorAudios.reproducirAudio("bol");
+
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        objControladorAudios.reproducirAudio("que");
+
     }//GEN-LAST:event_jLabel4MousePressed
 
     /**
