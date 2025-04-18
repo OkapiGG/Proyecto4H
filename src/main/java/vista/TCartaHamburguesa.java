@@ -21,6 +21,7 @@ public class TCartaHamburguesa extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaHamburguesa = new ControladorTCartaHamburguesa(this);
+        objControladorTCartaHamburguesa.inicializar();
     }
 
     /**

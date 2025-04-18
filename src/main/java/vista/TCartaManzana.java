@@ -20,6 +20,7 @@ public class TCartaManzana extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaManzana = new ControladorTCartaManzana(this);
+        objControladorTCartaManzana.inicializar();
     }
 
     /**

@@ -1,89 +1,57 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
-import java.awt.dnd.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DragGestureEvent;
+import java.awt.dnd.DragGestureListener;
+import java.awt.dnd.DragSource;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDragEvent;
+import java.awt.dnd.DropTargetDropEvent;
+import java.awt.dnd.DropTargetEvent;
+import java.awt.dnd.DropTargetListener;
 import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.ConexionBD;
-import modelo.ModeloGuardaPalabras;
-import modelo.ModeloPalabra;
 import modelo.Palabra;
 import vista.CartaArbol;
-import vista.CartaCarro;
 import vista.MenuJuego;
 
+public class ControladorCartaArbol extends ControladorClaseDragDrop {
 
-public class ControladorCartaArbol implements ActionListener {
-
-    private ModeloPalabra modeloPalabra;
-    private ModeloGuardaPalabras modeloGuardaPalabras;
-    private Connection conexion;
-    private ControladorAudios objAudio;
     private CartaArbol objCartaArbol;
 
     public ControladorCartaArbol(CartaArbol objCartaArbol) {
         this.objCartaArbol = objCartaArbol;
-        this.objCartaArbol.jButton1.addActionListener(this);
-        try {
-            this.conexion = ConexionBD.getInstancia().getConexion();
-            modeloPalabra = new ModeloPalabra();
-            modeloGuardaPalabras = new ModeloGuardaPalabras(modeloPalabra);
-            cargarPalabraDelNivel();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        arrastrarSoltar();
-        objAudio = new ControladorAudios();
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.objCartaArbol.jButton1) {
-            MenuJuego objMenuJuego = new MenuJuego();
-            objMenuJuego.setVisible(true);
-            this.objCartaArbol.dispose();
-        }
-    }
-
-    private void cargarPalabraDelNivel() {
-//        Ahora getPalabras() Devuelve una lista de objetos de palabra
+    protected void cargarPalabraDelNivel() {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
-            Palabra palabraActual = lista.get(4);
+            Palabra palabraActual = lista.get(4); // Cambia a la palabra que necesitas
             String palabraCompleta = palabraActual.getPalabra();
 
             if (palabraCompleta.length() >= 2) {
                 String silabaCorrecta = palabraCompleta.substring(2, 5);
                 String complemento = palabraCompleta.substring(0, 2);
-
                 objCartaArbol.jLabel2.setText(silabaCorrecta);
                 objCartaArbol.jLabel5.setText(complemento);
-//                Silabas Falsas
                 objCartaArbol.jLabel3.setText("NO");
                 objCartaArbol.jLabel4.setText("QUE");
-
             }
         } else {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
     }
 
-    // Configuración de Drag & Drop
-    private void arrastrarSoltar() {
+    @Override
+    protected void arrastrarSoltar() {
         final String textoOriginal = objCartaArbol.jLabel6.getText();
         DragSource ds = new DragSource();
 
-        // Configurar arrastre para jlabel2
+        // Configurar arrastre para cada JLabel
         ds.createDefaultDragGestureRecognizer(objCartaArbol.jLabel2, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
@@ -92,7 +60,6 @@ public class ControladorCartaArbol implements ActionListener {
             }
         });
 
-        // Configurar arrastre para jLabel3
         ds.createDefaultDragGestureRecognizer(objCartaArbol.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
@@ -101,7 +68,6 @@ public class ControladorCartaArbol implements ActionListener {
             }
         });
 
-        // Configurar arrastre para jLabel4
         ds.createDefaultDragGestureRecognizer(objCartaArbol.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
@@ -110,7 +76,7 @@ public class ControladorCartaArbol implements ActionListener {
             }
         });
 
-        // Configurar Jlabel5 como receptor o drop
+        // Configurar la zona de drop
         new DropTarget(objCartaArbol.jLabel6, new DropTargetListener() {
             @Override
             public void dragEnter(DropTargetDragEvent dtde) {
@@ -147,7 +113,20 @@ public class ControladorCartaArbol implements ActionListener {
                     ex.printStackTrace();
                 }
             }
+        });
+    }
+
+    @Override
+    protected void manejarEvento(Object boton) {
+        if (boton == this.objCartaArbol.jButton1) {
+            MenuJuego objMenuJuego = new MenuJuego();
+            objMenuJuego.setVisible(true);
+            this.objCartaArbol.dispose();
         }
-        );
+    }
+
+    @Override
+    protected void agregarAccionadorEventos() {
+        this.objCartaArbol.jButton1.addActionListener(this);
     }
 }

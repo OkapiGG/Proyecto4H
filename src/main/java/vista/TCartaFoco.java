@@ -21,6 +21,7 @@ public class TCartaFoco extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaFoco = new ControladorTCartaFoco(this);
+        objControladorTCartaFoco.inicializar();
 
     }
 

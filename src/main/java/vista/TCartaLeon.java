@@ -20,6 +20,7 @@ public class TCartaLeon extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaLeon = new ControladorTCartaLeon(this);
+        objControladorTCartaLeon.inicializar();
     }
 
     /**

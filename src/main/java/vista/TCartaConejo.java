@@ -20,6 +20,7 @@ public class TCartaConejo extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaConejo = new ControladorTCartaConejo(this);
+        objControladorTCartaConejo.inicializar();
     }
 
     /**

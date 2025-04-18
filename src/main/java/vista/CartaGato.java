@@ -19,13 +19,14 @@ public class CartaGato extends javax.swing.JFrame {
     /**
      * Creates new form Carta1
      */
-    ControladorCartaGato objControladorCarta1;
+    ControladorCartaGato objControladorCartaGato;
     ControladorAudios objControladorAudios;
 
     public CartaGato() {
         initComponents();
         this.setLocationRelativeTo(null);
-        objControladorCarta1 = new ControladorCartaGato(this);
+        objControladorCartaGato = new ControladorCartaGato(this);
+        objControladorCartaGato.inicializar();
         objControladorAudios = new ControladorAudios();
     }
 
