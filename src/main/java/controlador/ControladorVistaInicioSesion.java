@@ -15,14 +15,14 @@ import vista.VistaPatronInicioSesion;
  *
  * @author alancervantes
  */
-public class ControladorVistaInicioSesion implements ActionListener{
-    
+public class ControladorVistaInicioSesion implements ActionListener {
+
     private VistaInicioSesion objVistaInicioSesion;
     private String perfilSeleccionado;
-    
-    public ControladorVistaInicioSesion(VistaInicioSesion objVistaInicioSesion){
+
+    public ControladorVistaInicioSesion(VistaInicioSesion objVistaInicioSesion) {
         this.objVistaInicioSesion = objVistaInicioSesion;
-        
+
         this.objVistaInicioSesion.jButton1.addActionListener(this);
         this.objVistaInicioSesion.jButton2.addActionListener(this);
         this.objVistaInicioSesion.jButton3.addActionListener(this);
@@ -32,20 +32,23 @@ public class ControladorVistaInicioSesion implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.objVistaInicioSesion.jButton1){
+        if (e.getSource() == this.objVistaInicioSesion.jButton1) {
             perfilSeleccionado = "barco";
-            JOptionPane.showMessageDialog(null, "Perfil seleccionado: barco");
+            JOptionPane.showMessageDialog(null, "✅ Perfil seleccionado: barco");
         }
-        if(e.getSource() == this.objVistaInicioSesion.jButton2){
+        if (e.getSource() == this.objVistaInicioSesion.jButton2) {
             perfilSeleccionado = "sol";
+            JOptionPane.showMessageDialog(null, "✅ Perfil seleccionado: sol");
         }
-        if(e.getSource() == this.objVistaInicioSesion.jButton3){
+        if (e.getSource() == this.objVistaInicioSesion.jButton3) {
             perfilSeleccionado = "mariposa";
+            JOptionPane.showMessageDialog(null, "✅ Perfil seleccionado: mariposa");
         }
-        if(e.getSource() == this.objVistaInicioSesion.jButton4){
+        if (e.getSource() == this.objVistaInicioSesion.jButton4) {
             perfilSeleccionado = "arbol";
+            JOptionPane.showMessageDialog(null, "✅ Perfil seleccionado: arbol");
         }
-        if(e.getSource() == this.objVistaInicioSesion.jButton5){
+        if (e.getSource() == this.objVistaInicioSesion.jButton5) {
             if (perfilSeleccionado != null) {
                 Login nuevoUsuario = new Login();
                 nuevoUsuario.setPerfil(perfilSeleccionado);
@@ -59,11 +62,7 @@ public class ControladorVistaInicioSesion implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Selecciona primero un perfil antes de Confirmar.");
             }
         }
-        
-        
+
     }
-    
-    
-    
-    
+
 }
