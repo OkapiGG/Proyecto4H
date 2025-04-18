@@ -30,8 +30,8 @@ public class OperacionesBDLogin extends CRUD {
         try {
             System.out.println("Insercion a la BD a traves de la funcion");
             CallableStatement cs = conexion.prepareCall("{ call insertar_usuario(?, ?) }");//Se llama la funcion de postgres
-            cs.setString(1, objLogin.getUsername());//parametro 1
-            cs.setString(2, objLogin.getContrasena());//parametro 2
+            cs.setString(1, objLogin.getPerfil());//parametro 1
+            cs.setString(2, objLogin.getPatron());//parametro 2
             cs.execute();
         } catch (Exception e) {
             System.out.println("Error al insertar en la base de datos: " + e.getMessage());
@@ -39,8 +39,21 @@ public class OperacionesBDLogin extends CRUD {
     }
 
     @Override
-    public ArrayList read() {
-        return null;
+    public boolean read() {
+        boolean encontrado = false;
+        try {
+            CallableStatement cs = conexion.prepareCall("{ call buscar_usuario(?, ?) }");
+            cs.setString(1, objLogin.getPerfil());
+            cs.setString(2, objLogin.getPatron());
+
+            java.sql.ResultSet rs = cs.executeQuery();
+            if (rs.next()) {
+                encontrado = true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error al buscar usuario: " + e.getMessage());
+        }
+        return encontrado;
     }
 
     @Override
