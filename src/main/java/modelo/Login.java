@@ -12,15 +12,13 @@ import java.sql.Timestamp;
  */
 public class Login {
 
-    private String username;
-    private String contrasena;
-    private int nivel;
-    private int puntos;
+    private String perfil;
+    private String patron;
     private static int idUsuarioActivo;
 
     public Login(String username, String contrasena) {
-        this.username = username;
-        this.contrasena = contrasena;
+        this.perfil = username;
+        this.patron = contrasena;
     }
 
     public Login() {
@@ -28,36 +26,20 @@ public class Login {
     }
 
     // Getters y setters
-    public String getUsername() {
-        return username;
+    public String getPerfil() {
+        return perfil;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPatron() {
+        return patron;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
-    public int getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(int nivel) {
-        this.nivel = nivel;
-    }
-
-    public int getPuntos() {
-        return puntos;
-    }
-
-    public void setPuntos(int puntos) {
-        this.puntos = puntos;
+    public void setPatron(String patron) {
+        this.patron = patron;
     }
 
     public static int getIdUsuarioActivo() {
