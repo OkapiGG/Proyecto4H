@@ -20,6 +20,7 @@ public class TCartaZapato extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaZapato = new ControladorTCartaZapato(this);
+        objControladorTCartaZapato.inicializar();
     }
 
     /**

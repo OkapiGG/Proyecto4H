@@ -219,6 +219,7 @@ public class OControladorCartaNivel4 implements MouseListener {
             String palabraFormada = parte1 + parte2;
             String palabraCorrecta = silaba1 + silaba2;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
+                objAudio.reproducirAudio("reloj");
                 JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
@@ -236,6 +237,7 @@ public class OControladorCartaNivel4 implements MouseListener {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba3 + silaba4 + silaba11;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
+                objAudio.reproducirAudio("caballo");
                 JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
@@ -253,6 +255,7 @@ public class OControladorCartaNivel4 implements MouseListener {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba5 + silaba6 + silaba7;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
+                objAudio.reproducirAudio("guitarra");
                 JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
@@ -270,6 +273,7 @@ public class OControladorCartaNivel4 implements MouseListener {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba8 + silaba9 + silaba10;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
+                objAudio.reproducirAudio("pantalon");
                 JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
