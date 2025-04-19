@@ -6,6 +6,7 @@ package controlador;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.CRUD;
 import modelo.Login;
@@ -26,15 +27,19 @@ public class OperacionesBDLogin extends CRUD {
     }
 
     @Override
+
     public void create() {
         try {
-            System.out.println("Insercion a la BD a traves de la funcion");
-            CallableStatement cs = conexion.prepareCall("{ call insertar_usuario(?, ?) }");//Se llama la funcion de postgres
-            cs.setString(1, objLogin.getPerfil());//parametro 1
-            cs.setString(2, objLogin.getPatron());//parametro 2
+            System.out.println("Registro completo de Usuario");
+            CallableStatement cs = conexion.prepareCall("{ call registrar_usuario(?, ?) }");
+            cs.setString(1, objLogin.getPerfil());
+            cs.setString(2, objLogin.getPatron());
             cs.execute();
+            
+            read();
+
         } catch (Exception e) {
-            System.out.println("Error al insertar en la base de datos: " + e.getMessage());
+            System.out.println("Error al registrar usuario y puntaje: " + e.getMessage());
         }
     }
 
@@ -45,10 +50,11 @@ public class OperacionesBDLogin extends CRUD {
             CallableStatement cs = conexion.prepareCall("{ call buscar_usuario(?, ?) }");
             cs.setString(1, objLogin.getPerfil());
             cs.setString(2, objLogin.getPatron());
-
-            java.sql.ResultSet rs = cs.executeQuery();
+            ResultSet rs = cs.executeQuery();
             if (rs.next()) {
                 encontrado = true;
+                int idUsuario = rs.getInt("idusuario");
+                Login.setIdUsuarioActivo(idUsuario);
             }
         } catch (Exception e) {
             System.out.println("Error al buscar usuario: " + e.getMessage());

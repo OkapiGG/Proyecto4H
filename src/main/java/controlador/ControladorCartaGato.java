@@ -135,13 +135,15 @@ public class ControladorCartaGato implements ActionListener {
                     objCarta1.jLabel3.setText(droppedText);
 
                     if ((droppedText + objCarta1.jLabel2.getText()).equals("GATO")) {
-                        /*int puntos = 10; 
-                        int palabras = 1; 
-                        int idUsuario = Login.getIdUsuarioActivo(); // Se obtiene el id del usuario activo para hacerle el update en la BD
-                        ModeloUsuario modeloUsuario = new ModeloUsuario();
-                        modeloUsuario.actualizarPuntajeYContador(idUsuario, puntos, palabras);*/
+                        int puntos = 10;
+                        int palabras = 1;
+                        int idUsuario = Login.getIdUsuarioActivo();
+                        System.out.println(idUsuario);
+                        OperacionesBDCuenta operaciones = new OperacionesBDCuenta();
+                        operaciones.actualizarPuntajeYPalabras(idUsuario, puntos, palabras);
+
                         objAudio.reproducirAudio("gato");
-                        JOptionPane.showMessageDialog(null, "Correcto!, la palabra es GATO");
+                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es GATO");
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCarta1.jLabel3.setText(textoOriginal);
