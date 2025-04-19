@@ -108,7 +108,22 @@ public class ControladorCartaCasa extends ControladorClaseDragDrop {
 
                     if ((objCartaCasa.jLabel6.getText() + droppedText).equals("CASA")) {
                         objAudio.reproducirAudio("casa");
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es CASA");
+
+                        int idUsuario = modelo.Login.getIdUsuarioActivo();
+                        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Correcto!\nGanaste 10 puntos 🏆",
+                                "Nivel completado",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+
+                        MenuJuego objMenuJuego = new MenuJuego();
+                        objMenuJuego.setVisible(true);
+                        objCartaCasa.dispose();
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCartaCasa.jLabel5.setText(textoOriginal);
@@ -116,6 +131,7 @@ public class ControladorCartaCasa extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+
             }
         });
     }

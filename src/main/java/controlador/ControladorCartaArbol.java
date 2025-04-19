@@ -65,9 +65,9 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
 
         ds.createDefaultDragGestureRecognizer(objCartaArbol.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
-            public void dragGestureRecognized(DragGestureEvent dge) {                
+            public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaArbol.jLabel3.getText());
-                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);                
+                ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
                 objControladorAudios.reproducirAudio("no");
             }
         });
@@ -106,10 +106,23 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaArbol.jLabel6.setText(droppedText);
-
                     if ((objCartaArbol.jLabel5.getText() + droppedText).equals("ARBOL")) {
                         objAudio.reproducirAudio("arbol");
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es ARBOL");
+                        int idUsuario = modelo.Login.getIdUsuarioActivo();
+                        
+                        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+                        
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Correcto!\nGanaste 10 puntos 🏆",
+                                "Nivel completado",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+                        
+                        MenuJuego objMenuJuego = new MenuJuego();
+                        objMenuJuego.setVisible(true);
+                        objCartaArbol.dispose();
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCartaArbol.jLabel6.setText(textoOriginal);
@@ -117,6 +130,7 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+
             }
         });
     }

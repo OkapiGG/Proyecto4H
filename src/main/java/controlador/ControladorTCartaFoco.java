@@ -72,4 +72,9 @@ public class ControladorTCartaFoco extends ControladorClaseBase {
             this.objTCartaFoco.dispose();
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaFoco.dispose();
+    }
 }

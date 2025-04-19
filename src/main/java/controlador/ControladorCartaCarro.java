@@ -83,17 +83,21 @@ public class ControladorCartaCarro extends ControladorClaseDragDrop {
         // Configurar Jlabel5 como receptor o drop
         new DropTarget(objCartaCarro.jLabel5, new DropTargetListener() {
             @Override
-            public void dragEnter(DropTargetDragEvent dtde) {}           
+            public void dragEnter(DropTargetDragEvent dtde) {
+            }
 
             @Override
-            public void dragOver(DropTargetDragEvent dtde) {}
-            
-            @Override
-            public void dropActionChanged(DropTargetDragEvent dtde) {}
+            public void dragOver(DropTargetDragEvent dtde) {
+            }
 
             @Override
-            public void dragExit(DropTargetEvent dte) {}
-            
+            public void dropActionChanged(DropTargetDragEvent dtde) {
+            }
+
+            @Override
+            public void dragExit(DropTargetEvent dte) {
+            }
+
             @Override
             public void drop(DropTargetDropEvent dtde) {
                 try {
@@ -101,9 +105,25 @@ public class ControladorCartaCarro extends ControladorClaseDragDrop {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaCarro.jLabel5.setText(droppedText);
+
                     if ((droppedText + objCartaCarro.jLabel6.getText()).equals("CARRO")) {
                         objAudio.reproducirAudio("carro");
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es CARRO");
+
+                        int idUsuario = modelo.Login.getIdUsuarioActivo();
+                        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Correcto!\nGanaste 10 puntos 🏆",
+                                "Nivel completado",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+
+                        MenuJuego objMenuJuego = new MenuJuego();
+                        objMenuJuego.setVisible(true);
+                        objCartaCarro.dispose();
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCartaCarro.jLabel5.setText(textoOriginal);
@@ -111,6 +131,7 @@ public class ControladorCartaCarro extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+
             }
         });
     }

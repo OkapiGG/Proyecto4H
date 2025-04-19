@@ -106,9 +106,25 @@ public class ControladorCartaJirafa extends ControladorClaseDragDrop {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaJirafa.jLabel6.setText(droppedText);
+
                     if ((objCartaJirafa.jLabel5.getText() + droppedText + objCartaJirafa.jLabel7.getText()).equals("JIRAFA")) {
                         objAudio.reproducirAudio("jirafa");
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es JIRAFA");
+
+                        int idUsuario = modelo.Login.getIdUsuarioActivo();
+                        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Correcto!\nGanaste 10 puntos 🏆",
+                                "Nivel completado",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+
+                        MenuJuego objMenuJuego = new MenuJuego();
+                        objMenuJuego.setVisible(true);
+                        objCartaJirafa.dispose();
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCartaJirafa.jLabel6.setText(textoOriginal);
@@ -116,6 +132,7 @@ public class ControladorCartaJirafa extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+
             }
         });
     }

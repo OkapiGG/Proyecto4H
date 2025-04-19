@@ -69,5 +69,10 @@ public class ControladorTCartaLeon extends ControladorClaseBase {
         }
 
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaLeon.dispose();
+    }
 
 }

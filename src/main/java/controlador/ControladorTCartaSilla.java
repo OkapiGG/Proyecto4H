@@ -73,4 +73,9 @@ public class ControladorTCartaSilla extends ControladorClaseBase {
         }
     }
 
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaSilla.dispose();
+    }
+    
 }

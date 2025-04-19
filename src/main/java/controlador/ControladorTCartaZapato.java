@@ -72,5 +72,10 @@ public class ControladorTCartaZapato extends ControladorClaseBase {
             this.objTCartaZapato.dispose();
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaZapato.dispose();
+    }
 
 }

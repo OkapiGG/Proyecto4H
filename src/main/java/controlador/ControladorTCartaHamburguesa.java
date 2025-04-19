@@ -73,4 +73,9 @@ public class ControladorTCartaHamburguesa extends ControladorClaseBase {
             this.objTCartaHamburguesa.dispose();
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaHamburguesa.dispose();
+    }
 }

@@ -108,9 +108,25 @@ public class ControladorCartaBicicleta extends ControladorClaseDragDrop {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaBicicleta.jLabel6.setText(droppedText);
+
                     if ((objCartaBicicleta.jLabel5.getText() + droppedText + objCartaBicicleta.jLabel7.getText()).equals("BICICLETA")) {
                         objAudio.reproducirAudio("bicicleta");
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es BICICLETA");
+
+                        int idUsuario = modelo.Login.getIdUsuarioActivo();
+                        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Correcto!\nGanaste 10 puntos 🏆",
+                                "Nivel completado",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+
+                        MenuJuego objMenuJuego = new MenuJuego();
+                        objMenuJuego.setVisible(true);
+                        objCartaBicicleta.dispose();
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCartaBicicleta.jLabel6.setText(textoOriginal);
@@ -118,6 +134,7 @@ public class ControladorCartaBicicleta extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+
             }
         });
     }

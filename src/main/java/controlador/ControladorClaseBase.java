@@ -41,11 +41,29 @@ public abstract class ControladorClaseBase implements MouseListener {
     }
 
     protected void verificarPalabra(String silabaSeleccionada) {
-        System.out.println(silabaSeleccionada);
         if (silabaSeleccionada.equals(silabaCorrecta)) {
-            JOptionPane.showMessageDialog(null, "¡Correcto!");
+            objAudio.reproducirAudio(silabaCorrecta.toLowerCase());
+
+            int idUsuario = modelo.Login.getIdUsuarioActivo();
+            OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+            operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+            JOptionPane.showMessageDialog(
+                    null,
+                    "¡Correcto!\nGanaste 10 puntos 🏆",
+                    "Nivel completado",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
+            vista.MenuTablero menuTablero = new vista.MenuTablero();
+            menuTablero.setVisible(true);
+            cerrarVistaActual();
+
         } else {
-            JOptionPane.showMessageDialog(null, "Inténtalo de nuevo.");
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Incorrecto, intenta de nuevo",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+            );
         }
     }
 
@@ -56,6 +74,8 @@ public abstract class ControladorClaseBase implements MouseListener {
     protected abstract void accionBotones();
 
     protected abstract void manejarEvento(Object boton);
+
+    protected abstract void cerrarVistaActual();
 
     @Override
     public void mouseClicked(MouseEvent e) {

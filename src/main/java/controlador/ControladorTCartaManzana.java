@@ -72,4 +72,9 @@ public class ControladorTCartaManzana extends ControladorClaseBase {
             this.objTCartaManzana.dispose();
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaManzana.dispose();
+    }
 }

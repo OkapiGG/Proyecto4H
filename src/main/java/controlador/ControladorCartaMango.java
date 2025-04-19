@@ -104,9 +104,25 @@ public class ControladorCartaMango extends ControladorClaseDragDrop {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaMango.jLabel5.setText(droppedText);
+
                     if ((droppedText + objCartaMango.jLabel6.getText()).equals("MANGO")) {
                         objAudio.reproducirAudio("mango");
-                        JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es MANGO");
+
+                        int idUsuario = modelo.Login.getIdUsuarioActivo();
+                        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Correcto!\nGanaste 10 puntos 🏆",
+                                "Nivel completado",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+
+                        MenuJuego objMenuJuego = new MenuJuego();
+                        objMenuJuego.setVisible(true);
+                        objCartaMango.dispose();
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCartaMango.jLabel5.setText(textoOriginal);
@@ -114,6 +130,7 @@ public class ControladorCartaMango extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+
             }
         });
     }
