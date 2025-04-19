@@ -75,4 +75,9 @@ public class ControladorTCartaCama extends ControladorClaseBase {
             this.objTCartaCama.dispose();
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaCama.dispose();
+    }
 }

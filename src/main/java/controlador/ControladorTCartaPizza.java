@@ -64,5 +64,10 @@ public class ControladorTCartaPizza extends ControladorClaseBase {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaPizza.dispose();
+    }
 
 }

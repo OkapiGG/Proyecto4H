@@ -85,19 +85,16 @@ public class OControladorCartaNivel6 implements MouseListener {
             }
 
             // Labels origen
-            if (label == objOCartaNivel6.jLabel2 || label == objOCartaNivel6.jLabel3 ||
-                label == objOCartaNivel6.jLabel4 || label == objOCartaNivel6.jLabel5 || label == objOCartaNivel6.jLabel10 ||
-                label == objOCartaNivel6.jLabel11 || label == objOCartaNivel6.jLabel14 || label == objOCartaNivel6.jLabel15 ||
-                label == objOCartaNivel6.jLabel18 || label == objOCartaNivel6.jLabel19 ||
-                label == objOCartaNivel6.jLabel20) {
+            if (label == objOCartaNivel6.jLabel2 || label == objOCartaNivel6.jLabel3
+                    || label == objOCartaNivel6.jLabel4 || label == objOCartaNivel6.jLabel5 || label == objOCartaNivel6.jLabel10
+                    || label == objOCartaNivel6.jLabel11 || label == objOCartaNivel6.jLabel14 || label == objOCartaNivel6.jLabel15
+                    || label == objOCartaNivel6.jLabel18 || label == objOCartaNivel6.jLabel19
+                    || label == objOCartaNivel6.jLabel20) {
                 silabaSeleccionada = label.getText();
                 labelOrigenSeleccionada = label;
                 System.out.println("Selección: " + silabaSeleccionada);
                 objAudio.reproducirAudio(silabaSeleccionada);
-            } 
-           
-
-            // Destino VENTILADOR
+            } // Destino VENTILADOR
             else if (!grupo1Completado && (label == objOCartaNivel6.jLabel6 || label == objOCartaNivel6.jLabel7 || label == objOCartaNivel6.jLabel8 || label == objOCartaNivel6.jLabel9)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -109,8 +106,7 @@ public class OControladorCartaNivel6 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo1();
                 }
-            }
-            // Destino LENTES
+            } // Destino LENTES
             else if (!grupo2Completado && (label == objOCartaNivel6.jLabel12 || label == objOCartaNivel6.jLabel13)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -122,8 +118,7 @@ public class OControladorCartaNivel6 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo2();
                 }
-            }
-            // Destino GLOBO
+            } // Destino GLOBO
             else if (!grupo3Completado && (label == objOCartaNivel6.jLabel16 || label == objOCartaNivel6.jLabel17)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -135,8 +130,7 @@ public class OControladorCartaNivel6 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo3();
                 }
-            }
-            // Destino COHETE
+            } // Destino COHETE
             else if (!grupo4Completado && (label == objOCartaNivel6.jLabel21 || label == objOCartaNivel6.jLabel22 || label == objOCartaNivel6.jLabel23)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -158,7 +152,7 @@ public class OControladorCartaNivel6 implements MouseListener {
             // VENTILADOR
             Palabra palabraActual = lista.get(44);
             String palabraCompleta1 = palabraActual.getPalabra();
-            if (palabraCompleta1.length() >= 4) { 
+            if (palabraCompleta1.length() >= 4) {
                 this.silaba1 = palabraCompleta1.substring(0, 3);
                 this.silaba2 = palabraCompleta1.substring(3, 5);
                 this.silaba3 = palabraCompleta1.substring(5, 7);
@@ -170,7 +164,7 @@ public class OControladorCartaNivel6 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo VENTILADOR.");
             }
-            
+
             // LENTES
             Palabra palabraActual2 = lista.get(45);
             String palabraCompleta2 = palabraActual2.getPalabra();
@@ -182,7 +176,7 @@ public class OControladorCartaNivel6 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo LENTES.");
             }
-            
+
             // GLOBO
             Palabra palabraActual3 = lista.get(46);
             String palabraCompleta3 = palabraActual3.getPalabra();
@@ -194,7 +188,7 @@ public class OControladorCartaNivel6 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo GLOBO.");
             }
-            
+
             // COHETE
             Palabra palabraActual4 = lista.get(47);
             String palabraCompleta4 = palabraActual4.getPalabra();
@@ -210,7 +204,7 @@ public class OControladorCartaNivel6 implements MouseListener {
             }
         }
     }
-    
+
     private void verificarGrupo1() {
         String parte1 = objOCartaNivel6.jLabel6.getText();
         String parte2 = objOCartaNivel6.jLabel7.getText();
@@ -222,31 +216,31 @@ public class OControladorCartaNivel6 implements MouseListener {
             String palabraCorrecta = silaba1 + silaba2 + silaba3 + silaba4;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("ventilador");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo1();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo1();
         }
     }
-    
+
     private void verificarGrupo2() {
         String parte1 = objOCartaNivel6.jLabel12.getText();
         String parte2 = objOCartaNivel6.jLabel13.getText();
-        
+
         if (!parte1.isEmpty() && !parte2.isEmpty()) {
             String palabraFormada = parte1 + parte2;
             String palabraCorrecta = silaba5 + silaba6;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("lentes");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo2();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo2();
         }
     }
-    
+
     private void verificarGrupo3() {
         String parte1 = objOCartaNivel6.jLabel16.getText();
         String parte2 = objOCartaNivel6.jLabel17.getText();
@@ -256,14 +250,14 @@ public class OControladorCartaNivel6 implements MouseListener {
             String palabraCorrecta = silaba7 + silaba8;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("globo");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo3();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo3();
         }
     }
-    
+
     private void verificarGrupo4() {
         String parte1 = objOCartaNivel6.jLabel21.getText();
         String parte2 = objOCartaNivel6.jLabel22.getText();
@@ -274,14 +268,37 @@ public class OControladorCartaNivel6 implements MouseListener {
             String palabraCorrecta = silaba9 + silaba10 + silaba11;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("cohete");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo4();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo4();
         }
     }
-    
+
+    private void verificarSiYaCompletasteTodo() {
+        if (grupo1Completado && grupo2Completado && grupo3Completado && grupo4Completado) {
+            actPuntaje();
+        }
+    }
+
+    private void actPuntaje() {
+        int idUsuario = modelo.Login.getIdUsuarioActivo();
+        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 40, 4);
+
+        JOptionPane.showMessageDialog(
+                null,
+                "¡Felicidades! Completaste las 4 palabras 🎉\nGanaste 40 puntos 🏆",
+                "Nivel Completado",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+        vista.MenuOrdenar objMenuOrdenar = new vista.MenuOrdenar();
+        objMenuOrdenar.setVisible(true);
+        objOCartaNivel6.dispose();
+    }
+
     private void deshabilitarGrupo1() {
         grupo1Completado = true;
         objOCartaNivel6.jLabel6.setEnabled(false);
@@ -289,19 +306,19 @@ public class OControladorCartaNivel6 implements MouseListener {
         objOCartaNivel6.jLabel8.setEnabled(false);
         objOCartaNivel6.jLabel9.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo2() {
         grupo2Completado = true;
         objOCartaNivel6.jLabel12.setEnabled(false);
         objOCartaNivel6.jLabel13.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo3() {
         grupo3Completado = true;
         objOCartaNivel6.jLabel16.setEnabled(false);
         objOCartaNivel6.jLabel17.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo4() {
         grupo4Completado = true;
         objOCartaNivel6.jLabel21.setEnabled(false);

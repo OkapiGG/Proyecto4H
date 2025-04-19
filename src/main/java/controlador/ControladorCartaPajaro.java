@@ -105,9 +105,25 @@ public class ControladorCartaPajaro extends ControladorClaseDragDrop {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaPajaro.jLabel5.setText(droppedText);
+
                     if ((droppedText + objCartaPajaro.jLabel6.getText()).equals("PAJARO")) {
                         objAudio.reproducirAudio("pajaro");
-                        JOptionPane.showMessageDialog(null, "Correcto!, la palabra es PAJARO");
+
+                        int idUsuario = modelo.Login.getIdUsuarioActivo();
+                        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Correcto!\nGanaste 10 puntos 🏆",
+                                "Nivel completado",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+
+                        MenuJuego objMenuJuego = new MenuJuego();
+                        objMenuJuego.setVisible(true);
+                        objCartaPajaro.dispose();
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCartaPajaro.jLabel5.setText(textoOriginal);
@@ -115,6 +131,7 @@ public class ControladorCartaPajaro extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
+
             }
         });
     }

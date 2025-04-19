@@ -83,19 +83,16 @@ public class OControladorCartaNivel2 implements MouseListener {
             }
 
             // Labels origen
-            if (label == objOCartaNivel2.jLabel2 || label == objOCartaNivel2.jLabel3 ||
-                label == objOCartaNivel2.jLabel6 || label == objOCartaNivel2.jLabel7 ||
-                label == objOCartaNivel2.jLabel10 || label == objOCartaNivel2.jLabel11 || 
-                label == objOCartaNivel2.jLabel12 || label == objOCartaNivel2.jLabel16 ||
-                label == objOCartaNivel2.jLabel17 || label == objOCartaNivel2.jLabel18) {
+            if (label == objOCartaNivel2.jLabel2 || label == objOCartaNivel2.jLabel3
+                    || label == objOCartaNivel2.jLabel6 || label == objOCartaNivel2.jLabel7
+                    || label == objOCartaNivel2.jLabel10 || label == objOCartaNivel2.jLabel11
+                    || label == objOCartaNivel2.jLabel12 || label == objOCartaNivel2.jLabel16
+                    || label == objOCartaNivel2.jLabel17 || label == objOCartaNivel2.jLabel18) {
                 silabaSeleccionada = label.getText();
                 labelOrigenSeleccionada = label;
                 System.out.println("Selección: " + silabaSeleccionada);
                 objAudio.reproducirAudio(silabaSeleccionada.toLowerCase());
-            } 
-           
-
-            // Destino LLAVE
+            } // Destino LLAVE
             else if (!grupo1Completado && (label == objOCartaNivel2.jLabel4 || label == objOCartaNivel2.jLabel5)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -107,8 +104,7 @@ public class OControladorCartaNivel2 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo1();
                 }
-            }
-            // Destino PERA
+            } // Destino PERA
             else if (!grupo2Completado && (label == objOCartaNivel2.jLabel8 || label == objOCartaNivel2.jLabel9)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -120,8 +116,7 @@ public class OControladorCartaNivel2 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo2();
                 }
-            }
-            // Destino ARDILLA
+            } // Destino ARDILLA
             else if (!grupo3Completado && (label == objOCartaNivel2.jLabel13 || label == objOCartaNivel2.jLabel14 || label == objOCartaNivel2.jLabel15)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -133,8 +128,7 @@ public class OControladorCartaNivel2 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo3();
                 }
-            }
-            // Destino CAMISA
+            } // Destino CAMISA
             else if (!grupo4Completado && (label == objOCartaNivel2.jLabel19 || label == objOCartaNivel2.jLabel20 || label == objOCartaNivel2.jLabel21)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -156,7 +150,7 @@ public class OControladorCartaNivel2 implements MouseListener {
             // LLAVE
             Palabra palabraActual = lista.get(28);
             String palabraCompleta1 = palabraActual.getPalabra();
-            if (palabraCompleta1.length() >= 4) { 
+            if (palabraCompleta1.length() >= 4) {
                 this.silaba1 = palabraCompleta1.substring(0, 3);
                 this.silaba2 = palabraCompleta1.substring(3, 5);
                 objOCartaNivel2.jLabel2.setText(silaba1);
@@ -164,7 +158,7 @@ public class OControladorCartaNivel2 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo LLAVE.");
             }
-            
+
             // PERA
             Palabra palabraActual2 = lista.get(29);
             String palabraCompleta2 = palabraActual2.getPalabra();
@@ -176,7 +170,7 @@ public class OControladorCartaNivel2 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo PERA.");
             }
-            
+
             // ARDILLA
             Palabra palabraActual3 = lista.get(30);
             String palabraCompleta3 = palabraActual3.getPalabra();
@@ -190,7 +184,7 @@ public class OControladorCartaNivel2 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo ARDILLA.");
             }
-            
+
             // CAMISA
             Palabra palabraActual4 = lista.get(31);
             String palabraCompleta4 = palabraActual4.getPalabra();
@@ -206,7 +200,7 @@ public class OControladorCartaNivel2 implements MouseListener {
             }
         }
     }
-    
+
     private void verificarGrupo1() {
         String parte1 = objOCartaNivel2.jLabel4.getText();
         String parte2 = objOCartaNivel2.jLabel5.getText();
@@ -216,14 +210,14 @@ public class OControladorCartaNivel2 implements MouseListener {
             String palabraCorrecta = silaba1 + silaba2;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("llave");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo1();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo1();
         }
     }
-    
+
     private void verificarGrupo2() {
         String parte1 = objOCartaNivel2.jLabel8.getText();
         String parte2 = objOCartaNivel2.jLabel9.getText();
@@ -233,14 +227,14 @@ public class OControladorCartaNivel2 implements MouseListener {
             String palabraCorrecta = silaba3 + silaba4;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("pera");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo2();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo2();
         }
     }
-    
+
     private void verificarGrupo3() {
         String parte1 = objOCartaNivel2.jLabel13.getText();
         String parte2 = objOCartaNivel2.jLabel14.getText();
@@ -251,14 +245,14 @@ public class OControladorCartaNivel2 implements MouseListener {
             String palabraCorrecta = silaba5 + silaba6 + silaba7;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("ardilla");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo3();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo3();
         }
     }
-    
+
     private void verificarGrupo4() {
         String parte1 = objOCartaNivel2.jLabel19.getText();
         String parte2 = objOCartaNivel2.jLabel20.getText();
@@ -269,38 +263,61 @@ public class OControladorCartaNivel2 implements MouseListener {
             String palabraCorrecta = silaba8 + silaba9 + silaba10;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("camisa");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo4();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo4();
         }
     }
-    
+
     private void deshabilitarGrupo1() {
         grupo1Completado = true;
         objOCartaNivel2.jLabel4.setEnabled(false);
         objOCartaNivel2.jLabel5.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo2() {
         grupo2Completado = true;
         objOCartaNivel2.jLabel8.setEnabled(false);
         objOCartaNivel2.jLabel9.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo3() {
         grupo3Completado = true;
         objOCartaNivel2.jLabel13.setEnabled(false);
         objOCartaNivel2.jLabel14.setEnabled(false);
         objOCartaNivel2.jLabel15.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo4() {
         grupo4Completado = true;
         objOCartaNivel2.jLabel19.setEnabled(false);
         objOCartaNivel2.jLabel20.setEnabled(false);
         objOCartaNivel2.jLabel21.setEnabled(false);
+    }
+
+    private void actPuntaje() {
+        int idUsuario = modelo.Login.getIdUsuarioActivo();
+        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 40, 4);
+
+        JOptionPane.showMessageDialog(
+                null,
+                "¡Felicidades! Completaste las 4 palabras 🎉\nGanaste 40 puntos 🏆",
+                "Nivel Completado",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+        vista.MenuOrdenar objMenuOrdenar = new vista.MenuOrdenar();
+        objMenuOrdenar.setVisible(true);
+        objOCartaNivel2.dispose();
+    }
+
+    private void verificarSiYaCompletasteTodo() {
+        if (grupo1Completado && grupo2Completado && grupo3Completado && grupo4Completado) {
+            actPuntaje();
+        }
     }
 
     @Override

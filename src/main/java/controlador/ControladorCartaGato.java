@@ -105,17 +105,23 @@ public class ControladorCartaGato extends ControladorClaseDragDrop {
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaGato.jLabel3.setText(droppedText);
                     if ((droppedText + objCartaGato.jLabel2.getText()).equals("GATO")) {
-                        /*int puntos = 10; 
-                        int palabras = 1; 
-                        int idUsuario = Login.getIdUsuarioActivo(); // Se obtiene el id del usuario activo para hacerle el update en la BD
-                        ModeloUsuario modeloUsuario = new ModeloUsuario();
-                        modeloUsuario.actualizarPuntajeYContador(idUsuario, puntos, palabras);*/
-                        objAudio.reproducirAudio("gato");
-                        JOptionPane.showMessageDialog(null, "Correcto!, la palabra es GATO");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
-                        objCartaGato.jLabel3.setText(textoOriginal);
-                    }
+                    objAudio.reproducirAudio("gato");
+                    int idUsuario = modelo.Login.getIdUsuarioActivo();
+                    OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                    operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "¡Correcto!\nGanaste 10 puntos 🏆",
+                        "Nivel completado",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                    MenuJuego objMenuJuego = new MenuJuego();
+                    objMenuJuego.setVisible(true);
+                    objCartaGato.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
+                    objCartaGato.jLabel3.setText(textoOriginal);
+                }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

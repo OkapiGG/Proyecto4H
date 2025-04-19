@@ -72,4 +72,9 @@ public class ControladorTCartaMesa extends ControladorClaseBase {
             this.objTCartaMesa.dispose();
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaMesa.dispose();
+    }
 }

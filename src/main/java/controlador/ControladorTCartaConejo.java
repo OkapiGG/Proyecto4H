@@ -68,5 +68,10 @@ public class ControladorTCartaConejo extends ControladorClaseBase {
             this.objTCartaConejo.dispose();
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaConejo.dispose();
+    }
 
 }

@@ -68,4 +68,9 @@ public class ControladorTCartaPerro extends ControladorClaseBase {
             this.objTCartaPerro.dispose();
         }
     }
+    
+    @Override
+    protected void cerrarVistaActual() {
+        this.objTCartaPerro.dispose();
+    }
 }

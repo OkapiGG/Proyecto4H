@@ -25,7 +25,7 @@ public class OControladorCartaNivel7 implements MouseListener {
     private Connection conexion;
     private ControladorAudios objAudio;
 
-    private String silaba1, silaba2, silaba3, silaba4, silaba5, silaba6, silaba7, silaba8, silaba9, silaba10, silaba11, 
+    private String silaba1, silaba2, silaba3, silaba4, silaba5, silaba6, silaba7, silaba8, silaba9, silaba10, silaba11,
             silaba12, silaba13;
     private String silabaSeleccionada;
     private JLabel labelOrigenSeleccionada;
@@ -90,19 +90,16 @@ public class OControladorCartaNivel7 implements MouseListener {
             }
 
             // Labels origen
-            if (label == objOCartaNivel7.jLabel2 || label == objOCartaNivel7.jLabel3 ||
-                label == objOCartaNivel7.jLabel4 || label == objOCartaNivel7.jLabel5 || label == objOCartaNivel7.jLabel10 ||
-                label == objOCartaNivel7.jLabel11 || label == objOCartaNivel7.jLabel12 || label == objOCartaNivel7.jLabel16 ||
-                label == objOCartaNivel7.jLabel17 || label == objOCartaNivel7.jLabel18 ||
-                label == objOCartaNivel7.jLabel22 || label == objOCartaNivel7.jLabel23 || label == objOCartaNivel7.jLabel24) {
+            if (label == objOCartaNivel7.jLabel2 || label == objOCartaNivel7.jLabel3
+                    || label == objOCartaNivel7.jLabel4 || label == objOCartaNivel7.jLabel5 || label == objOCartaNivel7.jLabel10
+                    || label == objOCartaNivel7.jLabel11 || label == objOCartaNivel7.jLabel12 || label == objOCartaNivel7.jLabel16
+                    || label == objOCartaNivel7.jLabel17 || label == objOCartaNivel7.jLabel18
+                    || label == objOCartaNivel7.jLabel22 || label == objOCartaNivel7.jLabel23 || label == objOCartaNivel7.jLabel24) {
                 silabaSeleccionada = label.getText();
                 labelOrigenSeleccionada = label;
                 System.out.println("Selección: " + silabaSeleccionada);
                 objAudio.reproducirAudio(silabaSeleccionada);
-            } 
-           
-
-            // Destino COCODRILO
+            } // Destino COCODRILO
             else if (!grupo1Completado && (label == objOCartaNivel7.jLabel6 || label == objOCartaNivel7.jLabel7 || label == objOCartaNivel7.jLabel8 || label == objOCartaNivel7.jLabel9)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -114,8 +111,7 @@ public class OControladorCartaNivel7 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo1();
                 }
-            }
-            // Destino CORONA
+            } // Destino CORONA
             else if (!grupo2Completado && (label == objOCartaNivel7.jLabel13 || label == objOCartaNivel7.jLabel14 || label == objOCartaNivel7.jLabel15)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -127,8 +123,7 @@ public class OControladorCartaNivel7 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo2();
                 }
-            }
-            // Destino OVEJA
+            } // Destino OVEJA
             else if (!grupo3Completado && (label == objOCartaNivel7.jLabel19 || label == objOCartaNivel7.jLabel20 || label == objOCartaNivel7.jLabel21)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -140,8 +135,7 @@ public class OControladorCartaNivel7 implements MouseListener {
                     labelOrigenSeleccionada = null;
                     verificarGrupo3();
                 }
-            }
-            // Destino TORTUGA
+            } // Destino TORTUGA
             else if (!grupo4Completado && (label == objOCartaNivel7.jLabel25 || label == objOCartaNivel7.jLabel26 || label == objOCartaNivel7.jLabel27)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
@@ -163,7 +157,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             // COCODRILO
             Palabra palabraActual = lista.get(48);
             String palabraCompleta1 = palabraActual.getPalabra();
-            if (palabraCompleta1.length() >= 4) { 
+            if (palabraCompleta1.length() >= 4) {
                 this.silaba1 = palabraCompleta1.substring(0, 2);
                 this.silaba2 = palabraCompleta1.substring(2, 4);
                 this.silaba3 = palabraCompleta1.substring(4, 7);
@@ -190,7 +184,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo CORONA.");
             }
-            
+
             // OVEJA
             Palabra palabraActual3 = lista.get(50);
             String palabraCompleta3 = palabraActual3.getPalabra();
@@ -204,7 +198,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo OVEJA.");
             }
-            
+
             // TORTUGA
             Palabra palabraActual4 = lista.get(51);
             String palabraCompleta4 = palabraActual4.getPalabra();
@@ -220,7 +214,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             }
         }
     }
-    
+
     private void verificarGrupo1() {
         String parte1 = objOCartaNivel7.jLabel6.getText();
         String parte2 = objOCartaNivel7.jLabel7.getText();
@@ -232,32 +226,32 @@ public class OControladorCartaNivel7 implements MouseListener {
             String palabraCorrecta = silaba1 + silaba2 + silaba3 + silaba4;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("cocodrilo");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo1();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo1();
         }
     }
-    
+
     private void verificarGrupo2() {
         String parte1 = objOCartaNivel7.jLabel13.getText();
         String parte2 = objOCartaNivel7.jLabel14.getText();
         String parte3 = objOCartaNivel7.jLabel15.getText();
-        
+
         if (!parte1.isEmpty() && !parte2.isEmpty() && !parte3.isEmpty()) {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba5 + silaba6 + silaba7;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("corona");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo2();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo2();
         }
     }
-    
+
     private void verificarGrupo3() {
         String parte1 = objOCartaNivel7.jLabel19.getText();
         String parte2 = objOCartaNivel7.jLabel20.getText();
@@ -268,14 +262,14 @@ public class OControladorCartaNivel7 implements MouseListener {
             String palabraCorrecta = silaba8 + silaba9 + silaba10;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("oveja");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo3();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo3();
         }
     }
-    
+
     private void verificarGrupo4() {
         String parte1 = objOCartaNivel7.jLabel25.getText();
         String parte2 = objOCartaNivel7.jLabel26.getText();
@@ -286,14 +280,37 @@ public class OControladorCartaNivel7 implements MouseListener {
             String palabraCorrecta = silaba11 + silaba12 + silaba13;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("tortuga");
-                JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
+                deshabilitarGrupo4();
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
-            deshabilitarGrupo4();
         }
     }
-    
+
+    private void verificarSiYaCompletasteTodo() {
+        if (grupo1Completado && grupo2Completado && grupo3Completado && grupo4Completado) {
+            actPuntaje();
+        }
+    }
+
+    private void actPuntaje() {
+        int idUsuario = modelo.Login.getIdUsuarioActivo();
+        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 40, 4);
+
+        JOptionPane.showMessageDialog(
+                null,
+                "¡Felicidades! Completaste las 4 palabras 🎉\nGanaste 40 puntos 🏆",
+                "Nivel Completado",
+                JOptionPane.INFORMATION_MESSAGE
+        );
+
+        vista.MenuOrdenar objMenuOrdenar = new vista.MenuOrdenar();
+        objMenuOrdenar.setVisible(true);
+        objOCartaNivel7.dispose();
+    }
+
     private void deshabilitarGrupo1() {
         grupo1Completado = true;
         objOCartaNivel7.jLabel6.setEnabled(false);
@@ -301,21 +318,21 @@ public class OControladorCartaNivel7 implements MouseListener {
         objOCartaNivel7.jLabel8.setEnabled(false);
         objOCartaNivel7.jLabel9.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo2() {
         grupo2Completado = true;
         objOCartaNivel7.jLabel13.setEnabled(false);
         objOCartaNivel7.jLabel14.setEnabled(false);
         objOCartaNivel7.jLabel15.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo3() {
         grupo3Completado = true;
         objOCartaNivel7.jLabel19.setEnabled(false);
         objOCartaNivel7.jLabel20.setEnabled(false);
         objOCartaNivel7.jLabel21.setEnabled(false);
     }
-    
+
     private void deshabilitarGrupo4() {
         grupo4Completado = true;
         objOCartaNivel7.jLabel25.setEnabled(false);
