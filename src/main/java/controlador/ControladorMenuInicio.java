@@ -6,6 +6,7 @@ import vista.MenuInicio;
 import vista.MenuJuego;
 import vista.MenuOrdenar;
 import vista.MenuTablero;
+import vista.VistaMenuCuenta;
 
 public class ControladorMenuInicio implements ActionListener {
 
@@ -40,7 +41,9 @@ public class ControladorMenuInicio implements ActionListener {
         }
 
         if (e.getSource() == this.objMenuInicio.jButton4) {
-            // Cuenta
+            VistaMenuCuenta vistaMenuCuenta = new VistaMenuCuenta();
+            vistaMenuCuenta.setVisible(true);
+            this.objMenuInicio.dispose();
         }
 
     }
