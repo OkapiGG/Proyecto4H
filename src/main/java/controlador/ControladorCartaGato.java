@@ -21,9 +21,11 @@ import vista.MenuJuego;
 public class ControladorCartaGato extends ControladorClaseDragDrop {
 
     private CartaGato objCartaGato;
+    private ControladorAudios objControladorAudios;
 
     public ControladorCartaGato(CartaGato objCartaGato) {
         this.objCartaGato = objCartaGato;
+        objControladorAudios = new ControladorAudios();
     }
 
     @Override
@@ -58,6 +60,7 @@ public class ControladorCartaGato extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaGato.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("ga");
             }
         });
 
@@ -67,6 +70,7 @@ public class ControladorCartaGato extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaGato.jLabel5.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("pa");
             }
         });
 
@@ -76,6 +80,7 @@ public class ControladorCartaGato extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaGato.jLabel6.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("lo");
             }
         });
 
@@ -105,23 +110,23 @@ public class ControladorCartaGato extends ControladorClaseDragDrop {
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaGato.jLabel3.setText(droppedText);
                     if ((droppedText + objCartaGato.jLabel2.getText()).equals("GATO")) {
-                    objAudio.reproducirAudio("gato");
-                    int idUsuario = modelo.Login.getIdUsuarioActivo();
-                    OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
-                    operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
-                    JOptionPane.showMessageDialog(
-                        null,
-                        "¡Correcto!\nGanaste 10 puntos 🏆",
-                        "Nivel completado",
-                        JOptionPane.INFORMATION_MESSAGE
-                    );
-                    MenuJuego objMenuJuego = new MenuJuego();
-                    objMenuJuego.setVisible(true);
-                    objCartaGato.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
-                    objCartaGato.jLabel3.setText(textoOriginal);
-                }
+                        objAudio.reproducirAudio("gato");
+                        int idUsuario = modelo.Login.getIdUsuarioActivo();
+                        OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
+                        operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Correcto!\nGanaste 10 puntos 🏆",
+                                "Nivel completado",
+                                JOptionPane.INFORMATION_MESSAGE
+                        );
+                        MenuJuego objMenuJuego = new MenuJuego();
+                        objMenuJuego.setVisible(true);
+                        objCartaGato.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
+                        objCartaGato.jLabel3.setText(textoOriginal);
+                    }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }

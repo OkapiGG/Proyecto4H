@@ -21,9 +21,11 @@ import vista.MenuJuego;
 public class ControladorCartaSandia extends ControladorClaseDragDrop {
 
     private CartaSandia objCartaSandia;
+    private ControladorAudios objControladorAudios;
 
     public ControladorCartaSandia(CartaSandia objCartaSandia) {
         this.objCartaSandia = objCartaSandia;
+        objControladorAudios = new ControladorAudios();
     }
 
     @Override
@@ -60,6 +62,7 @@ public class ControladorCartaSandia extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaSandia.jLabel2.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("na");
             }
         });
 
@@ -69,6 +72,7 @@ public class ControladorCartaSandia extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaSandia.jLabel3.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("ye");
             }
         });
 
@@ -78,6 +82,7 @@ public class ControladorCartaSandia extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaSandia.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("di");
             }
         });
 

@@ -14,14 +14,12 @@ import controlador.ControladorCartaJirafa;
 public class CartaJirafa extends javax.swing.JFrame {
 
     ControladorCartaJirafa objControladorCartaJirafa;
-    ControladorAudios objControladorAudios;
 
     public CartaJirafa() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaJirafa = new ControladorCartaJirafa(this);
         objControladorCartaJirafa.inicializar();
-        objControladorAudios = new ControladorAudios();
     }
 
     /**
@@ -118,15 +116,15 @@ public class CartaJirafa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        objControladorAudios.reproducirAudio("xa");
+
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        objControladorAudios.reproducirAudio("si");
+
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        objControladorAudios.reproducirAudio("ra");
+
     }//GEN-LAST:event_jLabel4MousePressed
 
     /**

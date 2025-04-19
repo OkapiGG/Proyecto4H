@@ -22,9 +22,11 @@ import vista.MenuTablero;
 public class ControladorCartaPajaro extends ControladorClaseDragDrop {
 
     private CartaPajaro objCartaPajaro;
+    private ControladorAudios objAudio;
 
     public ControladorCartaPajaro(CartaPajaro objCartaPajaro) {
         this.objCartaPajaro = objCartaPajaro;
+        objAudio = new ControladorAudios();
     }
 
     @Override
@@ -59,6 +61,7 @@ public class ControladorCartaPajaro extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaPajaro.jLabel2.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objAudio.reproducirAudio("be");
             }
         });
 
@@ -68,6 +71,7 @@ public class ControladorCartaPajaro extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaPajaro.jLabel3.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objAudio.reproducirAudio("wi");
             }
         });
 
@@ -77,6 +81,7 @@ public class ControladorCartaPajaro extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaPajaro.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objAudio.reproducirAudio("pa");
             }
         });
 

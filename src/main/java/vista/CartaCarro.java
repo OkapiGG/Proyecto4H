@@ -16,15 +16,13 @@ import javax.sound.sampled.Clip;
  */
 public class CartaCarro extends javax.swing.JFrame {
 
-    ControladorCartaCarro objControladorCartaCarro;
-    ControladorAudios objControladorAudios;
+    ControladorCartaCarro objControladorCartaCarro;    
 
     public CartaCarro() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaCarro = new ControladorCartaCarro(this);
-        objControladorCartaCarro.inicializar();
-        objControladorAudios = new ControladorAudios();
+        objControladorCartaCarro.inicializar();        
     }
 
     /**
@@ -115,15 +113,14 @@ public class CartaCarro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        objControladorAudios.reproducirAudio("ca");
+        
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        objControladorAudios.reproducirAudio("mu");
+        
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        objControladorAudios.reproducirAudio("fo");
     }//GEN-LAST:event_jLabel4MousePressed
 
     /**

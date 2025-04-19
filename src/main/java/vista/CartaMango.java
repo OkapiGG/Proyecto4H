@@ -17,14 +17,13 @@ import javax.sound.sampled.Clip;
 public class CartaMango extends javax.swing.JFrame {
 
     ControladorCartaMango objControladorCartaMango;
-    ControladorAudios objControladorAudios;
 
     public CartaMango() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaMango = new ControladorCartaMango(this);
         objControladorCartaMango.inicializar();
-        objControladorAudios = new ControladorAudios();
+
     }
 
     /**
@@ -117,16 +116,16 @@ public class CartaMango extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        objControladorAudios.reproducirAudio("ko");
+
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
         {
-            objControladorAudios.reproducirAudio("man");
+
         }    }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        objControladorAudios.reproducirAudio("tu");
+
     }//GEN-LAST:event_jLabel4MousePressed
 
     /**

@@ -16,16 +16,13 @@ public class CartaPajaro extends javax.swing.JFrame {
     /**
      * Creates new form Carta
      */
-    
     ControladorCartaPajaro objControladorCartaPajaro;
-    ControladorAudios objAudio;
-    
+
     public CartaPajaro() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaPajaro = new ControladorCartaPajaro(this);
         objControladorCartaPajaro.inicializar();
-        objAudio = new ControladorAudios();
     }
 
     /**
@@ -126,15 +123,15 @@ public class CartaPajaro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        objAudio.reproducirAudio("be");
+
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        objAudio.reproducirAudio("wi");
+
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        objAudio.reproducirAudio("pa");
+
     }//GEN-LAST:event_jLabel4MousePressed
 
     /**
