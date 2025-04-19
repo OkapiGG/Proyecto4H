@@ -19,13 +19,14 @@ public class CartaCasa extends javax.swing.JFrame {
     /**
      * Creates new form Carta3
      */
-    ControladorCartaCasa objControladorCarta3;
+    ControladorCartaCasa objControladorCartaCasa;
     ControladorAudios objControladorAudios;
 
     public CartaCasa() {
         initComponents();
         this.setLocationRelativeTo(null);
-        objControladorCarta3 = new ControladorCartaCasa(this);
+        objControladorCartaCasa = new ControladorCartaCasa(this);
+        objControladorCartaCasa.inicializar();
         objControladorAudios = new ControladorAudios();
     }
 
@@ -127,7 +128,7 @@ public class CartaCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-       objControladorAudios.reproducirAudio("pa");
+        objControladorAudios.reproducirAudio("pa");
     }//GEN-LAST:event_jLabel4MousePressed
 
     /**

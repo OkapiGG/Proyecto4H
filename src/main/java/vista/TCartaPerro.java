@@ -20,6 +20,7 @@ public class TCartaPerro extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objContraladorTCartaPerro = new ControladorTCartaPerro(this);
+        objContraladorTCartaPerro.inicializar();
     }
 
     /**

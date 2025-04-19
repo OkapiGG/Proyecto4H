@@ -20,6 +20,7 @@ public class TCartaSilla extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaSilla = new ControladorTCartaSilla(this);
+        objControladorTCartaSilla.inicializar();
     }
 
     /**

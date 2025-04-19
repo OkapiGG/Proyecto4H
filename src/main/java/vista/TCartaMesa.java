@@ -21,6 +21,7 @@ public class TCartaMesa extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaMesa = new ControladorTCartaMesa(this);
+        objControladorTCartaMesa.inicializar();
     }
 
     /**

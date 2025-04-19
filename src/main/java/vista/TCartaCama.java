@@ -20,6 +20,7 @@ public class TCartaCama extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorTCartaCama = new ControladorTCartaCama(this);
+        objControladorTCartaCama.inicializar();
     }
 
     /**

@@ -26,6 +26,7 @@ public class CartaArbol extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaArbol = new ControladorCartaArbol(this);
+        objControladorCartaArbol.inicializar(); 
         objControladorAudios = new ControladorAudios();
     }
 

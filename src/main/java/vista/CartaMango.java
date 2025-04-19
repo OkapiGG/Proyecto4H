@@ -16,13 +16,14 @@ import javax.sound.sampled.Clip;
  */
 public class CartaMango extends javax.swing.JFrame {
 
-    ControladorCartaMango objControladorCarta4;
+    ControladorCartaMango objControladorCartaMango;
     ControladorAudios objControladorAudios;
 
     public CartaMango() {
         initComponents();
         this.setLocationRelativeTo(null);
-        objControladorCarta4 = new ControladorCartaMango(this);
+        objControladorCartaMango = new ControladorCartaMango(this);
+        objControladorCartaMango.inicializar();
         objControladorAudios = new ControladorAudios();
     }
 

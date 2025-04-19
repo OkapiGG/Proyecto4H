@@ -24,6 +24,7 @@ public class CartaSandia extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorSandia = new ControladorCartaSandia(this);
+        objControladorSandia.inicializar();
         objControladorAudios = new ControladorAudios();
     }
 

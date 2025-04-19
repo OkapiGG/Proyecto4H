@@ -12,12 +12,13 @@ import controlador.ControladorTCartaPizza;
  */
 public class TCartaPizza extends javax.swing.JFrame {
 
-    ControladorTCartaPizza objControlador;
+    ControladorTCartaPizza objControladorCartaPizza;
     
     public TCartaPizza() {
         initComponents();
         this.setLocationRelativeTo(null);
-        objControlador = new ControladorTCartaPizza(this);
+        objControladorCartaPizza = new ControladorTCartaPizza(this);
+        objControladorCartaPizza.inicializar();
     }
 
     /**

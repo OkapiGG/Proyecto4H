@@ -24,6 +24,7 @@ public class CartaPajaro extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaPajaro = new ControladorCartaPajaro(this);
+        objControladorCartaPajaro.inicializar();
         objAudio = new ControladorAudios();
     }
 

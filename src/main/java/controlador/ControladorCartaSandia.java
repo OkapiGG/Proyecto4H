@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import java.awt.datatransfer.DataFlavor;
@@ -16,83 +12,45 @@ import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.dnd.DropTargetEvent;
 import java.awt.dnd.DropTargetListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 import javax.swing.JOptionPane;
-import modelo.ConexionBD;
-import modelo.ModeloGuardaPalabras;
-import modelo.ModeloPalabra;
 import modelo.Palabra;
 import vista.CartaSandia;
 import vista.MenuJuego;
 
-/**
- *
- * @author alancervantes
- */
-public class ControladorCartaSandia implements ActionListener {
+public class ControladorCartaSandia extends ControladorClaseDragDrop {
 
-    private ModeloPalabra modeloPalabra;
-    private ModeloGuardaPalabras modeloGuardaPalabras;
-    private Connection conexion;
-    private ControladorAudios objAudio;
     private CartaSandia objCartaSandia;
 
     public ControladorCartaSandia(CartaSandia objCartaSandia) {
         this.objCartaSandia = objCartaSandia;
-        this.objCartaSandia.jButton1.addActionListener(this);
-        try {
-            this.conexion = ConexionBD.getInstancia().getConexion();
-            modeloPalabra = new ModeloPalabra();
-            modeloGuardaPalabras = new ModeloGuardaPalabras(modeloPalabra);
-            cargarPalabraDelNivel();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        arrastrarSoltar();
-        objAudio = new ControladorAudios();
-
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == this.objCartaSandia.jButton1) {
-            MenuJuego objMenuJuego = new MenuJuego();
-            objMenuJuego.setVisible(true);
-            this.objCartaSandia.dispose();
-        }
-    }
-
-    private void cargarPalabraDelNivel() {
-//        Ahora getPalabras() Devuelve una lista de objetos de palabra
+    protected void cargarPalabraDelNivel() {
+        //        Ahora getPalabras() Devuelve una lista de objetos de palabra
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(6);
             String palabraCompleta = palabraActual.getPalabra();
-
             if (palabraCompleta.length() >= 2) {
                 String silabaCorrecta = palabraCompleta.substring(3, 5);
                 String complemento = palabraCompleta.substring(0, 3);
                 String complemento2 = palabraCompleta.substring(5, 6);
-
                 objCartaSandia.jLabel4.setText(silabaCorrecta);
                 objCartaSandia.jLabel5.setText(complemento);
                 objCartaSandia.jLabel7.setText(complemento2);
 //                Silabas Falsas
                 objCartaSandia.jLabel2.setText("NA");
                 objCartaSandia.jLabel3.setText("YE");
-
             }
         } else {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
     }
 
-    // Configuración de Drag & Drop
-    private void arrastrarSoltar() {
+    @Override
+    protected void arrastrarSoltar() {
         final String textoOriginal = objCartaSandia.jLabel6.getText();
         DragSource ds = new DragSource();
 
@@ -148,7 +106,6 @@ public class ControladorCartaSandia implements ActionListener {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaSandia.jLabel6.setText(droppedText);
-
                     if ((objCartaSandia.jLabel5.getText() + droppedText + objCartaSandia.jLabel7.getText()).equals("SANDIA")) {
                         objAudio.reproducirAudio("sandia");
                         JOptionPane.showMessageDialog(null, "¡Correcto! La palabra es SANDIA");
@@ -160,8 +117,20 @@ public class ControladorCartaSandia implements ActionListener {
                     ex.printStackTrace();
                 }
             }
-        }
-        );
+        });
     }
 
+    @Override
+    protected void manejarEvento(Object boton) {
+        if (boton == this.objCartaSandia.jButton1) {
+            MenuJuego objMenuJuego = new MenuJuego();
+            objMenuJuego.setVisible(true);
+            this.objCartaSandia.dispose();
+        }
+    }
+
+    @Override
+    protected void agregarAccionadorEventos() {
+        this.objCartaSandia.jButton1.addActionListener(this);
+    }
 }

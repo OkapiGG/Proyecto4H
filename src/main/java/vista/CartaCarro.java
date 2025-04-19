@@ -23,6 +23,7 @@ public class CartaCarro extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaCarro = new ControladorCartaCarro(this);
+        objControladorCartaCarro.inicializar();
         objControladorAudios = new ControladorAudios();
     }
 

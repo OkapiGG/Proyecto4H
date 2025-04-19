@@ -24,6 +24,7 @@ public class CartaBicicleta extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaBicicleta = new ControladorCartaBicicleta(this);
+        objControladorCartaBicicleta.inicializar();
         objAudio = new ControladorAudios();
     }
 

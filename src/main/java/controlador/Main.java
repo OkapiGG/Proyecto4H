@@ -4,11 +4,14 @@
  */
 package controlador;
 
+import vista.MenuMain;
+
 /**
  *
  * @author alancervantes
  */
 public class Main {
+
     public static void main(String[] args) {
         
     }

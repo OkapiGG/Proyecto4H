@@ -15,11 +15,12 @@ public class CartaJirafa extends javax.swing.JFrame {
 
     ControladorCartaJirafa objControladorCartaJirafa;
     ControladorAudios objControladorAudios;
-    
+
     public CartaJirafa() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaJirafa = new ControladorCartaJirafa(this);
+        objControladorCartaJirafa.inicializar();
         objControladorAudios = new ControladorAudios();
     }
 
