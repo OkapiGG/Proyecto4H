@@ -159,7 +159,7 @@ public class OCartaNivel1 extends javax.swing.JFrame {
         jLabel21.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 550, 50, 30));
 
-        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CartaNivel1.jpeg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

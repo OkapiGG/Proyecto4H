@@ -98,6 +98,7 @@ public class OControladorCartaNivel7 implements MouseListener {
                 silabaSeleccionada = label.getText();
                 labelOrigenSeleccionada = label;
                 System.out.println("Selección: " + silabaSeleccionada);
+                objAudio.reproducirAudio(silabaSeleccionada);
             } 
            
 
@@ -230,6 +231,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             String palabraFormada = parte1 + parte2 + parte3 + parte4;
             String palabraCorrecta = silaba1 + silaba2 + silaba3 + silaba4;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
+                objAudio.reproducirAudio("cocodrilo");
                 JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
@@ -247,6 +249,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba5 + silaba6 + silaba7;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
+                objAudio.reproducirAudio("corona");
                 JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
@@ -264,6 +267,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba8 + silaba9 + silaba10;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
+                objAudio.reproducirAudio("oveja");
                 JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
@@ -281,6 +285,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba11 + silaba12 + silaba13;
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
+                objAudio.reproducirAudio("tortuga");
                 JOptionPane.showMessageDialog(null, "¡Correcto! Formaste la palabra: " + palabraCorrecta);
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
