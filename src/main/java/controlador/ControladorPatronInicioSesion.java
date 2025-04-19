@@ -72,9 +72,9 @@ public class ControladorPatronInicioSesion implements ActionListener {
 
                     if (loginExitoso) {
                         JOptionPane.showMessageDialog(null, "¡Inicio de sesión exitoso!");
-                            MenuInicio menuInicio = new MenuInicio();
-                            menuInicio.setVisible(true);
-                            objVistaPatronInicioSesion.dispose();
+                        MenuInicio menuInicio = new MenuInicio();
+                        menuInicio.setVisible(true);
+                        objVistaPatronInicioSesion.dispose();
                     } else {
                         JOptionPane.showMessageDialog(null, "Perfil o patrón incorrecto. Intenta de nuevo.");
                     }
