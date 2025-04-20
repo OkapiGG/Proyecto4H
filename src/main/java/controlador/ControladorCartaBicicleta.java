@@ -21,9 +21,11 @@ import vista.MenuJuego;
 public class ControladorCartaBicicleta extends ControladorClaseDragDrop {
 
     private CartaBicicleta objCartaBicicleta;
+    private ControladorAudios objAudio;
 
     public ControladorCartaBicicleta(CartaBicicleta objCartaBicicleta) {
         this.objCartaBicicleta = objCartaBicicleta;
+        objAudio = new ControladorAudios();
     }
 
     @Override
@@ -43,43 +45,41 @@ public class ControladorCartaBicicleta extends ControladorClaseDragDrop {
 //                Silabas Falsas
                 objCartaBicicleta.jLabel3.setText("CLO");
                 objCartaBicicleta.jLabel4.setText("JE");
-
             }
         } else {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
-
     }
 
     @Override
     protected void arrastrarSoltar() {
         final String textoOriginal = objCartaBicicleta.jLabel6.getText();
         DragSource ds = new DragSource();
-
         // Configurar arrastre para jlabel2
         ds.createDefaultDragGestureRecognizer(objCartaBicicleta.jLabel2, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaBicicleta.jLabel2.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objAudio.reproducirAudio("cle");
             }
         });
-
         // Configurar arrastre para jLabel3
         ds.createDefaultDragGestureRecognizer(objCartaBicicleta.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaBicicleta.jLabel3.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objAudio.reproducirAudio("clo");
             }
         });
-
         // Configurar arrastre para jLabel4
         ds.createDefaultDragGestureRecognizer(objCartaBicicleta.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaBicicleta.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objAudio.reproducirAudio("je");
             }
         });
 
@@ -108,21 +108,18 @@ public class ControladorCartaBicicleta extends ControladorClaseDragDrop {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaBicicleta.jLabel6.setText(droppedText);
-
                     if ((objCartaBicicleta.jLabel5.getText() + droppedText + objCartaBicicleta.jLabel7.getText()).equals("BICICLETA")) {
                         objAudio.reproducirAudio("bicicleta");
 
                         int idUsuario = modelo.Login.getIdUsuarioActivo();
                         OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
                         operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
-
                         JOptionPane.showMessageDialog(
                                 null,
                                 "¡Correcto!\nGanaste 10 puntos 🏆",
                                 "Nivel completado",
                                 JOptionPane.INFORMATION_MESSAGE
                         );
-
                         MenuJuego objMenuJuego = new MenuJuego();
                         objMenuJuego.setVisible(true);
                         objCartaBicicleta.dispose();
@@ -134,7 +131,6 @@ public class ControladorCartaBicicleta extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-
             }
         });
     }

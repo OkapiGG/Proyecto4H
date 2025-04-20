@@ -20,14 +20,12 @@ public class CartaGato extends javax.swing.JFrame {
      * Creates new form Carta1
      */
     ControladorCartaGato objControladorCartaGato;
-    ControladorAudios objControladorAudios;
 
     public CartaGato() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaGato = new ControladorCartaGato(this);
         objControladorCartaGato.inicializar();
-        objControladorAudios = new ControladorAudios();
     }
 
     /**
@@ -127,20 +125,19 @@ public class CartaGato extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        MenuJuego objMenuJuego = new MenuJuego();
-//        objMenuJuego.setVisible(true);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        objControladorAudios.reproducirAudio("ga");
+
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
-        objControladorAudios.reproducirAudio("pa");
+
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-        objControladorAudios.reproducirAudio("lo");
+
     }//GEN-LAST:event_jLabel6MousePressed
 
     /**

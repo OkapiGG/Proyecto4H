@@ -21,9 +21,11 @@ import vista.MenuJuego;
 public class ControladorCartaJirafa extends ControladorClaseDragDrop {
 
     private CartaJirafa objCartaJirafa;
+    private ControladorAudios objControladorAudios;
 
     public ControladorCartaJirafa(CartaJirafa objCartaJirafa) {
         this.objCartaJirafa = objCartaJirafa;
+        objControladorAudios = new ControladorAudios();
     }
 
     @Override
@@ -53,31 +55,31 @@ public class ControladorCartaJirafa extends ControladorClaseDragDrop {
     protected void arrastrarSoltar() {
         final String textoOriginal = objCartaJirafa.jLabel6.getText();
         DragSource ds = new DragSource();
-
         // Configurar arrastre para jLabel2
         ds.createDefaultDragGestureRecognizer(objCartaJirafa.jLabel2, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaJirafa.jLabel2.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("xa");
             }
         });
-
         // Configurar arrastre para jLabel3
         ds.createDefaultDragGestureRecognizer(objCartaJirafa.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaJirafa.jLabel3.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("si");
             }
         });
-
         // Configurar arrastre para jLabel4
         ds.createDefaultDragGestureRecognizer(objCartaJirafa.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaJirafa.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("ra");
             }
         });
 
@@ -106,25 +108,20 @@ public class ControladorCartaJirafa extends ControladorClaseDragDrop {
                     Transferable transferable = dtde.getTransferable();
                     String droppedText = (String) transferable.getTransferData(DataFlavor.stringFlavor);
                     objCartaJirafa.jLabel6.setText(droppedText);
-
                     if ((objCartaJirafa.jLabel5.getText() + droppedText + objCartaJirafa.jLabel7.getText()).equals("JIRAFA")) {
                         objAudio.reproducirAudio("jirafa");
-
                         int idUsuario = modelo.Login.getIdUsuarioActivo();
                         OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
                         operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
-
                         JOptionPane.showMessageDialog(
                                 null,
                                 "¡Correcto!\nGanaste 10 puntos 🏆",
                                 "Nivel completado",
                                 JOptionPane.INFORMATION_MESSAGE
                         );
-
                         MenuJuego objMenuJuego = new MenuJuego();
                         objMenuJuego.setVisible(true);
                         objCartaJirafa.dispose();
-
                     } else {
                         JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
                         objCartaJirafa.jLabel6.setText(textoOriginal);
@@ -132,7 +129,6 @@ public class ControladorCartaJirafa extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-
             }
         });
     }

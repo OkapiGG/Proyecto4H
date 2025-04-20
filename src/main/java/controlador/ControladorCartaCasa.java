@@ -21,9 +21,11 @@ import vista.MenuJuego;
 public class ControladorCartaCasa extends ControladorClaseDragDrop {
 
     private CartaCasa objCartaCasa;
+    private ControladorAudios objControladorAudios;
 
     public ControladorCartaCasa(CartaCasa objCartaCasa) {
         this.objCartaCasa = objCartaCasa;
+        objControladorAudios = new ControladorAudios();
     }
 
     @Override
@@ -59,6 +61,7 @@ public class ControladorCartaCasa extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaCasa.jLabel2.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("sa");
             }
         });
 
@@ -68,6 +71,7 @@ public class ControladorCartaCasa extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaCasa.jLabel3.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("za");
             }
         });
 
@@ -77,6 +81,7 @@ public class ControladorCartaCasa extends ControladorClaseDragDrop {
             public void dragGestureRecognized(DragGestureEvent dge) {
                 Transferable objTransferible = new StringSelection(objCartaCasa.jLabel4.getText());
                 ds.startDrag(dge, DragSource.DefaultMoveDrop, objTransferible, null);
+                objControladorAudios.reproducirAudio("pa");
             }
         });
 

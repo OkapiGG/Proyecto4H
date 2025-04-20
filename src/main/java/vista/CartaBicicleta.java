@@ -16,16 +16,13 @@ public class CartaBicicleta extends javax.swing.JFrame {
     /**
      * Creates new form Carta
      */
-    
     ControladorCartaBicicleta objControladorCartaBicicleta;
-    ControladorAudios objAudio;
-    
+
     public CartaBicicleta() {
         initComponents();
         this.setLocationRelativeTo(null);
         objControladorCartaBicicleta = new ControladorCartaBicicleta(this);
-        objControladorCartaBicicleta.inicializar();
-        objAudio = new ControladorAudios();
+        objControladorCartaBicicleta.inicializar();        
     }
 
     /**
@@ -124,15 +121,15 @@ public class CartaBicicleta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        objAudio.reproducirAudio("cle");
+        
     }//GEN-LAST:event_jLabel2MousePressed
 
     private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        objAudio.reproducirAudio("clo");
+        
     }//GEN-LAST:event_jLabel3MousePressed
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        objAudio.reproducirAudio("je");
+        
     }//GEN-LAST:event_jLabel4MousePressed
 
     /**
