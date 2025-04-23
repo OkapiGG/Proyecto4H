@@ -9,7 +9,7 @@ package vista;
  * @author alancervantes
  */
 
-import controlador.ControladorMenuOrdenar;
+import controlador.ControladorMenuOrdenar; 
 
 public class MenuOrdenar extends javax.swing.JFrame {
 
