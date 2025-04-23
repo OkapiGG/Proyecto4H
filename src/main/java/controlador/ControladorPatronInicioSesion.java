@@ -60,25 +60,22 @@ public class ControladorPatronInicioSesion implements ActionListener {
                 if (patronSeleccionado.endsWith(",")) {
                     patronSeleccionado = patronSeleccionado.substring(0, patronSeleccionado.length() - 1);
                 }
-
                 String[] elementos = patronSeleccionado.split(",");
                 if (elementos.length >= 2) {
                     Login objLogin = new Login();
                     objLogin.setPerfil(perfilSeleccionado);
                     objLogin.setPatron(patronSeleccionado);
-
                     objOperacionesBDLogin.setObjLogin(objLogin);
                     boolean loginExitoso = objOperacionesBDLogin.read();
-
                     if (loginExitoso) {
-                        JOptionPane.showMessageDialog(null, "¡Inicio de sesión exitoso!");
+                        JOptionPane.showMessageDialog(null, "¡Inicio de sesión exitoso!" + "✅");
                         MenuInicio menuInicio = new MenuInicio();
                         menuInicio.setVisible(true);
                         objVistaPatronInicioSesion.dispose();
                     } else {
                         JOptionPane.showMessageDialog(null, "Perfil o patrón incorrecto. Intenta de nuevo.");
+                        reiniciarPatron();
                     }
-
                 } else {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");
                 }
@@ -86,7 +83,16 @@ public class ControladorPatronInicioSesion implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");
             }
         }
-
     }
 
+    private void reiniciarPatron() {
+        patronSeleccionado = "";
+        objVistaPatronInicioSesion.jButton1.setEnabled(true);
+        objVistaPatronInicioSesion.jButton2.setEnabled(true);
+        objVistaPatronInicioSesion.jButton3.setEnabled(true);
+        objVistaPatronInicioSesion.jButton4.setEnabled(true);
+        objVistaPatronInicioSesion.jButton5.setEnabled(true);
+        objVistaPatronInicioSesion.jButton6.setEnabled(true);
+        objVistaPatronInicioSesion.jButton7.setEnabled(true);
+    }
 }

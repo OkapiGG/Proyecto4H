@@ -12,7 +12,7 @@ public class ControladorPatron implements ActionListener {
 
     private OperacionesBDLogin objOperacionesBDLogin;
     private VistaPatron objVistaPatron;
-    private String perfilSeleccionado; 
+    private String perfilSeleccionado;
     private String patronSeleccionado = "";
 
     public ControladorPatron(VistaPatron objVistaPatron, String perfilSeleccionado) {
@@ -59,23 +59,17 @@ public class ControladorPatron implements ActionListener {
                 if (patronSeleccionado.endsWith(",")) {
                     patronSeleccionado = patronSeleccionado.substring(0, patronSeleccionado.length() - 1);
                 }
-
-                
                 String[] elementos = patronSeleccionado.split(",");
                 if (elementos.length >= 2) {
                     Login nuevoUsuario = new Login();
                     nuevoUsuario.setPerfil(perfilSeleccionado);
                     nuevoUsuario.setPatron(patronSeleccionado);
-
                     objOperacionesBDLogin.setObjLogin(nuevoUsuario);
                     objOperacionesBDLogin.create();
-
-                    JOptionPane.showMessageDialog(null, "¡Registro exitoso!");
-                    
+                    JOptionPane.showMessageDialog(null, "¡Registro exitoso!" + "✅");
                     MenuInicio menuInicio = new MenuInicio();
                     menuInicio.setVisible(true);
                     this.objVistaPatron.dispose();
-
                 } else {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");
                 }
@@ -83,6 +77,5 @@ public class ControladorPatron implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");
             }
         }
-    } 
-    
+    }
 }
