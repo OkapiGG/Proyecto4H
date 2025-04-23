@@ -22,7 +22,6 @@ public class ControladorVistaInicioSesion implements ActionListener {
 
     public ControladorVistaInicioSesion(VistaInicioSesion objVistaInicioSesion) {
         this.objVistaInicioSesion = objVistaInicioSesion;
-
         this.objVistaInicioSesion.jButton1.addActionListener(this);
         this.objVistaInicioSesion.jButton2.addActionListener(this);
         this.objVistaInicioSesion.jButton3.addActionListener(this);
@@ -34,35 +33,31 @@ public class ControladorVistaInicioSesion implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.objVistaInicioSesion.jButton1) {
             perfilSeleccionado = "barco";
-            JOptionPane.showMessageDialog(null, "✅ Perfil seleccionado: barco");
+            JOptionPane.showMessageDialog(null, "Perfil seleccionado: barco ✅");
         }
         if (e.getSource() == this.objVistaInicioSesion.jButton2) {
             perfilSeleccionado = "sol";
-            JOptionPane.showMessageDialog(null, "✅ Perfil seleccionado: sol");
+            JOptionPane.showMessageDialog(null, "Perfil seleccionado: sol ✅");
         }
         if (e.getSource() == this.objVistaInicioSesion.jButton3) {
             perfilSeleccionado = "mariposa";
-            JOptionPane.showMessageDialog(null, "✅ Perfil seleccionado: mariposa");
+            JOptionPane.showMessageDialog(null, "Perfil seleccionado: mariposa ✅");
         }
         if (e.getSource() == this.objVistaInicioSesion.jButton4) {
             perfilSeleccionado = "arbol";
-            JOptionPane.showMessageDialog(null, "✅ Perfil seleccionado: arbol");
+            JOptionPane.showMessageDialog(null, "Perfil seleccionado: arbol ✅");
         }
         if (e.getSource() == this.objVistaInicioSesion.jButton5) {
             if (perfilSeleccionado != null) {
                 Login nuevoUsuario = new Login();
                 nuevoUsuario.setPerfil(perfilSeleccionado);
-
                 VistaPatronInicioSesion objVistaPatron = new VistaPatronInicioSesion(perfilSeleccionado);
                 objVistaPatron.setVisible(true);
                 objVistaInicioSesion.dispose();
-
                 System.out.println(perfilSeleccionado);
             } else {
                 JOptionPane.showMessageDialog(null, "Selecciona primero un perfil antes de Confirmar.");
             }
         }
-
     }
-
 }

@@ -13,6 +13,7 @@ import vista.MenuMain;
 public class Main {
 
     public static void main(String[] args) {
-
+        MenuMain objMenuMain = new MenuMain();
+        objMenuMain.setVisible(true);
     }
 }
