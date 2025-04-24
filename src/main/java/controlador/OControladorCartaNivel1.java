@@ -45,7 +45,6 @@ public class OControladorCartaNivel1 implements MouseListener {
             ex.printStackTrace();
         }
         objAudio = new ControladorAudios();
-        
         objOCartaNivel1.jButton1.addMouseListener(this);
 
         // TOPO
