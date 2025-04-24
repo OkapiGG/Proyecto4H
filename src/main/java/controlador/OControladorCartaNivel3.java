@@ -15,6 +15,7 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
+import vista.MenuOrdenar;
 import vista.OCartaNivel3;
 
 public class OControladorCartaNivel3 implements MouseListener {
@@ -45,6 +46,7 @@ public class OControladorCartaNivel3 implements MouseListener {
             ex.printStackTrace();
         }
         objAudio = new ControladorAudios();
+        this.objOCartaNivel3.jButton1.addMouseListener(this);
 
         // LLAVE
         this.objOCartaNivel3.jLabel2.addMouseListener(this);
@@ -75,6 +77,11 @@ public class OControladorCartaNivel3 implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         Object source = e.getSource();
+        if (source == this.objOCartaNivel3.jButton1) {
+            MenuOrdenar objMenuOrdenar = new MenuOrdenar();
+            objMenuOrdenar.setVisible(true);
+            this.objOCartaNivel3.dispose();
+        }
         if (source instanceof JLabel) {
             JLabel label = (JLabel) source;
 
@@ -211,7 +218,7 @@ public class OControladorCartaNivel3 implements MouseListener {
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("vaca");
                 deshabilitarGrupo1();
-                verificarSiYaCompletasteTodo(); 
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
@@ -228,7 +235,7 @@ public class OControladorCartaNivel3 implements MouseListener {
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("barco");
                 deshabilitarGrupo2();
-                verificarSiYaCompletasteTodo(); 
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
@@ -246,7 +253,7 @@ public class OControladorCartaNivel3 implements MouseListener {
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("estrella");
                 deshabilitarGrupo3();
-                verificarSiYaCompletasteTodo(); 
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
@@ -264,20 +271,18 @@ public class OControladorCartaNivel3 implements MouseListener {
             if (palabraFormada.equalsIgnoreCase(palabraCorrecta)) {
                 objAudio.reproducirAudio("ballena");
                 deshabilitarGrupo4();
-                verificarSiYaCompletasteTodo(); 
+                verificarSiYaCompletasteTodo();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrecto. Formaste: " + palabraFormada);
             }
         }
     }
 
-
     private void verificarSiYaCompletasteTodo() {
         if (grupo1Completado && grupo2Completado && grupo3Completado && grupo4Completado) {
             actPuntaje();
         }
     }
-
 
     private void actPuntaje() {
         int idUsuario = modelo.Login.getIdUsuarioActivo();

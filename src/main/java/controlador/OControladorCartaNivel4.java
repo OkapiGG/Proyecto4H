@@ -15,6 +15,7 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
+import vista.MenuOrdenar;
 import vista.OCartaNivel4;
 
 public class OControladorCartaNivel4 implements MouseListener {
@@ -45,7 +46,7 @@ public class OControladorCartaNivel4 implements MouseListener {
             ex.printStackTrace();
         }
         objAudio = new ControladorAudios();
-
+        this.objOCartaNivel4.jButton1.addMouseListener(this);
         // RELOJ
         this.objOCartaNivel4.jLabel2.addMouseListener(this);
         this.objOCartaNivel4.jLabel3.addMouseListener(this);
@@ -77,13 +78,17 @@ public class OControladorCartaNivel4 implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         Object source = e.getSource();
+        if (source == this.objOCartaNivel4.jButton1) {
+            MenuOrdenar menuOrdenar = new MenuOrdenar();
+            menuOrdenar.setVisible(true);
+            this.objOCartaNivel4.dispose();
+        }
         if (source instanceof JLabel) {
             JLabel label = (JLabel) source;
 
             if (!label.isEnabled()) {
                 return;
             }
-
             // Labels origen
             if (label == objOCartaNivel4.jLabel2 || label == objOCartaNivel4.jLabel3
                     || label == objOCartaNivel4.jLabel6 || label == objOCartaNivel4.jLabel7 || label == objOCartaNivel4.jLabel8
@@ -160,7 +165,6 @@ public class OControladorCartaNivel4 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo RELOJ.");
             }
-
             // CABALLO
             Palabra palabraActual2 = lista.get(36);
             String palabraCompleta2 = palabraActual2.getPalabra();
@@ -188,7 +192,6 @@ public class OControladorCartaNivel4 implements MouseListener {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo GUITARRA.");
             }
-
             // PANTALON
             Palabra palabraActual4 = lista.get(38);
             String palabraCompleta4 = palabraActual4.getPalabra();
@@ -208,7 +211,6 @@ public class OControladorCartaNivel4 implements MouseListener {
     private void verificarGrupo1() {
         String parte1 = objOCartaNivel4.jLabel4.getText();
         String parte2 = objOCartaNivel4.jLabel5.getText();
-
         if (!parte1.isEmpty() && !parte2.isEmpty()) {
             String palabraFormada = parte1 + parte2;
             String palabraCorrecta = silaba1 + silaba2;
@@ -226,7 +228,6 @@ public class OControladorCartaNivel4 implements MouseListener {
         String parte1 = objOCartaNivel4.jLabel9.getText();
         String parte2 = objOCartaNivel4.jLabel10.getText();
         String parte3 = objOCartaNivel4.jLabel11.getText();
-
         if (!parte1.isEmpty() && !parte2.isEmpty() && !parte3.isEmpty()) {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba3 + silaba4 + silaba11;
@@ -244,7 +245,6 @@ public class OControladorCartaNivel4 implements MouseListener {
         String parte1 = objOCartaNivel4.jLabel15.getText();
         String parte2 = objOCartaNivel4.jLabel16.getText();
         String parte3 = objOCartaNivel4.jLabel17.getText();
-
         if (!parte1.isEmpty() && !parte2.isEmpty() && !parte3.isEmpty()) {
             String palabraFormada = parte1 + parte2 + parte3;
             String palabraCorrecta = silaba5 + silaba6 + silaba7;

@@ -15,6 +15,7 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
+import vista.MenuOrdenar;
 import vista.OCartaNivel7;
 
 public class OControladorCartaNivel7 implements MouseListener {
@@ -46,7 +47,7 @@ public class OControladorCartaNivel7 implements MouseListener {
             ex.printStackTrace();
         }
         objAudio = new ControladorAudios();
-
+        this.objOCartaNivel7.jButton1.addMouseListener(this);
         // COCODRILLO
         this.objOCartaNivel7.jLabel2.addMouseListener(this);
         this.objOCartaNivel7.jLabel3.addMouseListener(this);
@@ -82,6 +83,11 @@ public class OControladorCartaNivel7 implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         Object source = e.getSource();
+        if (source == this.objOCartaNivel7.jButton1) {
+            MenuOrdenar objMenuOrdenar = new MenuOrdenar();
+            objMenuOrdenar.setVisible(true);
+            this.objOCartaNivel7.dispose();
+        }
         if (source instanceof JLabel) {
             JLabel label = (JLabel) source;
 
@@ -170,7 +176,7 @@ public class OControladorCartaNivel7 implements MouseListener {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo COCODRILO.");
             }
             /////////////////////FALTA ARREGLAR LO DE ABAJO
-            
+
             // CORONA
             Palabra palabraActual2 = lista.get(49);
             String palabraCompleta2 = palabraActual2.getPalabra();

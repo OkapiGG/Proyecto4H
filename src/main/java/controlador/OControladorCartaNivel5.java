@@ -15,6 +15,7 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 import modelo.Palabra;
+import vista.MenuOrdenar;
 import vista.OCartaNivel5;
 
 public class OControladorCartaNivel5 implements MouseListener {
@@ -45,6 +46,7 @@ public class OControladorCartaNivel5 implements MouseListener {
             ex.printStackTrace();
         }
         objAudio = new ControladorAudios();
+        this.objOCartaNivel5.jButton1.addMouseListener(this);
 
         // NUBE
         this.objOCartaNivel5.jLabel2.addMouseListener(this);
@@ -77,6 +79,11 @@ public class OControladorCartaNivel5 implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
         Object source = e.getSource();
+        if (source == this.objOCartaNivel5.jButton1) {
+            MenuOrdenar objMenuOrdenar = new MenuOrdenar();
+            objMenuOrdenar.setVisible(true);
+            this.objOCartaNivel5.dispose();
+        }
         if (source instanceof JLabel) {
             JLabel label = (JLabel) source;
 
