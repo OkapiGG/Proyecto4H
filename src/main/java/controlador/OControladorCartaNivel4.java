@@ -79,13 +79,12 @@ public class OControladorCartaNivel4 implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         Object source = e.getSource();
         if (source == this.objOCartaNivel4.jButton1) {
-            MenuOrdenar menuOrdenar = new MenuOrdenar();
-            menuOrdenar.setVisible(true);
+            MenuOrdenar objMenuOrdenar = new MenuOrdenar();
+            objMenuOrdenar.setVisible(true);
             this.objOCartaNivel4.dispose();
         }
         if (source instanceof JLabel) {
             JLabel label = (JLabel) source;
-
             if (!label.isEnabled()) {
                 return;
             }
