@@ -66,33 +66,18 @@ public class CartaCarro extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(5, 52, 6));
         jLabel4.setText("FO");
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel4MousePressed(evt);
-            }
-        });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, 90));
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(5, 52, 6));
         jLabel3.setText("MU");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel3MousePressed(evt);
-            }
-        });
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 238, 70, 80));
 
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 50)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(5, 52, 6));
         jLabel2.setText("CA");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel2MousePressed(evt);
-            }
-        });
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, 80));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Carro.jpeg"))); // NOI18N
@@ -111,17 +96,6 @@ public class CartaCarro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        
-    }//GEN-LAST:event_jLabel2MousePressed
-
-    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
-        
-    }//GEN-LAST:event_jLabel3MousePressed
-
-    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-    }//GEN-LAST:event_jLabel4MousePressed
 
     /**
      * @param args the command line arguments
