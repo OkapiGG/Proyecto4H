@@ -9,6 +9,7 @@ import vista.TCartaManzana;
 public class ControladorTCartaManzana extends ControladorClaseBase {
 
     private TCartaManzana objTCartaManzana;
+    protected String palabraCompleta;
 
     public ControladorTCartaManzana(TCartaManzana objTCartaManzana) {
         this.objTCartaManzana = objTCartaManzana;
@@ -20,7 +21,7 @@ public class ControladorTCartaManzana extends ControladorClaseBase {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(15);
-            String palabraCompleta = palabraActual.getPalabra();
+            this.palabraCompleta = palabraActual.getPalabra();
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
                 accionBotones();
@@ -36,6 +37,7 @@ public class ControladorTCartaManzana extends ControladorClaseBase {
         this.objTCartaManzana.jButton2.addMouseListener(this);
         this.objTCartaManzana.jButton3.addMouseListener(this);
         this.objTCartaManzana.jButton4.addMouseListener(this);
+        this.objTCartaManzana.jButton5.addMouseListener(this);
     }
 
     @Override
@@ -71,10 +73,18 @@ public class ControladorTCartaManzana extends ControladorClaseBase {
             menuTablero.setVisible(true);
             this.objTCartaManzana.dispose();
         }
+        if (boton == this.objTCartaManzana.jButton5) {
+            objAudio.reproducirAudio("instrucciones2");
+        }
     }
     
     @Override
     protected void cerrarVistaActual() {
         this.objTCartaManzana.dispose();
+    }
+
+    @Override
+    protected void mostrarPalabraCompleta() {
+        this.objTCartaManzana.jLabel2.setText(palabraCompleta);
     }
 }

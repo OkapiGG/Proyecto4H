@@ -9,6 +9,7 @@ import vista.TCartaHamburguesa;
 public class ControladorTCartaHamburguesa extends ControladorClaseBase {
 
     private TCartaHamburguesa objTCartaHamburguesa;
+    protected String palabraCompleta;
 
     public ControladorTCartaHamburguesa(TCartaHamburguesa objTCartaHamburguesa) {
         this.objTCartaHamburguesa = objTCartaHamburguesa;
@@ -20,8 +21,7 @@ public class ControladorTCartaHamburguesa extends ControladorClaseBase {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(14);
-            String palabraCompleta = palabraActual.getPalabra();
-
+            this.palabraCompleta = palabraActual.getPalabra();
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
                 accionBotones();
@@ -37,6 +37,7 @@ public class ControladorTCartaHamburguesa extends ControladorClaseBase {
         this.objTCartaHamburguesa.jButton2.addMouseListener(this);
         this.objTCartaHamburguesa.jButton3.addMouseListener(this);
         this.objTCartaHamburguesa.jButton4.addMouseListener(this);
+        this.objTCartaHamburguesa.jButton5.addMouseListener(this);
     }
 
     @Override
@@ -66,16 +67,23 @@ public class ControladorTCartaHamburguesa extends ControladorClaseBase {
             objAudio.reproducirAudio("to");
             verificarPalabra(silabaSeleccionada);
         }
-
         if (boton == this.objTCartaHamburguesa.jButton4) {
             MenuTablero menuTablero = new MenuTablero();
             menuTablero.setVisible(true);
             this.objTCartaHamburguesa.dispose();
+        }
+        if (boton == this.objTCartaHamburguesa.jButton5) {
+            objAudio.reproducirAudio("instrucciones2");
         }
     }
     
     @Override
     protected void cerrarVistaActual() {
         this.objTCartaHamburguesa.dispose();
+    }
+
+    @Override
+    protected void mostrarPalabraCompleta() {
+        this.objTCartaHamburguesa.jLabel2.setText(palabraCompleta);
     }
 }

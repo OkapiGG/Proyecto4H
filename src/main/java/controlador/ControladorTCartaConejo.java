@@ -9,6 +9,7 @@ import vista.TCartaConejo;
 public class ControladorTCartaConejo extends ControladorClaseBase {
 
     private TCartaConejo objTCartaConejo;
+    protected String palabraCompleta;
 
     public ControladorTCartaConejo(TCartaConejo objTCartaConejo) {
         this.objTCartaConejo = objTCartaConejo;
@@ -20,7 +21,7 @@ public class ControladorTCartaConejo extends ControladorClaseBase {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(16);
-            String palabraCompleta = palabraActual.getPalabra();
+            this.palabraCompleta = palabraActual.getPalabra();
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
               accionBotones();
@@ -36,6 +37,7 @@ public class ControladorTCartaConejo extends ControladorClaseBase {
         this.objTCartaConejo.jButton2.addMouseListener(this);
         this.objTCartaConejo.jButton3.addMouseListener(this);
         this.objTCartaConejo.jButton4.addMouseListener(this);
+        this.objTCartaConejo.jButton5.addMouseListener(this);
     }
 
     @Override
@@ -67,11 +69,19 @@ public class ControladorTCartaConejo extends ControladorClaseBase {
             menuTablero.setVisible(true);
             this.objTCartaConejo.dispose();
         }
+        if (boton == this.objTCartaConejo.jButton5) {
+            objAudio.reproducirAudio("instrucciones2");
+        }
     }
     
     @Override
     protected void cerrarVistaActual() {
         this.objTCartaConejo.dispose();
+    }
+
+    @Override
+    protected void mostrarPalabraCompleta() {
+        this.objTCartaConejo.jLabel2.setText(palabraCompleta);
     }
 
 }

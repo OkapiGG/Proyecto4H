@@ -9,6 +9,7 @@ import vista.TCartaPizza;
 public class ControladorTCartaPizza extends ControladorClaseBase {
 
     private TCartaPizza objTCartaPizza;
+    protected String palabraCompleta;
 
     public ControladorTCartaPizza(TCartaPizza objTCartaPizza) {
         this.objTCartaPizza = objTCartaPizza;
@@ -20,6 +21,7 @@ public class ControladorTCartaPizza extends ControladorClaseBase {
         this.objTCartaPizza.jButton2.addMouseListener(this);
         this.objTCartaPizza.jButton3.addMouseListener(this);
         this.objTCartaPizza.jButton4.addMouseListener(this);
+        this.objTCartaPizza.jButton5.addMouseListener(this);
     }
 
     @Override
@@ -47,6 +49,8 @@ public class ControladorTCartaPizza extends ControladorClaseBase {
             MenuTablero menuTablero = new MenuTablero();
             menuTablero.setVisible(true);
             this.objTCartaPizza.dispose();
+        } else if (e == this.objTCartaPizza.jButton5) {
+            objAudio.reproducirAudio("instrucciones2");
         }
     }
 
@@ -55,7 +59,7 @@ public class ControladorTCartaPizza extends ControladorClaseBase {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(13);
-            String palabraCompleta = palabraActual.getPalabra();
+            this.palabraCompleta = palabraActual.getPalabra();
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
                 accionBotones();
@@ -68,6 +72,11 @@ public class ControladorTCartaPizza extends ControladorClaseBase {
     @Override
     protected void cerrarVistaActual() {
         this.objTCartaPizza.dispose();
+    }
+
+    @Override
+    protected void mostrarPalabraCompleta() {
+        this.objTCartaPizza.jLabel2.setText(palabraCompleta);
     }
 
 }

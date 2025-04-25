@@ -43,10 +43,11 @@ public abstract class ControladorClaseBase implements MouseListener {
     protected void verificarPalabra(String silabaSeleccionada) {
         if (silabaSeleccionada.equals(silabaCorrecta)) {
             objAudio.reproducirAudio(silabaCorrecta.toLowerCase());
-
+            
             int idUsuario = modelo.Login.getIdUsuarioActivo();
             OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
             operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+            mostrarPalabraCompleta();
             JOptionPane.showMessageDialog(
                     null,
                     "¡Correcto!\nGanaste 10 puntos 🏆",
@@ -66,6 +67,7 @@ public abstract class ControladorClaseBase implements MouseListener {
             );
         }
     }
+    protected abstract void mostrarPalabraCompleta();
 
     protected abstract void cargarPalabraDelNivel();
 

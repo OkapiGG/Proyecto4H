@@ -38,6 +38,8 @@ public class TCartaBillete extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -61,29 +63,38 @@ public class TCartaBillete extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 170, 280));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 170, 230));
 
         jButton2.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
         jButton2.setForeground(new java.awt.Color(217, 121, 4));
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 160, 280));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 160, 230));
 
         jButton3.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
         jButton3.setForeground(new java.awt.Color(217, 121, 4));
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 170, 160, 280));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 170, 230));
 
         jButton4.setToolTipText("MENU");
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 28, 80, 80));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 38, 80, 90));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tCartaBillete.png"))); // NOI18N
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(778, 60, 60, 60));
+
+        jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 70)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(217, 121, 4));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 240, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CartaBillete.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,7 +151,9 @@ public class TCartaBillete extends javax.swing.JFrame {
     public javax.swing.JButton jButton2;
     public javax.swing.JButton jButton3;
     public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
