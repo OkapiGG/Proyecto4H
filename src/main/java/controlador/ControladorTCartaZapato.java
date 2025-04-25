@@ -9,6 +9,7 @@ import vista.TCartaZapato;
 public class ControladorTCartaZapato extends ControladorClaseBase {
 
     private TCartaZapato objTCartaZapato;
+    protected String palabraCompleta;
 
     public ControladorTCartaZapato(TCartaZapato objTCartaZapato) {
         this.objTCartaZapato = objTCartaZapato;
@@ -20,7 +21,7 @@ public class ControladorTCartaZapato extends ControladorClaseBase {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(21);
-            String palabraCompleta = palabraActual.getPalabra();
+            this.palabraCompleta = palabraActual.getPalabra();
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
                 accionBotones();
@@ -36,6 +37,7 @@ public class ControladorTCartaZapato extends ControladorClaseBase {
         this.objTCartaZapato.jButton2.addMouseListener(this);
         this.objTCartaZapato.jButton3.addMouseListener(this);
         this.objTCartaZapato.jButton4.addMouseListener(this);
+        this.objTCartaZapato.jButton5.addMouseListener(this);
 
     }
 
@@ -71,11 +73,19 @@ public class ControladorTCartaZapato extends ControladorClaseBase {
             menuTablero.setVisible(true);
             this.objTCartaZapato.dispose();
         }
+        if (boton == this.objTCartaZapato.jButton5) {
+            objAudio.reproducirAudio("instrucciones2");
+        }
     }
     
     @Override
     protected void cerrarVistaActual() {
         this.objTCartaZapato.dispose();
+    }
+
+    @Override
+    protected void mostrarPalabraCompleta() {
+        this.objTCartaZapato.jLabel1.setText(palabraCompleta);
     }
 
 }

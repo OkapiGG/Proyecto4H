@@ -9,6 +9,7 @@ import vista.TCartaFoco;
 public class ControladorTCartaFoco extends ControladorClaseBase {
 
     private TCartaFoco objTCartaFoco;
+    protected String palabraCompleta;
 
     public ControladorTCartaFoco(TCartaFoco objTCartaFoco) {
         this.objTCartaFoco = objTCartaFoco;
@@ -20,7 +21,7 @@ public class ControladorTCartaFoco extends ControladorClaseBase {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(17);
-            String palabraCompleta = palabraActual.getPalabra();
+            this.palabraCompleta = palabraActual.getPalabra();
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
                 accionBotones();
@@ -37,6 +38,7 @@ public class ControladorTCartaFoco extends ControladorClaseBase {
         this.objTCartaFoco.jButton2.addMouseListener(this);
         this.objTCartaFoco.jButton3.addMouseListener(this);
         this.objTCartaFoco.jButton4.addMouseListener(this);
+        this.objTCartaFoco.jButton5.addMouseListener(this);
     }
 
     @Override
@@ -71,10 +73,18 @@ public class ControladorTCartaFoco extends ControladorClaseBase {
             menuTablero.setVisible(true);
             this.objTCartaFoco.dispose();
         }
+        if (boton == this.objTCartaFoco.jButton5) {
+            objAudio.reproducirAudio("instrucciones2");
+        }
     }
     
     @Override
     protected void cerrarVistaActual() {
         this.objTCartaFoco.dispose();
+    }
+
+    @Override
+    protected void mostrarPalabraCompleta() {
+        this.objTCartaFoco.jLabel2.setText(palabraCompleta);
     }
 }

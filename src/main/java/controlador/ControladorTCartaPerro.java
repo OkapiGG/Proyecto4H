@@ -9,6 +9,7 @@ import vista.TCartaPerro;
 public class ControladorTCartaPerro extends ControladorClaseBase {
 
     private TCartaPerro objTCartaPerro;
+    protected String palabraCompleta;
 
     public ControladorTCartaPerro(TCartaPerro objTCartaPerro) {
         this.objTCartaPerro = objTCartaPerro;
@@ -20,7 +21,7 @@ public class ControladorTCartaPerro extends ControladorClaseBase {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(1);
-            String palabraCompleta = palabraActual.getPalabra();
+            this.palabraCompleta = palabraActual.getPalabra();
             if (palabraCompleta.length() >= 2) {
                 this.silabaCorrecta = palabraCompleta.substring(0, 2);
                 accionBotones();
@@ -36,6 +37,7 @@ public class ControladorTCartaPerro extends ControladorClaseBase {
         this.objTCartaPerro.jButton2.addMouseListener(this);
         this.objTCartaPerro.jButton3.addMouseListener(this);
         this.objTCartaPerro.jButton4.addMouseListener(this);
+        this.objTCartaPerro.jButton5.addMouseListener(this);
     }
 
     @Override
@@ -67,10 +69,18 @@ public class ControladorTCartaPerro extends ControladorClaseBase {
             menuTablero.setVisible(true);
             this.objTCartaPerro.dispose();
         }
+        if (boton == this.objTCartaPerro.jButton5) {
+            objAudio.reproducirAudio("instrucciones2");
+        }
     }
     
     @Override
     protected void cerrarVistaActual() {
         this.objTCartaPerro.dispose();
+    }
+
+    @Override
+    protected void mostrarPalabraCompleta() {
+        this.objTCartaPerro.jLabel2.setText(palabraCompleta);
     }
 }
