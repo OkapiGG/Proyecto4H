@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -25,6 +26,7 @@ public class OControladorCartaNivel4 implements MouseListener {
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
     private ControladorAudios objAudio;
+    private static final Color VERDE = new Color(34, 139, 34);
 
     private String silaba1, silaba2, silaba3, silaba4, silaba5, silaba6, silaba7, silaba8, silaba9, silaba10, silaba11;
     private String silabaSeleccionada;
@@ -34,6 +36,7 @@ public class OControladorCartaNivel4 implements MouseListener {
     private boolean grupo2Completado = false;
     private boolean grupo3Completado = false;
     private boolean grupo4Completado = false;
+    private boolean terminoConExito = false;
 
     public OControladorCartaNivel4(OCartaNivel4 objOCartaNivel4) {
         this.objOCartaNivel4 = objOCartaNivel4;
@@ -103,8 +106,11 @@ public class OControladorCartaNivel4 implements MouseListener {
             else if (!grupo1Completado && (label == objOCartaNivel4.jLabel4 || label == objOCartaNivel4.jLabel5)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel4.jLabel4) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba1) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba2) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo RELOJ destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -115,8 +121,13 @@ public class OControladorCartaNivel4 implements MouseListener {
             else if (!grupo2Completado && (label == objOCartaNivel4.jLabel9 || label == objOCartaNivel4.jLabel10 || label == objOCartaNivel4.jLabel11)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel4.jLabel9) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba3) ? VERDE : Color.RED);
+                    } else if(label == objOCartaNivel4.jLabel10){
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba4) ? VERDE : Color.RED);
+                    } else{
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba5) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo CABALLO destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -127,9 +138,8 @@ public class OControladorCartaNivel4 implements MouseListener {
             else if (!grupo3Completado && (label == objOCartaNivel4.jLabel15 || label == objOCartaNivel4.jLabel16 || label == objOCartaNivel4.jLabel17)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
-                    }
+                    labelOrigenSeleccionada.setEnabled(false);
+                    
                     System.out.println("Grupo GUITARRA destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
                     labelOrigenSeleccionada = null;
@@ -149,6 +159,7 @@ public class OControladorCartaNivel4 implements MouseListener {
                 }
             }
         }
+        evaluarFinDeJuego();
     }
 
     private void cargarPalabraDelNivel() {
@@ -324,6 +335,73 @@ public class OControladorCartaNivel4 implements MouseListener {
         objOCartaNivel4.jLabel21.setEnabled(false);
         objOCartaNivel4.jLabel22.setEnabled(false);
         objOCartaNivel4.jLabel23.setEnabled(false);
+    }
+
+    private void evaluarFinDeJuego() {
+        if (terminoConExito) {
+            return;
+        }
+
+        boolean todasLlenas
+                = !objOCartaNivel4.jLabel4.getText().isEmpty()
+                && !objOCartaNivel4.jLabel5.getText().isEmpty()
+                && !objOCartaNivel4.jLabel9.getText().isEmpty()
+                && !objOCartaNivel4.jLabel10.getText().isEmpty()
+                && !objOCartaNivel4.jLabel11.getText().isEmpty()
+                && !objOCartaNivel4.jLabel15.getText().isEmpty()
+                && !objOCartaNivel4.jLabel16.getText().isEmpty()
+                && !objOCartaNivel4.jLabel17.getText().isEmpty()
+                && !objOCartaNivel4.jLabel21.getText().isEmpty()
+                && !objOCartaNivel4.jLabel22.getText().isEmpty()
+                && !objOCartaNivel4.jLabel23.getText().isEmpty();
+
+        if (todasLlenas) {
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¡Juego terminado!\n¿Deseas reiniciar o volver al menú?",
+                    "Fin de juego",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    new String[]{"Reiniciar", "Salir al menú"},
+                    "Reiniciar"
+            );
+            if (opcion == JOptionPane.YES_OPTION) {
+                reiniciarJuego();
+            } else {
+                new vista.MenuOrdenar().setVisible(true);
+                objOCartaNivel4.dispose();
+            }
+        }
+    }
+
+    private void reiniciarJuego() {
+        // limpiar destinos
+        JLabel[] destinos = {
+            objOCartaNivel4.jLabel4, objOCartaNivel4.jLabel5,
+            objOCartaNivel4.jLabel9, objOCartaNivel4.jLabel10, objOCartaNivel4.jLabel11,
+            objOCartaNivel4.jLabel15, objOCartaNivel4.jLabel16, objOCartaNivel4.jLabel17,
+            objOCartaNivel4.jLabel21, objOCartaNivel4.jLabel22, objOCartaNivel4.jLabel23
+        };
+        for (JLabel lbl : destinos) {
+            lbl.setText("");
+            lbl.setEnabled(true);
+            lbl.setForeground(Color.BLACK);
+        }
+
+        // habilitar orígenes
+        JLabel[] origenes = {
+            objOCartaNivel4.jLabel2, objOCartaNivel4.jLabel3,
+            objOCartaNivel4.jLabel6, objOCartaNivel4.jLabel7, objOCartaNivel4.jLabel8,
+            objOCartaNivel4.jLabel12, objOCartaNivel4.jLabel13, objOCartaNivel4.jLabel14,
+            objOCartaNivel4.jLabel18, objOCartaNivel4.jLabel19, objOCartaNivel4.jLabel20
+        };
+        for (JLabel lbl : origenes) {
+            lbl.setEnabled(true);
+        }
+
+        grupo1Completado = grupo2Completado = grupo3Completado = grupo4Completado = false;
+        terminoConExito = false;
     }
 
     @Override
