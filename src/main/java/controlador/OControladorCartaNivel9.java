@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -25,9 +26,9 @@ public class OControladorCartaNivel9 implements MouseListener {
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
     private ControladorAudios objAudio;
+    private static final Color VERDE = new Color(34, 139, 34);
 
-    private String silaba1, silaba2, silaba3, silaba4, silaba5, silaba6, silaba7, silaba8, silaba9, silaba10, silaba11,
-            silaba12, silaba13;
+    private String silaba1, silaba2, silaba3, silaba4, silaba5, silaba6, silaba7, silaba8, silaba9, silaba10, silaba11, silaba12, silaba13;
     private String silabaSeleccionada;
     private JLabel labelOrigenSeleccionada;
 
@@ -109,8 +110,15 @@ public class OControladorCartaNivel9 implements MouseListener {
             else if (!grupo1Completado && (label == objOCartaNivel9.jLabel6 || label == objOCartaNivel9.jLabel7 || label == objOCartaNivel9.jLabel8 || label == objOCartaNivel9.jLabel9)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel9.jLabel6) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba1) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel9.jLabel7) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba2) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel9.jLabel8) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba3) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba4) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo ELEFANTE destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -121,8 +129,13 @@ public class OControladorCartaNivel9 implements MouseListener {
             else if (!grupo2Completado && (label == objOCartaNivel9.jLabel13 || label == objOCartaNivel9.jLabel14 || label == objOCartaNivel9.jLabel15)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel9.jLabel13) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba5) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel9.jLabel14) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba6) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba7) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo ELOTE destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -133,8 +146,13 @@ public class OControladorCartaNivel9 implements MouseListener {
             else if (!grupo3Completado && (label == objOCartaNivel9.jLabel19 || label == objOCartaNivel9.jLabel20 || label == objOCartaNivel9.jLabel21)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel9.jLabel19) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba8) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel9.jLabel20) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba9) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba10) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo ESCOBA destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -145,8 +163,13 @@ public class OControladorCartaNivel9 implements MouseListener {
             else if (!grupo4Completado && (label == objOCartaNivel9.jLabel25 || label == objOCartaNivel9.jLabel26 || label == objOCartaNivel9.jLabel27)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel9.jLabel25) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba11) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel9.jLabel26) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba12) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba13) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo VENTANA destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;

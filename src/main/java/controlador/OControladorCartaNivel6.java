@@ -106,11 +106,15 @@ public class OControladorCartaNivel6 implements MouseListener {
             else if (!grupo1Completado && (label == objOCartaNivel6.jLabel6 || label == objOCartaNivel6.jLabel7 || label == objOCartaNivel6.jLabel8 || label == objOCartaNivel6.jLabel9)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel6.jLabel6) {
                         label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba1) ? VERDE : Color.RED);
-                    } else {
+                    } else if (label == objOCartaNivel6.jLabel7) {
                         label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba2) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel6.jLabel8) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba3) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel6.jLabel9) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba4) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo VENTILADOR destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -121,8 +125,11 @@ public class OControladorCartaNivel6 implements MouseListener {
             else if (!grupo2Completado && (label == objOCartaNivel6.jLabel12 || label == objOCartaNivel6.jLabel13)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel6.jLabel12) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba5) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel6.jLabel13) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba6) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo LENTES destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -133,8 +140,11 @@ public class OControladorCartaNivel6 implements MouseListener {
             else if (!grupo3Completado && (label == objOCartaNivel6.jLabel16 || label == objOCartaNivel6.jLabel17)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel6.jLabel16) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba7) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel6.jLabel17) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba8) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo GLOBO destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -145,8 +155,13 @@ public class OControladorCartaNivel6 implements MouseListener {
             else if (!grupo4Completado && (label == objOCartaNivel6.jLabel21 || label == objOCartaNivel6.jLabel22 || label == objOCartaNivel6.jLabel23)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel6.jLabel21) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba9) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel6.jLabel22) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba10) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba11) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo COHETE destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
