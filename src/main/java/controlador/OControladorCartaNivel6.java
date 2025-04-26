@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -25,6 +26,7 @@ public class OControladorCartaNivel6 implements MouseListener {
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
     private ControladorAudios objAudio;
+    private static final Color VERDE = new Color(34, 139, 34);
 
     private String silaba1, silaba2, silaba3, silaba4, silaba5, silaba6, silaba7, silaba8, silaba9, silaba10, silaba11;
     private String silabaSeleccionada;
@@ -106,6 +108,9 @@ public class OControladorCartaNivel6 implements MouseListener {
                     label.setText(silabaSeleccionada);
                     if (labelOrigenSeleccionada != null) {
                         labelOrigenSeleccionada.setEnabled(false);
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba1) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba2) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo VENTILADOR destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;

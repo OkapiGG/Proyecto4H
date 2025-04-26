@@ -176,7 +176,7 @@ public class OControladorCartaNivel4 implements MouseListener {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             // RELOJ
-            Palabra palabraActual = lista.get(39);
+            Palabra palabraActual = lista.get(36);
             String palabraCompleta1 = palabraActual.getPalabra();
             if (palabraCompleta1.length() >= 4) {
                 this.silaba1 = palabraCompleta1.substring(0, 2);
@@ -187,7 +187,7 @@ public class OControladorCartaNivel4 implements MouseListener {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo RELOJ.");
             }
             // CABALLO
-            Palabra palabraActual2 = lista.get(36);
+            Palabra palabraActual2 = lista.get(37);
             String palabraCompleta2 = palabraActual2.getPalabra();
             if (palabraCompleta2.length() >= 4) {
                 this.silaba3 = palabraCompleta2.substring(0, 2);
@@ -201,7 +201,7 @@ public class OControladorCartaNivel4 implements MouseListener {
             }
 
             // GUITARRA
-            Palabra palabraActual3 = lista.get(37);
+            Palabra palabraActual3 = lista.get(38);
             String palabraCompleta3 = palabraActual3.getPalabra();
             if (palabraCompleta3.length() >= 6) {
                 this.silaba5 = palabraCompleta3.substring(0, 3);
@@ -214,7 +214,7 @@ public class OControladorCartaNivel4 implements MouseListener {
                 JOptionPane.showMessageDialog(null, "No se encontró una palabra válida para el Grupo GUITARRA.");
             }
             // PANTALON
-            Palabra palabraActual4 = lista.get(38);
+            Palabra palabraActual4 = lista.get(39);
             String palabraCompleta4 = palabraActual4.getPalabra();
             if (palabraCompleta4.length() >= 6) {
                 this.silaba8 = palabraCompleta4.substring(0, 3);
