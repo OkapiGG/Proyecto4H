@@ -4,6 +4,7 @@
  */
 package controlador;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
@@ -25,6 +26,7 @@ public class OControladorCartaNivel8 implements MouseListener {
     private ModeloGuardaPalabras modeloGuardaPalabras;
     private Connection conexion;
     private ControladorAudios objAudio;
+    private static final Color VERDE = new Color(34, 139, 34);
 
     private String silaba1, silaba2, silaba3, silaba4, silaba5, silaba6, silaba7, silaba8, silaba9, silaba10, silaba11,
             silaba12, silaba13;
@@ -107,8 +109,15 @@ public class OControladorCartaNivel8 implements MouseListener {
             else if (!grupo1Completado && (label == objOCartaNivel8.jLabel6 || label == objOCartaNivel8.jLabel7 || label == objOCartaNivel8.jLabel8 || label == objOCartaNivel8.jLabel9)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel8.jLabel6) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba1) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel8.jLabel7) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba2) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel8.jLabel8) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba3) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba4) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo MARIPOSA destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -119,8 +128,11 @@ public class OControladorCartaNivel8 implements MouseListener {
             else if (!grupo2Completado && (label == objOCartaNivel8.jLabel12 || label == objOCartaNivel8.jLabel13)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel8.jLabel12) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba5) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba6) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo VOLCAN destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -131,8 +143,13 @@ public class OControladorCartaNivel8 implements MouseListener {
             else if (!grupo3Completado && (label == objOCartaNivel8.jLabel17 || label == objOCartaNivel8.jLabel18 || label == objOCartaNivel8.jLabel19)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel8.jLabel17) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba7) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel8.jLabel18) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba8) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba9) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo PELOTA destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;
@@ -143,8 +160,13 @@ public class OControladorCartaNivel8 implements MouseListener {
             else if (!grupo4Completado && (label == objOCartaNivel8.jLabel23 || label == objOCartaNivel8.jLabel24 || label == objOCartaNivel8.jLabel25)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-                    if (labelOrigenSeleccionada != null) {
-                        labelOrigenSeleccionada.setEnabled(false);
+                    labelOrigenSeleccionada.setEnabled(false);
+                    if (label == objOCartaNivel8.jLabel23) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba10) ? VERDE : Color.RED);
+                    } else if (label == objOCartaNivel8.jLabel24) {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba11) ? VERDE : Color.RED);
+                    } else {
+                        label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba12) ? VERDE : Color.RED);
                     }
                     System.out.println("Grupo PALMERA destino llenado con: " + silabaSeleccionada);
                     silabaSeleccionada = null;

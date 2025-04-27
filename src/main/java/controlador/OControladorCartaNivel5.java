@@ -108,7 +108,6 @@ public class OControladorCartaNivel5 implements MouseListener {
             else if (!grupo1Completado && (label == objOCartaNivel5.jLabel4 || label == objOCartaNivel5.jLabel5)) {
                 if (silabaSeleccionada != null && label.getText().isEmpty()) {
                     label.setText(silabaSeleccionada);
-
                     labelOrigenSeleccionada.setEnabled(false);
                     if (label == objOCartaNivel5.jLabel4) {
                         label.setForeground(silabaSeleccionada.equalsIgnoreCase(silaba1) ? VERDE : Color.RED);
