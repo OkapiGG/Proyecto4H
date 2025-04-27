@@ -13,6 +13,7 @@ public class ControladorTCartaPizza extends ControladorClaseBase {
 
     public ControladorTCartaPizza(TCartaPizza objTCartaPizza) {
         this.objTCartaPizza = objTCartaPizza;
+        this.siguienteNivel = "perro";
     }
 
     @Override
@@ -68,7 +69,7 @@ public class ControladorTCartaPizza extends ControladorClaseBase {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
     }
-    
+
     @Override
     protected void cerrarVistaActual() {
         this.objTCartaPizza.dispose();
@@ -78,5 +79,4 @@ public class ControladorTCartaPizza extends ControladorClaseBase {
     protected void mostrarPalabraCompleta() {
         this.objTCartaPizza.jLabel2.setText(palabraCompleta);
     }
-
 }

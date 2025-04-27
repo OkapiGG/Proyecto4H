@@ -13,6 +13,8 @@ public class ControladorTCartaLeon extends ControladorClaseBase {
 
     public ControladorTCartaLeon(TCartaLeon objTCartaLeon) {
         this.objTCartaLeon = objTCartaLeon;
+        this.siguienteNivel = "cama";
+        
     }
 
     @Override

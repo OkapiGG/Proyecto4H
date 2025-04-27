@@ -13,6 +13,7 @@ public class ControladorTCartaFoco extends ControladorClaseBase {
 
     public ControladorTCartaFoco(TCartaFoco objTCartaFoco) {
         this.objTCartaFoco = objTCartaFoco;
+        this.siguienteNivel = "conejo";
     }
 
     @Override

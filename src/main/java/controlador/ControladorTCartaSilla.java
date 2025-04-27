@@ -13,6 +13,7 @@ public class ControladorTCartaSilla extends ControladorClaseBase {
 
     public ControladorTCartaSilla(TCartaSilla objTCartaSilla) {
         this.objTCartaSilla = objTCartaSilla;
+        this.siguienteNivel = "hamburguesa";
     }
 
     @Override
@@ -38,7 +39,6 @@ public class ControladorTCartaSilla extends ControladorClaseBase {
         this.objTCartaSilla.jButton3.addMouseListener(this);
         this.objTCartaSilla.jButton4.addMouseListener(this);
         this.objTCartaSilla.jButton5.addMouseListener(this);
-
     }
 
     @Override

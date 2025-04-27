@@ -13,6 +13,7 @@ public class ControladorTCartaMesa extends ControladorClaseBase {
 
     public ControladorTCartaMesa(TCartaMesa objTCartaMesa) {
         this.objTCartaMesa = objTCartaMesa;
+        this.siguienteNivel = "billete";
     }
 
     @Override

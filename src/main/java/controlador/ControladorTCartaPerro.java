@@ -13,6 +13,7 @@ public class ControladorTCartaPerro extends ControladorClaseBase {
 
     public ControladorTCartaPerro(TCartaPerro objTCartaPerro) {
         this.objTCartaPerro = objTCartaPerro;
+        this.siguienteNivel = "silla";
     }
 
     @Override
