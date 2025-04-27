@@ -216,7 +216,7 @@ public class OControladorCartaNivel4 implements MouseListener {
             // PANTALON
             Palabra palabraActual4 = lista.get(39);
             String palabraCompleta4 = palabraActual4.getPalabra();
-            if (palabraCompleta4.length() >= 6) {
+            if (palabraCompleta4.length() >= 4) {
                 this.silaba8 = palabraCompleta4.substring(0, 3);
                 this.silaba9 = palabraCompleta4.substring(3, 5);
                 this.silaba10 = palabraCompleta4.substring(5, 8);

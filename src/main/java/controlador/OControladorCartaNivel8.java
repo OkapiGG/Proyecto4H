@@ -37,6 +37,7 @@ public class OControladorCartaNivel8 implements MouseListener {
     private boolean grupo2Completado = false;
     private boolean grupo3Completado = false;
     private boolean grupo4Completado = false;
+    private boolean terminoConExito = false;
 
     public OControladorCartaNivel8(OCartaNivel8 objOCartaNivel8) {
         this.objOCartaNivel8 = objOCartaNivel8;
@@ -175,6 +176,7 @@ public class OControladorCartaNivel8 implements MouseListener {
                 }
             }
         }
+        evaluarFinDeJuego();
     }
 
     private void cargarPalabraDelNivel() {
@@ -317,6 +319,7 @@ public class OControladorCartaNivel8 implements MouseListener {
     }
 
     private void actPuntaje() {
+        terminoConExito = true;
         int idUsuario = modelo.Login.getIdUsuarioActivo();
         OperacionesBDCuenta operacionesCuenta = new OperacionesBDCuenta();
         operacionesCuenta.actualizarPuntajeYPalabras(idUsuario, 40, 4);
@@ -359,6 +362,74 @@ public class OControladorCartaNivel8 implements MouseListener {
         objOCartaNivel8.jLabel23.setEnabled(false);
         objOCartaNivel8.jLabel24.setEnabled(false);
         objOCartaNivel8.jLabel25.setEnabled(false);
+    }
+
+    private void evaluarFinDeJuego() {
+        if (terminoConExito) {
+            return;
+        }
+
+        boolean todasLlenas
+                = !objOCartaNivel8.jLabel6.getText().isEmpty()
+                && !objOCartaNivel8.jLabel7.getText().isEmpty()
+                && !objOCartaNivel8.jLabel8.getText().isEmpty()
+                && !objOCartaNivel8.jLabel9.getText().isEmpty()
+                && !objOCartaNivel8.jLabel12.getText().isEmpty()
+                && !objOCartaNivel8.jLabel13.getText().isEmpty()
+                && !objOCartaNivel8.jLabel17.getText().isEmpty()
+                && !objOCartaNivel8.jLabel18.getText().isEmpty()
+                && !objOCartaNivel8.jLabel19.getText().isEmpty()
+                && !objOCartaNivel8.jLabel23.getText().isEmpty()
+                && !objOCartaNivel8.jLabel24.getText().isEmpty()
+                && !objOCartaNivel8.jLabel25.getText().isEmpty();
+
+        if (todasLlenas) {
+            int opcion = JOptionPane.showOptionDialog(
+                    null,
+                    "¡Juego terminado!\n¿Deseas reiniciar o volver al menú?",
+                    "Fin de juego",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    new String[]{"Reiniciar", "Salir al menú"},
+                    "Reiniciar"
+            );
+            if (opcion == JOptionPane.YES_OPTION) {
+                reiniciarJuego();
+            } else {
+                new vista.MenuOrdenar().setVisible(true);
+                objOCartaNivel8.dispose();
+            }
+        }
+    }
+
+    private void reiniciarJuego() {
+        // limpiar destinos
+        JLabel[] destinos = {
+            objOCartaNivel8.jLabel6, objOCartaNivel8.jLabel7, objOCartaNivel8.jLabel8, objOCartaNivel8.jLabel9,
+            objOCartaNivel8.jLabel12, objOCartaNivel8.jLabel13,
+            objOCartaNivel8.jLabel17, objOCartaNivel8.jLabel18, objOCartaNivel8.jLabel19,
+            objOCartaNivel8.jLabel23, objOCartaNivel8.jLabel24, objOCartaNivel8.jLabel25
+        };
+        for (JLabel lbl : destinos) {
+            lbl.setText("");
+            lbl.setEnabled(true);
+            lbl.setForeground(Color.BLACK);
+        }
+
+        // habilitar orígenes
+        JLabel[] origenes = {
+            objOCartaNivel8.jLabel2, objOCartaNivel8.jLabel3, objOCartaNivel8.jLabel4, objOCartaNivel8.jLabel5,
+            objOCartaNivel8.jLabel10, objOCartaNivel8.jLabel11,
+            objOCartaNivel8.jLabel14, objOCartaNivel8.jLabel15, objOCartaNivel8.jLabel16,
+            objOCartaNivel8.jLabel20, objOCartaNivel8.jLabel21, objOCartaNivel8.jLabel22
+        };
+        for (JLabel lbl : origenes) {
+            lbl.setEnabled(true);
+        }
+
+        grupo1Completado = grupo2Completado = grupo3Completado = grupo4Completado = false;
+        terminoConExito = false;
     }
 
     @Override

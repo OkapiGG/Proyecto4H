@@ -172,6 +172,7 @@ public class OCartaNivel7 extends javax.swing.JFrame {
 
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setDefaultCapable(false);
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 23, 110, 40));
 
