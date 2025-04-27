@@ -13,6 +13,7 @@ public class ControladorTCartaHamburguesa extends ControladorClaseBase {
 
     public ControladorTCartaHamburguesa(TCartaHamburguesa objTCartaHamburguesa) {
         this.objTCartaHamburguesa = objTCartaHamburguesa;
+        this.siguienteNivel = "manzana";
     }
 
     @Override
