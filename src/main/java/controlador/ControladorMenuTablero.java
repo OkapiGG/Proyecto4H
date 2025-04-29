@@ -102,12 +102,11 @@ public class ControladorMenuTablero implements ActionListener {
             if (activar) {
                 boton.setEnabled(true);
                 boton.setContentAreaFilled(false);
-                boton.setForeground(Color.BLACK);    
+                boton.setForeground(Color.BLACK);
+                boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/" + nivel + ".png")));
             } else {
                 boton.setEnabled(false);
-                boton.setContentAreaFilled(true);    
-                boton.setBackground(new Color(192, 192, 192));
-                boton.setForeground(Color.DARK_GRAY); 
+                boton.setContentAreaFilled(false); 
             }
 
             if (nivel.equals(progresoJugador.getNivelActual())) {

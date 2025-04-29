@@ -63,27 +63,27 @@ public class MenuTablero extends javax.swing.JFrame {
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setDefaultCapable(false);
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 100, 140));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 120, 150));
 
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 110, 130));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 110, 150));
 
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 158, 110, 140));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 150, 120, 150));
 
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 158, 110, 140));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 154, 110, 140));
 
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 158, 110, 140));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(592, 154, 110, 140));
 
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
@@ -93,32 +93,47 @@ public class MenuTablero extends javax.swing.JFrame {
         jButton8.setBorderPainted(false);
         jButton8.setContentAreaFilled(false);
         jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 318, 120, 150));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 319, 120, 150));
 
         jButton9.setBorderPainted(false);
         jButton9.setContentAreaFilled(false);
         jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 318, 110, 150));
+        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 110, 150));
 
         jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
         jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 318, 120, 150));
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 120, 170));
 
         jButton11.setBorderPainted(false);
         jButton11.setContentAreaFilled(false);
         jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 318, 120, 150));
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 312, 110, 170));
 
         jButton12.setBorderPainted(false);
         jButton12.setContentAreaFilled(false);
         jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 110, 150));
+        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 319, 120, 150));
 
         jButton13.setBorderPainted(false);
         jButton13.setContentAreaFilled(false);
         jButton13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 314, 120, 160));
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(721, 314, 120, 160));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuTablero.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -129,6 +144,18 @@ public class MenuTablero extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
      * @param args the command line arguments
