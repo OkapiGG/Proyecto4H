@@ -12,7 +12,7 @@ import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
 
-public abstract class ControladorClaseBase implements MouseListener {
+public abstract class ControladorClaseBaseTablero implements MouseListener {
 
     protected ModeloPalabra modeloPalabra;
     protected ModeloGuardaPalabras modeloGuardaPalabras;
@@ -22,7 +22,7 @@ public abstract class ControladorClaseBase implements MouseListener {
     protected String silabaSeleccionada;
     protected String siguienteNivel;
 
-    public ControladorClaseBase() {
+    public ControladorClaseBaseTablero() {
         inicializarConexion();          
         objAudio = new ControladorAudios();
     }

@@ -3,7 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import vista.MenuInicio;
-import vista.MenuJuego;
+import vista.MenuArrastre;
 import vista.MenuOrdenar;
 import vista.MenuTablero;
 import vista.VistaMenuCuenta;
@@ -23,7 +23,7 @@ public class ControladorMenuInicio implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.objMenuInicio.jButton1) {
-            MenuJuego objMenuJuego = new MenuJuego();
+            MenuArrastre objMenuJuego = new MenuArrastre();
             objMenuJuego.setVisible(true);
             this.objMenuInicio.dispose();
         }

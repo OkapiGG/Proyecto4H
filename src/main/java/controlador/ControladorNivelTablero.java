@@ -7,13 +7,13 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.util.*;
 
-public class ControladorNivelUnico extends ControladorClaseBase {
+public class ControladorNivelTablero extends ControladorClaseBaseTablero {
 
     private final VistaCartaTablero vista;
     private final ConfiguracionNivelTablero config;
     private String palabraCompleta;
 
-    public ControladorNivelUnico(ConfiguracionNivelTablero config) {
+    public ControladorNivelTablero(ConfiguracionNivelTablero config) {
         this.config = config;
         this.siguienteNivel = config.siguienteNivel;
         this.vista = new VistaCartaTablero();

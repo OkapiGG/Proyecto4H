@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import modelo.ConexionBD;
 import modelo.ModeloGuardaPalabras;
 import modelo.ModeloPalabra;
-import vista.MenuJuego;
+import vista.MenuArrastre;
 
 public abstract class ControladorClaseDragDrop implements ActionListener {
 

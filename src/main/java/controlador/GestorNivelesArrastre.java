@@ -3,7 +3,7 @@ package controlador;
 import javax.swing.ImageIcon;
 import vista.VistaCartaArrastra;
 
-public class GestorNiveles {
+public class GestorNivelesArrastre {
 
     public static void iniciarNivelGato() {
         VistaCartaArrastra vista = new VistaCartaArrastra();
