@@ -153,7 +153,7 @@ public class ControladorMenuTablero implements ActionListener {
     }
 
     private void abrirNivelGenerico(ConfiguracionNivelTablero cfg) {
-        new ControladorNivelUnico(cfg);
+        new ControladorNivelTablero(cfg);
         objMenuTablero.dispose();
     }
 }

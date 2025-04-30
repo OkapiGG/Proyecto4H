@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import modelo.Palabra;
-import vista.MenuJuego;
+import vista.MenuArrastre;
 import vista.VistaCartaArrastra;
 
 public class ControladorVistaArrastre extends ControladorClaseDragDrop {
@@ -151,7 +151,7 @@ public class ControladorVistaArrastre extends ControladorClaseDragDrop {
                                     "Nivel completado",
                                     JOptionPane.INFORMATION_MESSAGE
                             );
-                            new MenuJuego().setVisible(true);
+                            new MenuArrastre().setVisible(true);
                             vista.dispose();
                         } else {
                             JOptionPane.showMessageDialog(null, "Incorrecto, intenta de nuevo");
@@ -168,7 +168,7 @@ public class ControladorVistaArrastre extends ControladorClaseDragDrop {
     @Override
     protected void manejarEvento(Object boton) {
         if (boton == vista.jButton1) {
-            new MenuJuego().setVisible(true);
+            new MenuArrastre().setVisible(true);
             vista.dispose();
         }
     }

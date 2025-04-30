@@ -2,13 +2,13 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.MenuJuego;
+import vista.MenuArrastre;
 
-public class ControladorMenuJuego implements ActionListener {
+public class ControladorMenuArrastre implements ActionListener {
 
-    private MenuJuego vistaMenu;
+    private MenuArrastre vistaMenu;
 
-    public ControladorMenuJuego(MenuJuego vistaMenu) {
+    public ControladorMenuArrastre(MenuArrastre vistaMenu) {
         this.vistaMenu = vistaMenu;
 
         // Registrar listeners
@@ -30,39 +30,39 @@ public class ControladorMenuJuego implements ActionListener {
 
         // Cada botón invoca al Gestor de Niveles correspondiente
         if (src == vistaMenu.jButton1) {
-            GestorNiveles.iniciarNivelGato();
+            GestorNivelesArrastre.iniciarNivelGato();
             vistaMenu.dispose();
         }
         else if (src == vistaMenu.jButton2) {
-            GestorNiveles.iniciarNivelCasa();
+            GestorNivelesArrastre.iniciarNivelCasa();
             vistaMenu.dispose();
         }
         else if (src == vistaMenu.jButton3) {
-            GestorNiveles.iniciarNivelCarro();
+            GestorNivelesArrastre.iniciarNivelCarro();
             vistaMenu.dispose();
         }
         else if (src == vistaMenu.jButton4) {
-            GestorNiveles.iniciarNivelArbol();
+            GestorNivelesArrastre.iniciarNivelArbol();
             vistaMenu.dispose();
         }
         else if (src == vistaMenu.jButton5) {
-            GestorNiveles.iniciarNivelMango();
+            GestorNivelesArrastre.iniciarNivelMango();
             vistaMenu.dispose();
         }
         else if (src == vistaMenu.jButton6) {
-            GestorNiveles.iniciarNivelSandia();
+            GestorNivelesArrastre.iniciarNivelSandia();
             vistaMenu.dispose();
         }
         else if (src == vistaMenu.jButton7) {
-            GestorNiveles.iniciarNivelPajaro();
+            GestorNivelesArrastre.iniciarNivelPajaro();
             vistaMenu.dispose();
         }
         else if (src == vistaMenu.jButton8) {
-            GestorNiveles.iniciarNivelJirafa();
+            GestorNivelesArrastre.iniciarNivelJirafa();
             vistaMenu.dispose();
         }
         else if (src == vistaMenu.jButton9) {
-            GestorNiveles.iniciarNivelBicicleta();
+            GestorNivelesArrastre.iniciarNivelBicicleta();
             vistaMenu.dispose();
         }
         // Botón 10: volver al menú de inicio general
