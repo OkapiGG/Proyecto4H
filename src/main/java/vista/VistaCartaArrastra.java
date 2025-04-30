@@ -56,8 +56,9 @@ public class VistaCartaArrastra extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial Narrow", 1, 60)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 410, 600, -1));
 
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);

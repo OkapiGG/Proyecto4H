@@ -219,7 +219,7 @@ public class OControladorCartaNivel4 implements MouseListener {
             if (palabraCompleta4.length() >= 4) {
                 this.silaba8 = palabraCompleta4.substring(0, 3);
                 this.silaba9 = palabraCompleta4.substring(3, 5);
-                this.silaba10 = palabraCompleta4.substring(5, 8);
+                this.silaba10 = palabraCompleta4.substring(5, 7);
                 objOCartaNivel4.jLabel18.setText(silaba8);
                 objOCartaNivel4.jLabel19.setText(silaba9);
                 objOCartaNivel4.jLabel20.setText(silaba10);
