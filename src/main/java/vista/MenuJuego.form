@@ -52,7 +52,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="30" width="70" height="50"/>
+              <AbsoluteConstraints x="40" y="60" width="70" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -72,7 +72,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="550" y="370" width="120" height="90"/>
+              <AbsoluteConstraints x="550" y="430" width="130" height="100"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -92,7 +92,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="390" y="370" width="120" height="95"/>
+              <AbsoluteConstraints x="390" y="425" width="120" height="110"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -104,12 +104,15 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="232" y="368" width="130" height="90"/>
+              <AbsoluteConstraints x="220" y="420" width="130" height="120"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -126,7 +129,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="540" y="240" width="130" height="100"/>
+              <AbsoluteConstraints x="550" y="290" width="130" height="110"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -146,7 +149,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="390" y="240" width="120" height="100"/>
+              <AbsoluteConstraints x="390" y="290" width="120" height="110"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -166,7 +169,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="240" y="240" width="110" height="100"/>
+              <AbsoluteConstraints x="230" y="290" width="110" height="110"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -183,7 +186,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="550" y="120" width="110" height="90"/>
+              <AbsoluteConstraints x="560" y="160" width="120" height="100"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -195,12 +198,15 @@
               <Color id="Hand Cursor"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="390" y="120" width="120" height="90"/>
+              <AbsoluteConstraints x="390" y="150" width="120" height="110"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -220,7 +226,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="240" y="120" width="110" height="90"/>
+              <AbsoluteConstraints x="230" y="150" width="110" height="110"/>
             </Constraint>
           </Constraints>
         </Component>

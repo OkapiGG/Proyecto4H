@@ -51,7 +51,7 @@ public class MenuJuego extends javax.swing.JFrame {
         jButton10.setBorderPainted(false);
         jButton10.setContentAreaFilled(false);
         jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 70, 50));
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 70, 50));
 
         jButton9.setBorderPainted(false);
         jButton9.setContentAreaFilled(false);
@@ -61,7 +61,7 @@ public class MenuJuego extends javax.swing.JFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 120, 90));
+        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 130, 100));
 
         jButton8.setBorderPainted(false);
         jButton8.setContentAreaFilled(false);
@@ -71,17 +71,22 @@ public class MenuJuego extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 120, 95));
+        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 425, 120, 110));
 
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 368, 130, 90));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 130, 120));
 
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, 130, 100));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, 130, 110));
 
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
@@ -91,7 +96,7 @@ public class MenuJuego extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 120, 100));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 120, 110));
 
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
@@ -101,17 +106,22 @@ public class MenuJuego extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 110, 100));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 110, 110));
 
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 120, 110, 90));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 160, 120, 100));
 
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 120, 90));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 120, 110));
 
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -121,7 +131,7 @@ public class MenuJuego extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 110, 90));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 110, 110));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/menuArrastra.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 600));
@@ -159,6 +169,14 @@ public class MenuJuego extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
