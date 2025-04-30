@@ -18,8 +18,8 @@ public class ConexionBD {
     private Connection conexion;
 
     private final String URL = "jdbc:postgresql://localhost:5432/proyecto4h";
-    private final String USUARIO = "postgres";
-    private final String CONTRASENA = "maiz564";
+    private final String USUARIO = "adminapp";
+    private final String CONTRASENA = "admin";
 //    private final String CONTRASENA = "ema24";
 
     private ConexionBD() throws SQLException {
