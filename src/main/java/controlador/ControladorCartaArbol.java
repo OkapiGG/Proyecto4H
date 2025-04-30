@@ -19,22 +19,22 @@ import vista.CartaArbol;
 import vista.MenuJuego;
 
 public class ControladorCartaArbol extends ControladorClaseDragDrop {
-
+    
     private CartaArbol objCartaArbol;
     private ControladorAudios objControladorAudios;
-
+    
     public ControladorCartaArbol(CartaArbol objCartaArbol) {
         this.objCartaArbol = objCartaArbol;
         objControladorAudios = new ControladorAudios();
     }
-
+    
     @Override
     protected void cargarPalabraDelNivel() {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
         if (!lista.isEmpty()) {
             Palabra palabraActual = lista.get(4); // Cambia a la palabra que necesitas
             String palabraCompleta = palabraActual.getPalabra();
-
+            
             if (palabraCompleta.length() >= 2) {
                 String silabaCorrecta = palabraCompleta.substring(2, 5);
                 String complemento = palabraCompleta.substring(0, 2);
@@ -47,7 +47,7 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
             JOptionPane.showMessageDialog(null, "No se encontraron palabras en la base de datos.");
         }
     }
-
+    
     @Override
     protected void arrastrarSoltar() {
         final String textoOriginal = objCartaArbol.jLabel6.getText();
@@ -62,7 +62,7 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
                 objControladorAudios.reproducirAudio("bol");
             }
         });
-
+        
         ds.createDefaultDragGestureRecognizer(objCartaArbol.jLabel3, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
@@ -71,7 +71,7 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
                 objControladorAudios.reproducirAudio("no");
             }
         });
-
+        
         ds.createDefaultDragGestureRecognizer(objCartaArbol.jLabel4, DnDConstants.ACTION_MOVE, new DragGestureListener() {
             @Override
             public void dragGestureRecognized(DragGestureEvent dge) {
@@ -86,19 +86,19 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
             @Override
             public void dragEnter(DropTargetDragEvent dtde) {
             }
-
+            
             @Override
             public void dragOver(DropTargetDragEvent dtde) {
             }
-
+            
             @Override
             public void dropActionChanged(DropTargetDragEvent dtde) {
             }
-
+            
             @Override
             public void dragExit(DropTargetEvent dte) {
             }
-
+            
             @Override
             public void drop(DropTargetDropEvent dtde) {
                 try {
@@ -130,20 +130,21 @@ public class ControladorCartaArbol extends ControladorClaseDragDrop {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-
+                
             }
         });
     }
-
+    
     @Override
     protected void manejarEvento(Object boton) {
         if (boton == this.objCartaArbol.jButton1) {
             MenuJuego objMenuJuego = new MenuJuego();
             objMenuJuego.setVisible(true);
             this.objCartaArbol.dispose();
+            objCartaArbol.setEnabled(false);
         }
     }
-
+    
     @Override
     protected void agregarAccionadorEventos() {
         this.objCartaArbol.jButton1.addActionListener(this);
