@@ -3,7 +3,17 @@ package controlador;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
-import java.awt.dnd.*;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DragGestureEvent;
+import java.awt.dnd.DragGestureListener;
+import java.awt.dnd.DragSource;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDragEvent;
+import java.awt.dnd.DropTargetDropEvent;
+import java.awt.dnd.DropTargetEvent;
+import java.awt.dnd.DropTargetListener;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -14,20 +24,19 @@ import vista.VistaCartaArrastra;
 
 public class ControladorVistaArrastre extends ControladorClaseDragDrop {
 
-    private VistaCartaArrastra vista;
-    private String silabaCorrecta;
+    private final VistaCartaArrastra vista;
+    private final String silabaCorrecta;
     private String palabraEsperada;
-    private String audioCorrecto;
-    private String[] silabasFalsas;
-    private String plantillaPalabra;
-    private int indicePalabra;
+    private final String[] silabasFalsas;
+    private final String plantillaPalabra;
+    private final int indicePalabra;
 
     public ControladorVistaArrastre(
             VistaCartaArrastra vista,
             int indicePalabra,
             String silabaCorrecta,
             String[] silabasFalsas,
-            String audioCorrecto,
+            String audioCorrecto, // se mantiene para reproducir al acertar
             ImageIcon imagen,
             String plantillaPalabra
     ) {
@@ -35,52 +44,70 @@ public class ControladorVistaArrastre extends ControladorClaseDragDrop {
         this.indicePalabra = indicePalabra;
         this.silabaCorrecta = silabaCorrecta;
         this.silabasFalsas = silabasFalsas;
-        this.audioCorrecto = audioCorrecto;
         this.plantillaPalabra = plantillaPalabra;
         this.objAudio = new ControladorAudios();
 
+        // icono de la imagen grande
         this.vista.jLabel6.setIcon(imagen);
-        inicializar();
+
+        inicializar();  // monta UI, listeners, llama a cargarPalabraDelNivel() y arrastrarSoltar()
     }
 
     @Override
     protected void cargarPalabraDelNivel() {
         List<Palabra> lista = modeloGuardaPalabras.getPalabras();
-        if (!lista.isEmpty() && indicePalabra < lista.size()) {
-            Palabra palabraActual = lista.get(indicePalabra);
-            palabraEsperada = palabraActual.getPalabra().toUpperCase();
-
-            vista.jLabel2.setText(silabasFalsas[0]);
-            vista.jLabel3.setText(silabaCorrecta);
-            vista.jLabel4.setText(silabasFalsas[1]);
-
-            vista.jLabel5.setText(plantillaPalabra); // Ej: SAN__A
-        } else {
+        if (lista.isEmpty() || indicePalabra >= lista.size()) {
             JOptionPane.showMessageDialog(null, "No se encontró la palabra en la base de datos.");
+            return;
         }
+
+        Palabra palabraActual = lista.get(indicePalabra);
+        palabraEsperada = palabraActual.getPalabra().toUpperCase();
+
+        // 1) Prepara la lista de sílabas (2 falsas + 1 correcta)
+        List<String> opciones = new ArrayList<>();
+        opciones.add(silabasFalsas[0]);
+        opciones.add(silabaCorrecta);
+        opciones.add(silabasFalsas[1]);
+
+        // 2) Barájala para que la posición sea aleatoria
+        Collections.shuffle(opciones);
+
+        // 3) Asigna a cada JLabel
+        vista.jLabel2.setText(opciones.get(0));
+        vista.jLabel3.setText(opciones.get(1));
+        vista.jLabel4.setText(opciones.get(2));
+
+        // 4) Pinta la plantilla con guiones
+        vista.jLabel5.setText(plantillaPalabra);
     }
 
     @Override
     protected void arrastrarSoltar() {
         DragSource ds = new DragSource();
-        JLabel[] silabas = {vista.jLabel2, vista.jLabel3, vista.jLabel4};
-        String[] audios = {
-            silabasFalsas[0].toLowerCase(),
-            silabaCorrecta.toLowerCase(),
-            silabasFalsas[1].toLowerCase()
+        JLabel[] silabas = {
+            vista.jLabel2,
+            vista.jLabel3,
+            vista.jLabel4
         };
 
-        for (int i = 0; i < silabas.length; i++) {
-            JLabel label = silabas[i];
-            String audio = audios[i];
-            ds.createDefaultDragGestureRecognizer(label, DnDConstants.ACTION_MOVE, new DragGestureListener() {
+        for (JLabel label : silabas) {
+            ds.createDefaultDragGestureRecognizer(label, DnDConstants.ACTION_MOVE,
+                    new DragGestureListener() {
                 @Override
                 public void dragGestureRecognized(DragGestureEvent dge) {
-                    Transferable t = new StringSelection(label.getText());
-                    ds.startDrag(dge, DragSource.DefaultMoveDrop, t, null);
-                    objAudio.reproducirAudio(audio);
+                    try {
+                        String texto = label.getText();
+                        Transferable t = new StringSelection(texto);
+                        ds.startDrag(dge, DragSource.DefaultMoveDrop, t, null);
+                        // reproduce audio según el texto arrastrado
+                        objAudio.reproducirAudio(texto.toLowerCase());
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
                 }
-            });
+            }
+            );
         }
 
         new DropTarget(vista.jLabel5, new DropTargetListener() {
@@ -106,19 +133,24 @@ public class ControladorVistaArrastre extends ControladorClaseDragDrop {
                     dtde.acceptDrop(DnDConstants.ACTION_MOVE);
                     Transferable t = dtde.getTransferable();
                     String silaba = (String) t.getTransferData(DataFlavor.stringFlavor);
-                    String plantillaActual = vista.jLabel5.getText();
 
+                    String plantillaActual = vista.jLabel5.getText();
                     if (plantillaActual.contains("__")) {
                         String resultado = plantillaActual.replaceFirst("__", silaba).toUpperCase();
                         vista.jLabel5.setText(resultado);
 
                         if (resultado.equals(palabraEsperada)) {
-                            objAudio.reproducirAudio(audioCorrecto);
+                            objAudio.reproducirAudio(silabaCorrecta.toLowerCase());
                             int idUsuario = modelo.Login.getIdUsuarioActivo();
-                            OperacionesBDCuenta operaciones = new OperacionesBDCuenta();
-                            operaciones.actualizarPuntajeYPalabras(idUsuario, 10, 1);
+                            new OperacionesBDCuenta()
+                                    .actualizarPuntajeYPalabras(idUsuario, 10, 1);
 
-                            JOptionPane.showMessageDialog(null, "¡Correcto!\nGanaste 10 puntos 🏆", "Nivel completado", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(
+                                    null,
+                                    "¡Correcto!\nGanaste 10 puntos 🏆",
+                                    "Nivel completado",
+                                    JOptionPane.INFORMATION_MESSAGE
+                            );
                             new MenuJuego().setVisible(true);
                             vista.dispose();
                         } else {
@@ -126,7 +158,6 @@ public class ControladorVistaArrastre extends ControladorClaseDragDrop {
                             vista.jLabel5.setText(plantillaPalabra);
                         }
                     }
-
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
