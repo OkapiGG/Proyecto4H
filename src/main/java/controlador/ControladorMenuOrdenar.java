@@ -6,7 +6,6 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import vista.CartaJirafa;
 import vista.MenuInicio;
 import vista.MenuOrdenar;
 import vista.OCartaNivel1;

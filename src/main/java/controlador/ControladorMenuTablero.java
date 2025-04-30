@@ -1,36 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+// ControladorMenuTablero.java
 package controlador;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.*;
+import javax.swing.*;
 import modelo.ConexionBD;
-import modelo.ProgresoJugador;
 import modelo.Login;
-import vista.*;
-
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.JButton;
+import modelo.ProgresoJugador;
+import vista.MenuInicio;
+import vista.MenuTablero;
 
 public class ControladorMenuTablero implements ActionListener {
 
-    private MenuTablero objMenuTablero;
-    private ProgresoJugador progresoJugador;
-    private Map<String, JButton> mapaBotones;
+    private final MenuTablero objMenuTablero;
+    private final ProgresoJugador progresoJugador;
+    private final Map<String, JButton> mapaBotones;
+    private final Map<JButton, String> botonesPorNivel;
+    private final Map<String, ConfiguracionNivelTablero> niveles;
 
     public ControladorMenuTablero(MenuTablero objMenuTablero) {
         this.objMenuTablero = objMenuTablero;
         this.progresoJugador = new ProgresoJugador();
+        this.mapaBotones = new HashMap<>();
 
         registrarListeners();
         inicializarMapaBotones();
+        this.niveles = inicializarConfiguracionesNivel();
+        this.botonesPorNivel = mapearBotonesConNombreNivel();
         cargarProgresoJugador();
         actualizarEstadoBotones();
     }
@@ -52,7 +50,6 @@ public class ControladorMenuTablero implements ActionListener {
     }
 
     private void inicializarMapaBotones() {
-        mapaBotones = new HashMap<>();
         mapaBotones.put("pizza", objMenuTablero.jButton2);
         mapaBotones.put("perro", objMenuTablero.jButton3);
         mapaBotones.put("silla", objMenuTablero.jButton4);
@@ -67,48 +64,72 @@ public class ControladorMenuTablero implements ActionListener {
         mapaBotones.put("cama", objMenuTablero.jButton13);
     }
 
+    private Map<String, ConfiguracionNivelTablero> inicializarConfiguracionesNivel() {
+        // Arreglo con todas las configuraciones
+        ConfiguracionNivelTablero[] configs = new ConfiguracionNivelTablero[]{
+            new ConfiguracionNivelTablero("pizza", new String[]{"PA", "TO"}, "/imagenes/tpizza.png", "pi", "perro", 13),
+            new ConfiguracionNivelTablero("perro", new String[]{"RA", "CA"}, "/imagenes/tperro.png", "pe", "silla", 1),
+            new ConfiguracionNivelTablero("silla", new String[]{"CA", "TI"}, "/imagenes/tsilla.png", "si", "hamburguesa", 20),
+            new ConfiguracionNivelTablero("hamburguesa", new String[]{"BU", "TO"}, "/imagenes/thamburguesa.png", "ha", "manzana", 14),
+            new ConfiguracionNivelTablero("manzana", new String[]{"ZA", "NA"}, "/imagenes/tmanzana.png", "ma", "mesa", 15),
+            new ConfiguracionNivelTablero("mesa", new String[]{"MU", "PO"}, "/imagenes/tmesa.png", "me", "billete", 19),
+            new ConfiguracionNivelTablero("billete", new String[]{"DO", "VI"}, "/imagenes/tbillete.png", "bi", "foco", 18),
+            new ConfiguracionNivelTablero("foco", new String[]{"PE", "FA"}, "/imagenes/tfoco.png", "fo", "conejo", 17),
+            new ConfiguracionNivelTablero("conejo", new String[]{"CA", "NU"}, "/imagenes/tconejo.png", "co", "zapato", 16),
+            new ConfiguracionNivelTablero("zapato", new String[]{"TO", "SA"}, "/imagenes/tzapato.png", "za", "leon", 21),
+            new ConfiguracionNivelTablero("leon", new String[]{"RA", "LI"}, "/imagenes/tleon.png", "le", "cama", 22),
+            new ConfiguracionNivelTablero("cama", new String[]{"MA", "TA"}, "/imagenes/tcama.png", "ca", null, 23)
+        };
+
+        Map<String, ConfiguracionNivelTablero> mapa = new HashMap<>();
+        for (ConfiguracionNivelTablero cfg : configs) {
+            mapa.put(cfg.nombreNivel, cfg);
+        }
+        return mapa;
+    }
+
+    private Map<JButton, String> mapearBotonesConNombreNivel() {
+        Map<JButton, String> m = new HashMap<>();
+        for (Map.Entry<String, JButton> e : mapaBotones.entrySet()) {
+            m.put(e.getValue(), e.getKey());
+        }
+        return m;
+    }
+
     private void cargarProgresoJugador() {
-        try {
-            Connection conexion = ConexionBD.getInstancia().getConexion();
-            PreparedStatement ps = conexion.prepareStatement(
-                    "SELECT obtenernivelactual(?)"
-            );
+        try (Connection conexion = ConexionBD.getInstancia().getConexion(); PreparedStatement ps = conexion.prepareStatement("SELECT obtenernivelactual(?)")) {
             ps.setInt(1, Login.getIdUsuarioActivo());
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                progresoJugador.setNivelActual(rs.getString(1));
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    progresoJugador.setNivelActual(rs.getString(1));
+                }
             }
-            rs.close();
-            ps.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     private void actualizarEstadoBotones() {
-        String[] niveles = {
-            "pizza", "perro", "silla", "hamburguesa", "manzana",
-            "mesa", "billete", "foco", "conejo", "zapato",
-            "leon", "cama"
+        String[] nivelesOrdenados = {
+            "pizza", "perro", "silla", "hamburguesa",
+            "manzana", "mesa", "billete", "foco",
+            "conejo", "zapato", "leon", "cama"
         };
 
         objMenuTablero.jButton1.setEnabled(true);
-
         boolean activar = true;
 
-        for (String nivel : niveles) {
+        for (String nivel : nivelesOrdenados) {
             JButton boton = mapaBotones.get(nivel);
-
             if (activar) {
                 boton.setEnabled(true);
                 boton.setContentAreaFilled(false);
                 boton.setForeground(Color.BLACK);
-                boton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/" + nivel + ".png")));
+                boton.setIcon(new ImageIcon(getClass().getResource("/imagenes/" + nivel + ".png")));
             } else {
                 boton.setEnabled(false);
-                boton.setContentAreaFilled(false); 
+                boton.setContentAreaFilled(false);
             }
-
             if (nivel.equals(progresoJugador.getNivelActual())) {
                 activar = false;
             }
@@ -118,50 +139,21 @@ public class ControladorMenuTablero implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == objMenuTablero.jButton1) {
-            MenuInicio objMenuInicio = new MenuInicio();
-            objMenuInicio.setVisible(true);
+            new MenuInicio().setVisible(true);
             objMenuTablero.dispose();
+            return;
         }
-        if (e.getSource() == objMenuTablero.jButton2) {
-            abrirNivel(new TCartaPizza());
-        }
-        if (e.getSource() == objMenuTablero.jButton3) {
-            abrirNivel(new TCartaPerro());
-        }
-        if (e.getSource() == objMenuTablero.jButton4) {
-            abrirNivel(new TCartaSilla());
-        }
-        if (e.getSource() == objMenuTablero.jButton5) {
-            abrirNivel(new TCartaHamburguesa());
-        }
-        if (e.getSource() == objMenuTablero.jButton6) {
-            abrirNivel(new TCartaManzana());
-        }
-        if (e.getSource() == objMenuTablero.jButton7) {
-            abrirNivel(new TCartaMesa());
-        }
-        if (e.getSource() == objMenuTablero.jButton8) {
-            abrirNivel(new TCartaBillete());
-        }
-        if (e.getSource() == objMenuTablero.jButton9) {
-            abrirNivel(new TCartaFoco());
-        }
-        if (e.getSource() == objMenuTablero.jButton10) {
-            abrirNivel(new TCartaConejo());
-        }
-        if (e.getSource() == objMenuTablero.jButton11) {
-            abrirNivel(new TCartaZapato());
-        }
-        if (e.getSource() == objMenuTablero.jButton12) {
-            abrirNivel(new TCartaLeon());
-        }
-        if (e.getSource() == objMenuTablero.jButton13) {
-            abrirNivel(new TCartaCama());
+        for (Map.Entry<JButton, String> entry : botonesPorNivel.entrySet()) {
+            if (e.getSource() == entry.getKey()) {
+                ConfiguracionNivelTablero cfg = niveles.get(entry.getValue());
+                abrirNivelGenerico(cfg);
+                break;
+            }
         }
     }
 
-    private void abrirNivel(javax.swing.JFrame carta) {
-        carta.setVisible(true);
+    private void abrirNivelGenerico(ConfiguracionNivelTablero cfg) {
+        new ControladorNivelUnico(cfg);
         objMenuTablero.dispose();
     }
 }

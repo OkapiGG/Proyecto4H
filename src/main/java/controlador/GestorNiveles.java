@@ -1,27 +1,27 @@
 package controlador;
 
 import javax.swing.ImageIcon;
-import vista.VistaCartaInteractiva;
+import vista.VistaCartaArrastra;
 
 public class GestorNiveles {
 
     public static void iniciarNivelGato() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             0,
             "GA",
             new String[]{"PA", "LO"},
             "gato",
             new ImageIcon("src/main/resources/imagenes/gato.png"),
-            "__TO" // ✅ dos guiones bajos
+            "__TO"
         );
         vista.setVisible(true);
     }
 
     public static void iniciarNivelCasa() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             2,
             "SA",
@@ -34,8 +34,8 @@ public class GestorNiveles {
     }
 
     public static void iniciarNivelCarro() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             3,
             "CA",
@@ -48,8 +48,8 @@ public class GestorNiveles {
     }
 
     public static void iniciarNivelArbol() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             4,
             "BOL",
@@ -62,8 +62,8 @@ public class GestorNiveles {
     }
 
     public static void iniciarNivelMango() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             5,
             "MAN",
@@ -76,8 +76,8 @@ public class GestorNiveles {
     }
 
     public static void iniciarNivelSandia() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             6,
             "DI",
@@ -90,8 +90,8 @@ public class GestorNiveles {
     }
 
     public static void iniciarNivelPajaro() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             8,
             "PA",
@@ -104,8 +104,8 @@ public class GestorNiveles {
     }
 
     public static void iniciarNivelJirafa() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             7,
             "RA",
@@ -118,8 +118,8 @@ public class GestorNiveles {
     }
 
     public static void iniciarNivelBicicleta() {
-        VistaCartaInteractiva vista = new VistaCartaInteractiva();
-        new ControladorVistaInteractiva(
+        VistaCartaArrastra vista = new VistaCartaArrastra();
+        new ControladorVistaArrastre(
             vista,
             12,
             "CLE",
