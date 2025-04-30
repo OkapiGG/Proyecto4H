@@ -15,35 +15,35 @@ import vista.VistaRegistro;
  *
  * @author alancervantes
  */
-public class ControladorMenuMain implements ActionListener{
+public class ControladorMenuMain implements ActionListener {
 
     MenuMain objMenuMain;
-    
-    public ControladorMenuMain(MenuMain objMenuMain){
+
+    public ControladorMenuMain(MenuMain objMenuMain) {
         this.objMenuMain = objMenuMain;
-        
+
         this.objMenuMain.jButton1.addActionListener(this);
         this.objMenuMain.jButton2.addActionListener(this);
         this.objMenuMain.jButton3.addActionListener(this);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == this.objMenuMain.jButton1){
+        if (e.getSource() == this.objMenuMain.jButton1) {
             VistaInicioSesion vistaInicioSesion = new VistaInicioSesion();
             vistaInicioSesion.setVisible(true);
             this.objMenuMain.dispose();
         }
-        if(e.getSource() == this.objMenuMain.jButton2){
+        if (e.getSource() == this.objMenuMain.jButton2) {
             VistaRegistro vistaRegistro = new VistaRegistro();
             vistaRegistro.setVisible(true);
             this.objMenuMain.dispose();
         }
-        if(e.getSource() == this.objMenuMain.jButton3){
+        if (e.getSource() == this.objMenuMain.jButton3) {
             MenuInicio menuInicio = new MenuInicio();
             menuInicio.setVisible(true);
             this.objMenuMain.dispose();
         }
     }
-    
+
 }
