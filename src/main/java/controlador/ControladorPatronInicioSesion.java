@@ -79,9 +79,9 @@ public class ControladorPatronInicioSesion implements ActionListener {
                 } else {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");
                 }
-                    reiniciarPatron();
+                reiniciarPatron();
             } else {
-                JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");                
+                JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");
             }
         }
     }

@@ -72,10 +72,22 @@ public class ControladorPatron implements ActionListener {
                     this.objVistaPatron.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");
+                    reiniciarPatron();
+
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Debes seleccionar mínimo 2 imágenes para tu patrón.");
             }
         }
+    }
+
+    private void reiniciarPatron() {
+        perfilSeleccionado = "";
+        objVistaPatron.jButton1.setEnabled(true);
+        objVistaPatron.jButton2.setEnabled(true);
+        objVistaPatron.jButton3.setEnabled(true);
+        objVistaPatron.jButton4.setEnabled(true);
+        objVistaPatron.jButton5.setEnabled(true);
+        objVistaPatron.jButton6.setEnabled(true);
     }
 }

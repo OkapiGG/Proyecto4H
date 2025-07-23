@@ -4,10 +4,10 @@
  */
 package modelo;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 /**
  *
  * @author Alan
@@ -30,7 +30,7 @@ public class ConexionBD {
             throw new SQLException("Error al cargar el driver de PostgreSQL", ex);
         }
     }
-    
+
     //Get para obtener la conexion en otras clases
     public Connection getConexion() {
         return conexion;
